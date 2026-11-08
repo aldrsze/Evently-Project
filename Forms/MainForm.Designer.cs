@@ -31,6 +31,7 @@ namespace Evently.Forms
             this.menuPanel.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Controls.Add(this.signedInLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -41,8 +42,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1024, 64);
@@ -51,7 +54,9 @@ namespace Evently.Forms
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // signedInLabel
             this.signedInLabel.AutoSize = false;
+            this.signedInLabel.BackColor = System.Drawing.Color.Transparent;
             this.signedInLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.signedInLabel.ForeColor = System.Drawing.Color.White;
             this.signedInLabel.Location = new System.Drawing.Point(1036, 0);
             this.signedInLabel.Name = "signedInLabel";
             this.signedInLabel.Size = new System.Drawing.Size(220, 64);
@@ -59,6 +64,7 @@ namespace Evently.Forms
             this.signedInLabel.Text = "";
             this.signedInLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.contentPlaceholderPanel);
             this.contentPanel.Controls.Add(this.menuPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -68,6 +74,7 @@ namespace Evently.Forms
             this.contentPanel.Size = new System.Drawing.Size(1280, 656);
             this.contentPanel.TabIndex = 1;
             // contentPlaceholderPanel
+            this.contentPlaceholderPanel.BackColor = System.Drawing.Color.White;
             this.contentPlaceholderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.contentPlaceholderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPlaceholderPanel.Location = new System.Drawing.Point(248, 12);
@@ -76,6 +83,7 @@ namespace Evently.Forms
             this.contentPlaceholderPanel.TabIndex = 1;
             // menuPanel
             this.menuPanel.AutoScroll = true;
+            this.menuPanel.BackColor = System.Drawing.Color.FromArgb(249, 249, 249);
             this.menuPanel.Controls.Add(this.eventsButton);
             this.menuPanel.Controls.Add(this.attendeesButton);
             this.menuPanel.Controls.Add(this.reviewsButton);
@@ -158,6 +166,7 @@ namespace Evently.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

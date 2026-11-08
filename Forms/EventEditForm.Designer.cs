@@ -38,6 +38,7 @@ namespace Evently.Forms
             ((System.ComponentModel.ISupportInitialize)(this.capacityNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -47,8 +48,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -56,6 +59,7 @@ namespace Evently.Forms
             this.titleLabel.Text = "Edit Event";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 64);
@@ -80,6 +84,7 @@ namespace Evently.Forms
             this.centerLayoutPanel.TabIndex = 0;
             // editPanel
             this.editPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.editPanel.BackColor = System.Drawing.Color.White;
             this.editPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.editPanel.Controls.Add(this.nameLabel);
             this.editPanel.Controls.Add(this.nameTextBox);
@@ -169,12 +174,16 @@ namespace Evently.Forms
             this.descriptionTextBox.TabIndex = 10;
             // saveButton
             this.saveButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            this.saveButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.ForeColor = System.Drawing.Color.White;
             this.saveButton.Location = new System.Drawing.Point(406, 282);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(90, 30);
             this.saveButton.TabIndex = 11;
             this.saveButton.Text = "&Save";
-            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // cancelButton
             this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
@@ -190,8 +199,10 @@ namespace Evently.Forms
             this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

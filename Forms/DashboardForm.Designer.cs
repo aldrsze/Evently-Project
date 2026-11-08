@@ -47,6 +47,7 @@ namespace Evently.Forms
             this.topPanel.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -56,8 +57,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -65,6 +68,7 @@ namespace Evently.Forms
             this.titleLabel.Text = "Live Dashboard";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.dashboardLayoutPanel);
             this.contentPanel.Controls.Add(this.topPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -74,6 +78,7 @@ namespace Evently.Forms
             this.contentPanel.Size = new System.Drawing.Size(1280, 656);
             this.contentPanel.TabIndex = 1;
             // topPanel
+            this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.eventLabel);
             this.topPanel.Controls.Add(this.eventComboBox);
             this.topPanel.Controls.Add(this.lastUpdatedLabel);
@@ -100,6 +105,7 @@ namespace Evently.Forms
             // lastUpdatedLabel
             this.lastUpdatedLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lastUpdatedLabel.AutoSize = true;
+            this.lastUpdatedLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.lastUpdatedLabel.Location = new System.Drawing.Point(1134, 12);
             this.lastUpdatedLabel.Name = "lastUpdatedLabel";
             this.lastUpdatedLabel.TabIndex = 2;
@@ -123,6 +129,7 @@ namespace Evently.Forms
             this.dashboardLayoutPanel.Size = new System.Drawing.Size(1256, 592);
             this.dashboardLayoutPanel.TabIndex = 1;
             // attendanceGroupBox
+            this.attendanceGroupBox.BackColor = System.Drawing.Color.White;
             this.attendanceGroupBox.Controls.Add(this.progressLabel);
             this.attendanceGroupBox.Controls.Add(this.progressBar);
             this.attendanceGroupBox.Controls.Add(this.checkedInLabel);
@@ -157,6 +164,7 @@ namespace Evently.Forms
             // insideLabel
             this.insideLabel.AutoSize = true;
             this.insideLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.insideLabel.ForeColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.insideLabel.Location = new System.Drawing.Point(12, 107);
             this.insideLabel.Name = "insideLabel";
             this.insideLabel.TabIndex = 3;
@@ -168,6 +176,7 @@ namespace Evently.Forms
             this.notArrivedLabel.TabIndex = 4;
             this.notArrivedLabel.Text = "Not yet arrived: 0";
             // reviewsGroupBox
+            this.reviewsGroupBox.BackColor = System.Drawing.Color.White;
             this.reviewsGroupBox.Controls.Add(this.averageRatingLabel);
             this.reviewsGroupBox.Controls.Add(this.responseRateLabel);
             this.reviewsGroupBox.Controls.Add(this.reviewRequestLabel);
@@ -198,6 +207,7 @@ namespace Evently.Forms
             this.reviewRequestLabel.TabIndex = 2;
             this.reviewRequestLabel.Text = "Review requests sent: 0";
             // emailsGroupBox
+            this.emailsGroupBox.BackColor = System.Drawing.Color.White;
             this.emailsGroupBox.Controls.Add(this.ticketsEmailedLabel);
             this.emailsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailsGroupBox.Location = new System.Drawing.Point(8, 463);
@@ -214,6 +224,7 @@ namespace Evently.Forms
             this.ticketsEmailedLabel.TabIndex = 0;
             this.ticketsEmailedLabel.Text = "Tickets emailed: 0 of 0";
             // recentCheckInsGroupBox
+            this.recentCheckInsGroupBox.BackColor = System.Drawing.Color.White;
             this.recentCheckInsGroupBox.Controls.Add(this.recentCheckInsListBox);
             this.recentCheckInsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recentCheckInsGroupBox.Location = new System.Drawing.Point(573, 8);
@@ -225,6 +236,8 @@ namespace Evently.Forms
             this.recentCheckInsGroupBox.TabStop = false;
             this.recentCheckInsGroupBox.Text = "Recent Check-Ins";
             // recentCheckInsListBox
+            this.recentCheckInsListBox.BackColor = System.Drawing.Color.White;
+            this.recentCheckInsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.recentCheckInsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recentCheckInsListBox.FormattingEnabled = true;
             this.recentCheckInsListBox.IntegralHeight = false;
@@ -239,7 +252,9 @@ namespace Evently.Forms
             // DashboardForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

@@ -19,6 +19,7 @@ namespace Evently.Forms
             this.topPanel = new System.Windows.Forms.Panel();
             this.eventLabel = new System.Windows.Forms.Label();
             this.eventComboBox = new System.Windows.Forms.ComboBox();
+            this.gridHostPanel = new System.Windows.Forms.Panel();
             this.attendeesDataGridView = new System.Windows.Forms.DataGridView();
             this.attendeeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +43,7 @@ namespace Evently.Forms
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.topPanel.SuspendLayout();
+            this.gridHostPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.attendeesDataGridView)).BeginInit();
             this.addAttendeeWrapperPanel.SuspendLayout();
             this.addAttendeeGroupBox.SuspendLayout();
@@ -49,6 +51,7 @@ namespace Evently.Forms
             this.actionPanel.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -58,8 +61,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -67,7 +72,8 @@ namespace Evently.Forms
             this.titleLabel.Text = "Manage Attendees";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
-            this.contentPanel.Controls.Add(this.attendeesDataGridView);
+            this.contentPanel.BackColor = System.Drawing.Color.White;
+            this.contentPanel.Controls.Add(this.gridHostPanel);
             this.contentPanel.Controls.Add(this.addAttendeeWrapperPanel);
             this.contentPanel.Controls.Add(this.resultPanel);
             this.contentPanel.Controls.Add(this.actionPanel);
@@ -79,6 +85,7 @@ namespace Evently.Forms
             this.contentPanel.Size = new System.Drawing.Size(1280, 656);
             this.contentPanel.TabIndex = 1;
             // topPanel
+            this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.eventLabel);
             this.topPanel.Controls.Add(this.eventComboBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -101,12 +108,31 @@ namespace Evently.Forms
             this.eventComboBox.Size = new System.Drawing.Size(1198, 23);
             this.eventComboBox.TabIndex = 1;
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
+            // gridHostPanel
+            this.gridHostPanel.BackColor = System.Drawing.Color.White;
+            this.gridHostPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridHostPanel.Controls.Add(this.attendeesDataGridView);
+            this.gridHostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridHostPanel.Location = new System.Drawing.Point(12, 52);
+            this.gridHostPanel.Name = "gridHostPanel";
+            this.gridHostPanel.Size = new System.Drawing.Size(1256, 402);
+            this.gridHostPanel.TabIndex = 1;
             // attendeesDataGridView
             this.attendeesDataGridView.AllowUserToAddRows = false;
             this.attendeesDataGridView.AllowUserToDeleteRows = false;
             this.attendeesDataGridView.AllowUserToResizeRows = false;
+            this.attendeesDataGridView.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(249, 249, 249);
             this.attendeesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.attendeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.attendeesDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.attendeesDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.attendeesDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.attendeesDataGridView.ColumnHeadersHeight = 36;
+            this.attendeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.attendeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.attendeeNameColumn,
             this.emailColumn,
@@ -114,15 +140,21 @@ namespace Evently.Forms
             this.checkedInColumn,
             this.checkedOutColumn,
             this.ratingColumn});
+            this.attendeesDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.attendeesDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.attendeesDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.attendeesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.attendeesDataGridView.Location = new System.Drawing.Point(12, 52);
+            this.attendeesDataGridView.EnableHeadersVisualStyles = false;
+            this.attendeesDataGridView.GridColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            this.attendeesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.attendeesDataGridView.MultiSelect = false;
             this.attendeesDataGridView.Name = "attendeesDataGridView";
             this.attendeesDataGridView.ReadOnly = true;
             this.attendeesDataGridView.RowHeadersVisible = false;
+            this.attendeesDataGridView.RowTemplate.Height = 28;
             this.attendeesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.attendeesDataGridView.Size = new System.Drawing.Size(1256, 402);
-            this.attendeesDataGridView.TabIndex = 1;
+            this.attendeesDataGridView.Size = new System.Drawing.Size(1254, 400);
+            this.attendeesDataGridView.TabIndex = 0;
             // attendeeNameColumn
             this.attendeeNameColumn.HeaderText = "Name";
             this.attendeeNameColumn.Name = "attendeeNameColumn";
@@ -148,6 +180,7 @@ namespace Evently.Forms
             this.ratingColumn.Name = "ratingColumn";
             this.ratingColumn.ReadOnly = true;
             // addAttendeeWrapperPanel
+            this.addAttendeeWrapperPanel.BackColor = System.Drawing.Color.White;
             this.addAttendeeWrapperPanel.Controls.Add(this.addAttendeeGroupBox);
             this.addAttendeeWrapperPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.addAttendeeWrapperPanel.Location = new System.Drawing.Point(12, 454);
@@ -156,6 +189,7 @@ namespace Evently.Forms
             this.addAttendeeWrapperPanel.Size = new System.Drawing.Size(1256, 102);
             this.addAttendeeWrapperPanel.TabIndex = 2;
             // addAttendeeGroupBox
+            this.addAttendeeGroupBox.BackColor = System.Drawing.Color.White;
             this.addAttendeeGroupBox.Controls.Add(this.nameLabel);
             this.addAttendeeGroupBox.Controls.Add(this.nameTextBox);
             this.addAttendeeGroupBox.Controls.Add(this.emailLabel);
@@ -192,14 +226,19 @@ namespace Evently.Forms
             this.emailTextBox.TabIndex = 3;
             // addAttendeeButton
             this.addAttendeeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.addAttendeeButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.addAttendeeButton.FlatAppearance.BorderSize = 0;
+            this.addAttendeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addAttendeeButton.ForeColor = System.Drawing.Color.White;
             this.addAttendeeButton.Location = new System.Drawing.Point(1154, 26);
             this.addAttendeeButton.Name = "addAttendeeButton";
             this.addAttendeeButton.Size = new System.Drawing.Size(90, 30);
             this.addAttendeeButton.TabIndex = 4;
             this.addAttendeeButton.Text = "&Add";
-            this.addAttendeeButton.UseVisualStyleBackColor = true;
+            this.addAttendeeButton.UseVisualStyleBackColor = false;
             this.addAttendeeButton.Click += new System.EventHandler(this.addAttendeeButton_Click);
             // resultPanel
+            this.resultPanel.BackColor = System.Drawing.Color.White;
             this.resultPanel.Controls.Add(this.resultLabel);
             this.resultPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.resultPanel.Location = new System.Drawing.Point(12, 556);
@@ -210,6 +249,7 @@ namespace Evently.Forms
             // resultLabel
             this.resultLabel.AutoSize = false;
             this.resultLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resultLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.resultLabel.Location = new System.Drawing.Point(0, 8);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(1256, 28);
@@ -217,6 +257,7 @@ namespace Evently.Forms
             this.resultLabel.Text = "";
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // actionPanel
+            this.actionPanel.BackColor = System.Drawing.Color.White;
             this.actionPanel.Controls.Add(this.importCsvButton);
             this.actionPanel.Controls.Add(this.sendTicketsButton);
             this.actionPanel.Controls.Add(this.exportCsvButton);
@@ -256,7 +297,9 @@ namespace Evently.Forms
             this.AcceptButton = this.addAttendeeButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
@@ -271,6 +314,7 @@ namespace Evently.Forms
             this.contentPanel.ResumeLayout(false);
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
+            this.gridHostPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.attendeesDataGridView)).EndInit();
             this.addAttendeeWrapperPanel.ResumeLayout(false);
             this.addAttendeeGroupBox.ResumeLayout(false);
@@ -287,6 +331,7 @@ namespace Evently.Forms
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label eventLabel;
         private System.Windows.Forms.ComboBox eventComboBox;
+        private System.Windows.Forms.Panel gridHostPanel;
         private System.Windows.Forms.DataGridView attendeesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn attendeeNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailColumn;

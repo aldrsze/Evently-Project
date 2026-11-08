@@ -30,6 +30,7 @@ namespace Evently.Forms
             this.bottomPanel.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -39,8 +40,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -48,6 +51,7 @@ namespace Evently.Forms
             this.titleLabel.Text = "Check-In Scanner";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.cameraPreviewPictureBox);
             this.contentPanel.Controls.Add(this.bottomPanel);
             this.contentPanel.Controls.Add(this.topPanel);
@@ -58,6 +62,7 @@ namespace Evently.Forms
             this.contentPanel.Size = new System.Drawing.Size(1280, 656);
             this.contentPanel.TabIndex = 1;
             // topPanel
+            this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.eventLabel);
             this.topPanel.Controls.Add(this.eventComboBox);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -81,7 +86,7 @@ namespace Evently.Forms
             this.eventComboBox.TabIndex = 1;
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
             // cameraPreviewPictureBox
-            this.cameraPreviewPictureBox.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.cameraPreviewPictureBox.BackColor = System.Drawing.Color.FromArgb(32, 32, 32);
             this.cameraPreviewPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cameraPreviewPictureBox.Location = new System.Drawing.Point(12, 52);
             this.cameraPreviewPictureBox.Name = "cameraPreviewPictureBox";
@@ -90,6 +95,7 @@ namespace Evently.Forms
             this.cameraPreviewPictureBox.TabIndex = 1;
             this.cameraPreviewPictureBox.TabStop = false;
             // bottomPanel
+            this.bottomPanel.BackColor = System.Drawing.Color.White;
             this.bottomPanel.Controls.Add(this.resultMessageLabel);
             this.bottomPanel.Controls.Add(this.insideCountLabel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -112,6 +118,7 @@ namespace Evently.Forms
             this.insideCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.insideCountLabel.AutoSize = false;
             this.insideCountLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.insideCountLabel.ForeColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.insideCountLabel.Location = new System.Drawing.Point(0, 72);
             this.insideCountLabel.Name = "insideCountLabel";
             this.insideCountLabel.Size = new System.Drawing.Size(1256, 48);
@@ -121,7 +128,9 @@ namespace Evently.Forms
             // CheckInForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

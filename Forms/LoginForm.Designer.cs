@@ -33,6 +33,7 @@ namespace Evently.Forms
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Padding = new System.Windows.Forms.Padding(12, 0, 12, 0);
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
@@ -40,7 +41,9 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = false;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -48,6 +51,7 @@ namespace Evently.Forms
             this.titleLabel.Text = "Evently";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 64);
@@ -72,6 +76,7 @@ namespace Evently.Forms
             this.centerLayoutPanel.TabIndex = 0;
             // loginPanel
             this.loginPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loginPanel.BackColor = System.Drawing.Color.White;
             this.loginPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.loginPanel.Controls.Add(this.usernameLabel);
             this.loginPanel.Controls.Add(this.usernameTextBox);
@@ -115,18 +120,24 @@ namespace Evently.Forms
             this.errorLabel.Text = "";
             // loginButton
             this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.loginButton.FlatAppearance.BorderSize = 0;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.ForeColor = System.Drawing.Color.White;
             this.loginButton.Location = new System.Drawing.Point(286, 160);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(90, 30);
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "&Login";
-            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.UseVisualStyleBackColor = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // LoginForm
             this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

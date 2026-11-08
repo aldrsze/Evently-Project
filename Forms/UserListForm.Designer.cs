@@ -16,6 +16,7 @@ namespace Evently.Forms
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.gridHostPanel = new System.Windows.Forms.Panel();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
             this.usernameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -34,12 +35,14 @@ namespace Evently.Forms
             this.reactivateButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
+            this.gridHostPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.addUserWrapperPanel.SuspendLayout();
             this.addUserGroupBox.SuspendLayout();
             this.actionPanel.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -49,8 +52,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -58,7 +63,8 @@ namespace Evently.Forms
             this.titleLabel.Text = "Manage Users";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
-            this.contentPanel.Controls.Add(this.usersDataGridView);
+            this.contentPanel.BackColor = System.Drawing.Color.White;
+            this.contentPanel.Controls.Add(this.gridHostPanel);
             this.contentPanel.Controls.Add(this.addUserWrapperPanel);
             this.contentPanel.Controls.Add(this.actionPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -67,24 +73,49 @@ namespace Evently.Forms
             this.contentPanel.Padding = new System.Windows.Forms.Padding(12);
             this.contentPanel.Size = new System.Drawing.Size(1280, 656);
             this.contentPanel.TabIndex = 1;
+            // gridHostPanel
+            this.gridHostPanel.BackColor = System.Drawing.Color.White;
+            this.gridHostPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridHostPanel.Controls.Add(this.usersDataGridView);
+            this.gridHostPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridHostPanel.Location = new System.Drawing.Point(12, 12);
+            this.gridHostPanel.Name = "gridHostPanel";
+            this.gridHostPanel.Size = new System.Drawing.Size(1256, 484);
+            this.gridHostPanel.TabIndex = 0;
             // usersDataGridView
             this.usersDataGridView.AllowUserToAddRows = false;
             this.usersDataGridView.AllowUserToDeleteRows = false;
             this.usersDataGridView.AllowUserToResizeRows = false;
+            this.usersDataGridView.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(249, 249, 249);
             this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.usersDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.usersDataGridView.ColumnHeadersHeight = 36;
+            this.usersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.usersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.usernameColumn,
             this.roleColumn,
             this.activeColumn});
+            this.usersDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
+            this.usersDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.usersDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usersDataGridView.Location = new System.Drawing.Point(12, 12);
+            this.usersDataGridView.EnableHeadersVisualStyles = false;
+            this.usersDataGridView.GridColor = System.Drawing.Color.FromArgb(224, 224, 224);
+            this.usersDataGridView.Location = new System.Drawing.Point(0, 0);
             this.usersDataGridView.MultiSelect = false;
             this.usersDataGridView.Name = "usersDataGridView";
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RowHeadersVisible = false;
+            this.usersDataGridView.RowTemplate.Height = 28;
             this.usersDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersDataGridView.Size = new System.Drawing.Size(1256, 484);
+            this.usersDataGridView.Size = new System.Drawing.Size(1254, 482);
             this.usersDataGridView.TabIndex = 0;
             // usernameColumn
             this.usernameColumn.HeaderText = "Username";
@@ -99,6 +130,7 @@ namespace Evently.Forms
             this.activeColumn.Name = "activeColumn";
             this.activeColumn.ReadOnly = true;
             // addUserWrapperPanel
+            this.addUserWrapperPanel.BackColor = System.Drawing.Color.White;
             this.addUserWrapperPanel.Controls.Add(this.addUserGroupBox);
             this.addUserWrapperPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.addUserWrapperPanel.Location = new System.Drawing.Point(12, 496);
@@ -107,6 +139,7 @@ namespace Evently.Forms
             this.addUserWrapperPanel.Size = new System.Drawing.Size(1256, 102);
             this.addUserWrapperPanel.TabIndex = 1;
             // addUserGroupBox
+            this.addUserGroupBox.BackColor = System.Drawing.Color.White;
             this.addUserGroupBox.Controls.Add(this.usernameLabel);
             this.addUserGroupBox.Controls.Add(this.usernameTextBox);
             this.addUserGroupBox.Controls.Add(this.passwordLabel);
@@ -160,14 +193,19 @@ namespace Evently.Forms
             this.roleComboBox.TabIndex = 5;
             // addButton
             this.addButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.addButton.FlatAppearance.BorderSize = 0;
+            this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addButton.ForeColor = System.Drawing.Color.White;
             this.addButton.Location = new System.Drawing.Point(1154, 26);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(90, 30);
             this.addButton.TabIndex = 6;
             this.addButton.Text = "&Add";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // actionPanel
+            this.actionPanel.BackColor = System.Drawing.Color.White;
             this.actionPanel.Controls.Add(this.deactivateButton);
             this.actionPanel.Controls.Add(this.reactivateButton);
             this.actionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -197,7 +235,9 @@ namespace Evently.Forms
             this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
@@ -210,6 +250,7 @@ namespace Evently.Forms
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
             this.contentPanel.ResumeLayout(false);
+            this.gridHostPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.addUserWrapperPanel.ResumeLayout(false);
             this.addUserGroupBox.ResumeLayout(false);
@@ -222,6 +263,7 @@ namespace Evently.Forms
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Panel contentPanel;
+        private System.Windows.Forms.Panel gridHostPanel;
         private System.Windows.Forms.DataGridView usersDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn usernameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roleColumn;

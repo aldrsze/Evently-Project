@@ -36,6 +36,7 @@ namespace Evently.Forms
             this.actionsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // headerPanel
+            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
@@ -45,8 +46,10 @@ namespace Evently.Forms
             this.headerPanel.TabIndex = 0;
             // titleLabel
             this.titleLabel.AutoSize = false;
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1256, 64);
@@ -54,6 +57,7 @@ namespace Evently.Forms
             this.titleLabel.Text = "Collect Reviews";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
+            this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contentPanel.Location = new System.Drawing.Point(0, 64);
@@ -78,6 +82,7 @@ namespace Evently.Forms
             this.centerLayoutPanel.TabIndex = 0;
             // reviewsPanel
             this.reviewsPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.reviewsPanel.BackColor = System.Drawing.Color.White;
             this.reviewsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.reviewsPanel.Controls.Add(this.eventLabel);
             this.reviewsPanel.Controls.Add(this.eventComboBox);
@@ -105,6 +110,7 @@ namespace Evently.Forms
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
             // reviewFormGroupBox
             this.reviewFormGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.reviewFormGroupBox.BackColor = System.Drawing.Color.White;
             this.reviewFormGroupBox.Controls.Add(this.urlLabel);
             this.reviewFormGroupBox.Controls.Add(this.reviewFormUrlTextBox);
             this.reviewFormGroupBox.Controls.Add(this.saveUrlButton);
@@ -136,6 +142,7 @@ namespace Evently.Forms
             this.saveUrlButton.Click += new System.EventHandler(this.saveUrlButton_Click);
             // actionsGroupBox
             this.actionsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.actionsGroupBox.BackColor = System.Drawing.Color.White;
             this.actionsGroupBox.Controls.Add(this.sendRequestButton);
             this.actionsGroupBox.Controls.Add(this.importReviewsButton);
             this.actionsGroupBox.Location = new System.Drawing.Point(24, 186);
@@ -145,12 +152,16 @@ namespace Evently.Forms
             this.actionsGroupBox.TabStop = false;
             this.actionsGroupBox.Text = "Actions";
             // sendRequestButton
+            this.sendRequestButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.sendRequestButton.FlatAppearance.BorderSize = 0;
+            this.sendRequestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendRequestButton.ForeColor = System.Drawing.Color.White;
             this.sendRequestButton.Location = new System.Drawing.Point(12, 24);
             this.sendRequestButton.Name = "sendRequestButton";
             this.sendRequestButton.Size = new System.Drawing.Size(170, 30);
             this.sendRequestButton.TabIndex = 0;
             this.sendRequestButton.Text = "Send &Review Request";
-            this.sendRequestButton.UseVisualStyleBackColor = true;
+            this.sendRequestButton.UseVisualStyleBackColor = false;
             this.sendRequestButton.Click += new System.EventHandler(this.sendRequestButton_Click);
             // importReviewsButton
             this.importReviewsButton.Location = new System.Drawing.Point(190, 24);
@@ -163,6 +174,7 @@ namespace Evently.Forms
             // resultLabel
             this.resultLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.resultLabel.AutoSize = false;
+            this.resultLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.resultLabel.Location = new System.Drawing.Point(24, 272);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(512, 22);
@@ -173,7 +185,9 @@ namespace Evently.Forms
             this.AcceptButton = this.saveUrlButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
