@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using Evently.Helpers;
 
 namespace Evently.Forms
 {
@@ -8,18 +9,39 @@ namespace Evently.Forms
         public LoginForm()
         {
             InitializeComponent();
+            DatabaseConnection.testConnection();
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            String username = usernameTextBox.Text;
+            String password = passwordTextBox.Text;
 
-            using (var mainForm = new MainForm())
+            try
             {
-                mainForm.ShowDialog(this);
-            }
+                string? storedHash = DatabaseConnection.getPasswordHash(username);
 
-            Show();
-        }
-    }
-}
+                if (storedHash != null && PasswordHelper.verifyPassword(password, storedHash))
+                {
+                    MessageBox.Show("Login Successful.");
+                    usernameTextBox.Text = "";
+                    passwordTextBox.Text = "";
+                    Hide();
+                    using (var mainForm = new MainForm())
+                    {
+                        mainForm.ShowDialog(this);
+                    }
+                    Show();
+                } // end if
+                else
+                {
+                    MessageBox.Show("Invalid username or password.");
+                } // end else
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            } // end catch
+        } // end loginButton_Click
+    } // end class
+} // end namespace

@@ -6,10 +6,12 @@ namespace Evently.Forms
     public partial class MainForm : Form
     {
         private Form? currentForm;
+        private bool loggingOut;
 
         public MainForm()
         {
             InitializeComponent();
+            FormClosing += MainForm_FormClosing;
             ShowForm(new EventListForm());
         }
 
@@ -29,6 +31,16 @@ namespace Evently.Forms
             form.Dock = DockStyle.Fill;
             contentPlaceholderPanel.Controls.Add(form);
             form.Show();
+        }
+
+        private void MainForm_FormClosing(object? form, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && !loggingOut)
+            {
+                e.Cancel = true; // Prevents the window from closing
+                // Optional: Show a warning message
+                MessageBox.Show("Please use the designated logout button inside the app.", "Action Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void eventsButton_Click(object sender, EventArgs e)
@@ -63,7 +75,12 @@ namespace Evently.Forms
 
         private void logoutButton_Click(object sender, EventArgs e)
         {
-            Close();
+            DialogResult answer = MessageBox.Show("Log out of Evently?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (answer == DialogResult.Yes)
+            {
+                loggingOut = true;
+                Close();
+            }
         }
     }
 }
