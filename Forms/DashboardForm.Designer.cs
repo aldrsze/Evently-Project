@@ -161,11 +161,11 @@ namespace Evently.Forms
             this.lastUpdatedLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lastUpdatedLabel.AutoSize = true;
             this.lastUpdatedLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.lastUpdatedLabel.Location = new System.Drawing.Point(884, 10);
+            this.lastUpdatedLabel.Location = new System.Drawing.Point(850, 10);
             this.lastUpdatedLabel.Name = "lastUpdatedLabel";
             this.lastUpdatedLabel.Size = new System.Drawing.Size(112, 15);
             this.lastUpdatedLabel.TabIndex = 3;
-            this.lastUpdatedLabel.Text = "Last updated: --:--";
+            this.lastUpdatedLabel.Text = "Updated: --:--";
 
             // dashboardLayoutPanel
             this.dashboardLayoutPanel.ColumnCount = 2;
