@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.centerLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.reviewsPanel = new System.Windows.Forms.Panel();
@@ -24,10 +25,12 @@ namespace Evently.Forms
             this.urlLabel = new System.Windows.Forms.Label();
             this.reviewFormUrlTextBox = new System.Windows.Forms.TextBox();
             this.saveUrlButton = new System.Windows.Forms.Button();
+            this.urlHelperLabel = new System.Windows.Forms.Label();
             this.actionsGroupBox = new System.Windows.Forms.GroupBox();
             this.sendRequestButton = new System.Windows.Forms.Button();
             this.importReviewsButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.reassuranceLabel = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.centerLayoutPanel.SuspendLayout();
@@ -38,6 +41,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -45,17 +49,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(147, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Collect Reviews";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(465, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Distribute Google Form rating links and import attendee responses from CSV.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
@@ -89,6 +103,7 @@ namespace Evently.Forms
             this.reviewsPanel.Controls.Add(this.reviewFormGroupBox);
             this.reviewsPanel.Controls.Add(this.actionsGroupBox);
             this.reviewsPanel.Controls.Add(this.resultLabel);
+            this.reviewsPanel.Controls.Add(this.reassuranceLabel);
             this.reviewsPanel.Location = new System.Drawing.Point(348, 151);
             this.reviewsPanel.Name = "reviewsPanel";
             this.reviewsPanel.Size = new System.Drawing.Size(560, 330);
@@ -114,6 +129,7 @@ namespace Evently.Forms
             this.reviewFormGroupBox.Controls.Add(this.urlLabel);
             this.reviewFormGroupBox.Controls.Add(this.reviewFormUrlTextBox);
             this.reviewFormGroupBox.Controls.Add(this.saveUrlButton);
+            this.reviewFormGroupBox.Controls.Add(this.urlHelperLabel);
             this.reviewFormGroupBox.Location = new System.Drawing.Point(24, 60);
             this.reviewFormGroupBox.Name = "reviewFormGroupBox";
             this.reviewFormGroupBox.Size = new System.Drawing.Size(512, 110);
@@ -140,6 +156,15 @@ namespace Evently.Forms
             this.saveUrlButton.Text = "&Save URL";
             this.saveUrlButton.UseVisualStyleBackColor = true;
             this.saveUrlButton.Click += new System.EventHandler(this.saveUrlButton_Click);
+            // urlHelperLabel
+            this.urlHelperLabel.AutoSize = true;
+            this.urlHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.urlHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.urlHelperLabel.Location = new System.Drawing.Point(230, 66);
+            this.urlHelperLabel.Name = "urlHelperLabel";
+            this.urlHelperLabel.Size = new System.Drawing.Size(242, 13);
+            this.urlHelperLabel.TabIndex = 3;
+            this.urlHelperLabel.Text = "Attendees use this link to submit their 1 to 5 ratings";
             // actionsGroupBox
             this.actionsGroupBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.actionsGroupBox.BackColor = System.Drawing.Color.White;
@@ -175,12 +200,22 @@ namespace Evently.Forms
             this.resultLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.resultLabel.AutoSize = false;
             this.resultLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.resultLabel.Location = new System.Drawing.Point(24, 272);
+            this.resultLabel.Location = new System.Drawing.Point(24, 268);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(512, 22);
             this.resultLabel.TabIndex = 4;
             this.resultLabel.Text = "";
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // reassuranceLabel
+            this.reassuranceLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.reassuranceLabel.AutoSize = true;
+            this.reassuranceLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.reassuranceLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.reassuranceLabel.Location = new System.Drawing.Point(24, 296);
+            this.reassuranceLabel.Name = "reassuranceLabel";
+            this.reassuranceLabel.Size = new System.Drawing.Size(350, 13);
+            this.reassuranceLabel.TabIndex = 5;
+            this.reassuranceLabel.Text = "Review requests are only sent to guests who checked in at the door";
             // ReviewsForm
             this.AcceptButton = this.saveUrlButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -226,5 +261,8 @@ namespace Evently.Forms
         private System.Windows.Forms.Button sendRequestButton;
         private System.Windows.Forms.Button importReviewsButton;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Label urlHelperLabel;
+        private System.Windows.Forms.Label reassuranceLabel;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

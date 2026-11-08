@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.centerLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.loginPanel = new System.Windows.Forms.Panel();
@@ -23,6 +24,8 @@ namespace Evently.Forms
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.loginHintLabel = new System.Windows.Forms.Label();
+            this.reassuranceLabel = new System.Windows.Forms.Label();
             this.loginButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
@@ -31,6 +34,7 @@ namespace Evently.Forms
             this.SuspendLayout();
             // headerPanel
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -39,17 +43,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(77, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Evently";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(462, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Register attendees, issue QR tickets, and monitor venue capacity in real time.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
@@ -83,6 +97,8 @@ namespace Evently.Forms
             this.loginPanel.Controls.Add(this.passwordLabel);
             this.loginPanel.Controls.Add(this.passwordTextBox);
             this.loginPanel.Controls.Add(this.errorLabel);
+            this.loginPanel.Controls.Add(this.loginHintLabel);
+            this.loginPanel.Controls.Add(this.reassuranceLabel);
             this.loginPanel.Controls.Add(this.loginButton);
             this.loginPanel.Location = new System.Drawing.Point(428, 206);
             this.loginPanel.Name = "loginPanel";
@@ -118,6 +134,24 @@ namespace Evently.Forms
             this.errorLabel.Size = new System.Drawing.Size(350, 18);
             this.errorLabel.TabIndex = 4;
             this.errorLabel.Text = "";
+            // loginHintLabel
+            this.loginHintLabel.AutoSize = true;
+            this.loginHintLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.loginHintLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.loginHintLabel.Location = new System.Drawing.Point(24, 126);
+            this.loginHintLabel.Name = "loginHintLabel";
+            this.loginHintLabel.Size = new System.Drawing.Size(326, 13);
+            this.loginHintLabel.TabIndex = 6;
+            this.loginHintLabel.Text = "Sign in with your assigned administrator or staff credentials";
+            // reassuranceLabel
+            this.reassuranceLabel.AutoSize = true;
+            this.reassuranceLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.reassuranceLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.reassuranceLabel.Location = new System.Drawing.Point(24, 170);
+            this.reassuranceLabel.Name = "reassuranceLabel";
+            this.reassuranceLabel.Size = new System.Drawing.Size(222, 13);
+            this.reassuranceLabel.TabIndex = 7;
+            this.reassuranceLabel.Text = "Data stays stored in your local database";
             // loginButton
             this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -168,6 +202,9 @@ namespace Evently.Forms
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label loginHintLabel;
+        private System.Windows.Forms.Label reassuranceLabel;
         private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

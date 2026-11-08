@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.gridHostPanel = new System.Windows.Forms.Panel();
             this.usersDataGridView = new System.Windows.Forms.DataGridView();
@@ -29,8 +30,10 @@ namespace Evently.Forms
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.roleLabel = new System.Windows.Forms.Label();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
+            this.roleHelperLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.actionPanel = new System.Windows.Forms.Panel();
+            this.accountStatusGuidanceLabel = new System.Windows.Forms.Label();
             this.deactivateButton = new System.Windows.Forms.Button();
             this.reactivateButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
@@ -44,6 +47,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -51,17 +55,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(138, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Manage Users";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(294, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Configure administrator and staff access accounts.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.gridHostPanel);
@@ -146,6 +160,7 @@ namespace Evently.Forms
             this.addUserGroupBox.Controls.Add(this.passwordTextBox);
             this.addUserGroupBox.Controls.Add(this.roleLabel);
             this.addUserGroupBox.Controls.Add(this.roleComboBox);
+            this.addUserGroupBox.Controls.Add(this.roleHelperLabel);
             this.addUserGroupBox.Controls.Add(this.addButton);
             this.addUserGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addUserGroupBox.Location = new System.Drawing.Point(0, 16);
@@ -191,6 +206,15 @@ namespace Evently.Forms
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.Size = new System.Drawing.Size(100, 23);
             this.roleComboBox.TabIndex = 5;
+            // roleHelperLabel
+            this.roleHelperLabel.AutoSize = true;
+            this.roleHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.roleHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.roleHelperLabel.Location = new System.Drawing.Point(82, 56);
+            this.roleHelperLabel.Name = "roleHelperLabel";
+            this.roleHelperLabel.Size = new System.Drawing.Size(325, 13);
+            this.roleHelperLabel.TabIndex = 7;
+            this.roleHelperLabel.Text = "Staff accounts can only access the QR check-in scanner screen";
             // addButton
             this.addButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.addButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -206,6 +230,7 @@ namespace Evently.Forms
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // actionPanel
             this.actionPanel.BackColor = System.Drawing.Color.White;
+            this.actionPanel.Controls.Add(this.accountStatusGuidanceLabel);
             this.actionPanel.Controls.Add(this.deactivateButton);
             this.actionPanel.Controls.Add(this.reactivateButton);
             this.actionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -213,6 +238,15 @@ namespace Evently.Forms
             this.actionPanel.Name = "actionPanel";
             this.actionPanel.Size = new System.Drawing.Size(1256, 54);
             this.actionPanel.TabIndex = 2;
+            // accountStatusGuidanceLabel
+            this.accountStatusGuidanceLabel.AutoSize = true;
+            this.accountStatusGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.accountStatusGuidanceLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
+            this.accountStatusGuidanceLabel.Location = new System.Drawing.Point(0, 22);
+            this.accountStatusGuidanceLabel.Name = "accountStatusGuidanceLabel";
+            this.accountStatusGuidanceLabel.Size = new System.Drawing.Size(287, 15);
+            this.accountStatusGuidanceLabel.TabIndex = 2;
+            this.accountStatusGuidanceLabel.Text = "Deactivated accounts cannot sign in until reactivated.";
             // deactivateButton
             this.deactivateButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.deactivateButton.Location = new System.Drawing.Point(1068, 16);
@@ -276,9 +310,12 @@ namespace Evently.Forms
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label roleLabel;
         private System.Windows.Forms.ComboBox roleComboBox;
+        private System.Windows.Forms.Label roleHelperLabel;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Panel actionPanel;
+        private System.Windows.Forms.Label accountStatusGuidanceLabel;
         private System.Windows.Forms.Button deactivateButton;
         private System.Windows.Forms.Button reactivateButton;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

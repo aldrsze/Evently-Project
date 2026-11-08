@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.centerLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.editPanel = new System.Windows.Forms.Panel();
@@ -27,6 +28,7 @@ namespace Evently.Forms
             this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.capacityLabel = new System.Windows.Forms.Label();
             this.capacityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.capacityHelperLabel = new System.Windows.Forms.Label();
             this.descLabel = new System.Windows.Forms.Label();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -40,6 +42,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -47,17 +50,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(100, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Edit Event";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(395, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Define event details, venue location, and maximum guest capacity.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.centerLayoutPanel);
@@ -95,6 +108,7 @@ namespace Evently.Forms
             this.editPanel.Controls.Add(this.timePicker);
             this.editPanel.Controls.Add(this.capacityLabel);
             this.editPanel.Controls.Add(this.capacityNumericUpDown);
+            this.editPanel.Controls.Add(this.capacityHelperLabel);
             this.editPanel.Controls.Add(this.descLabel);
             this.editPanel.Controls.Add(this.descriptionTextBox);
             this.editPanel.Controls.Add(this.saveButton);
@@ -158,6 +172,15 @@ namespace Evently.Forms
             this.capacityNumericUpDown.Name = "capacityNumericUpDown";
             this.capacityNumericUpDown.Size = new System.Drawing.Size(120, 23);
             this.capacityNumericUpDown.TabIndex = 8;
+            // capacityHelperLabel
+            this.capacityHelperLabel.AutoSize = true;
+            this.capacityHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.capacityHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.capacityHelperLabel.Location = new System.Drawing.Point(268, 137);
+            this.capacityHelperLabel.Name = "capacityHelperLabel";
+            this.capacityHelperLabel.Size = new System.Drawing.Size(215, 13);
+            this.capacityHelperLabel.TabIndex = 9;
+            this.capacityHelperLabel.Text = "Guest limit enforced during registration";
             // descLabel
             this.descLabel.AutoSize = true;
             this.descLabel.Location = new System.Drawing.Point(24, 171);
@@ -238,9 +261,11 @@ namespace Evently.Forms
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.Label capacityLabel;
         private System.Windows.Forms.NumericUpDown capacityNumericUpDown;
+        private System.Windows.Forms.Label capacityHelperLabel;
         private System.Windows.Forms.Label descLabel;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

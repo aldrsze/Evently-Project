@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.eventLabel = new System.Windows.Forms.Label();
@@ -33,10 +34,12 @@ namespace Evently.Forms
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.emailLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.emailHelperLabel = new System.Windows.Forms.Label();
             this.addAttendeeButton = new System.Windows.Forms.Button();
             this.resultPanel = new System.Windows.Forms.Panel();
             this.resultLabel = new System.Windows.Forms.Label();
             this.actionPanel = new System.Windows.Forms.Panel();
+            this.actionHintLabel = new System.Windows.Forms.Label();
             this.importCsvButton = new System.Windows.Forms.Button();
             this.sendTicketsButton = new System.Windows.Forms.Button();
             this.exportCsvButton = new System.Windows.Forms.Button();
@@ -53,6 +56,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -60,17 +64,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(175, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Manage Attendees";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(437, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Register guests, import attendee lists from CSV, and dispatch QR tickets.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.gridHostPanel);
@@ -194,6 +208,7 @@ namespace Evently.Forms
             this.addAttendeeGroupBox.Controls.Add(this.nameTextBox);
             this.addAttendeeGroupBox.Controls.Add(this.emailLabel);
             this.addAttendeeGroupBox.Controls.Add(this.emailTextBox);
+            this.addAttendeeGroupBox.Controls.Add(this.emailHelperLabel);
             this.addAttendeeGroupBox.Controls.Add(this.addAttendeeButton);
             this.addAttendeeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addAttendeeGroupBox.Location = new System.Drawing.Point(0, 16);
@@ -224,6 +239,15 @@ namespace Evently.Forms
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(220, 23);
             this.emailTextBox.TabIndex = 3;
+            // emailHelperLabel
+            this.emailHelperLabel.AutoSize = true;
+            this.emailHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.emailHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.emailHelperLabel.Location = new System.Drawing.Point(280, 56);
+            this.emailHelperLabel.Name = "emailHelperLabel";
+            this.emailHelperLabel.Size = new System.Drawing.Size(258, 13);
+            this.emailHelperLabel.TabIndex = 5;
+            this.emailHelperLabel.Text = "Tickets with unique QR codes are sent to this address";
             // addAttendeeButton
             this.addAttendeeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.addAttendeeButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -258,6 +282,7 @@ namespace Evently.Forms
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // actionPanel
             this.actionPanel.BackColor = System.Drawing.Color.White;
+            this.actionPanel.Controls.Add(this.actionHintLabel);
             this.actionPanel.Controls.Add(this.importCsvButton);
             this.actionPanel.Controls.Add(this.sendTicketsButton);
             this.actionPanel.Controls.Add(this.exportCsvButton);
@@ -266,6 +291,15 @@ namespace Evently.Forms
             this.actionPanel.Name = "actionPanel";
             this.actionPanel.Size = new System.Drawing.Size(1256, 46);
             this.actionPanel.TabIndex = 4;
+            // actionHintLabel
+            this.actionHintLabel.AutoSize = true;
+            this.actionHintLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.actionHintLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
+            this.actionHintLabel.Location = new System.Drawing.Point(0, 14);
+            this.actionHintLabel.Name = "actionHintLabel";
+            this.actionHintLabel.Size = new System.Drawing.Size(423, 15);
+            this.actionHintLabel.TabIndex = 3;
+            this.actionHintLabel.Text = "Send Tickets only emails attendees who have not received their QR code yet.";
             // importCsvButton
             this.importCsvButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.importCsvButton.Location = new System.Drawing.Point(930, 8);
@@ -345,12 +379,15 @@ namespace Evently.Forms
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Label emailHelperLabel;
         private System.Windows.Forms.Button addAttendeeButton;
         private System.Windows.Forms.Panel resultPanel;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Panel actionPanel;
+        private System.Windows.Forms.Label actionHintLabel;
         private System.Windows.Forms.Button importCsvButton;
         private System.Windows.Forms.Button sendTicketsButton;
         private System.Windows.Forms.Button exportCsvButton;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

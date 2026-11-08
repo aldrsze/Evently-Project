@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.gridHostPanel = new System.Windows.Forms.Panel();
             this.eventsDataGridView = new System.Windows.Forms.DataGridView();
@@ -23,6 +24,7 @@ namespace Evently.Forms
             this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.helperLabel = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -35,6 +37,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -42,17 +45,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(70, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Events";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(370, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Create events, set guest capacities, and manage your schedules.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.gridHostPanel);
@@ -126,6 +139,7 @@ namespace Evently.Forms
             this.capacityColumn.ReadOnly = true;
             // bottomPanel
             this.bottomPanel.BackColor = System.Drawing.Color.White;
+            this.bottomPanel.Controls.Add(this.helperLabel);
             this.bottomPanel.Controls.Add(this.createButton);
             this.bottomPanel.Controls.Add(this.editButton);
             this.bottomPanel.Controls.Add(this.deleteButton);
@@ -135,6 +149,15 @@ namespace Evently.Forms
             this.bottomPanel.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.bottomPanel.Size = new System.Drawing.Size(1256, 46);
             this.bottomPanel.TabIndex = 1;
+            // helperLabel
+            this.helperLabel.AutoSize = true;
+            this.helperLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.helperLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
+            this.helperLabel.Location = new System.Drawing.Point(0, 22);
+            this.helperLabel.Name = "helperLabel";
+            this.helperLabel.Size = new System.Drawing.Size(370, 15);
+            this.helperLabel.TabIndex = 3;
+            this.helperLabel.Text = "Select an event to edit or delete, or click Create to set up a new event.";
             // createButton
             this.createButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.createButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -201,8 +224,10 @@ namespace Evently.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacityColumn;
         private System.Windows.Forms.Panel bottomPanel;
+        private System.Windows.Forms.Label helperLabel;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

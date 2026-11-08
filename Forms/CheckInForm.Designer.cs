@@ -15,6 +15,7 @@ namespace Evently.Forms
         {
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.topPanel = new System.Windows.Forms.Panel();
             this.eventLabel = new System.Windows.Forms.Label();
@@ -23,6 +24,7 @@ namespace Evently.Forms
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.resultMessageLabel = new System.Windows.Forms.Label();
             this.insideCountLabel = new System.Windows.Forms.Label();
+            this.scannerGuidanceLabel = new System.Windows.Forms.Label();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.topPanel.SuspendLayout();
@@ -32,6 +34,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -39,17 +42,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(167, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Check-In Scanner";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(433, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Scan attendee QR codes at entrance and exit for real-time venue tracking.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.cameraPreviewPictureBox);
@@ -98,6 +111,7 @@ namespace Evently.Forms
             this.bottomPanel.BackColor = System.Drawing.Color.White;
             this.bottomPanel.Controls.Add(this.resultMessageLabel);
             this.bottomPanel.Controls.Add(this.insideCountLabel);
+            this.bottomPanel.Controls.Add(this.scannerGuidanceLabel);
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPanel.Location = new System.Drawing.Point(12, 504);
             this.bottomPanel.Name = "bottomPanel";
@@ -110,7 +124,7 @@ namespace Evently.Forms
             this.resultMessageLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.resultMessageLabel.Location = new System.Drawing.Point(0, 8);
             this.resultMessageLabel.Name = "resultMessageLabel";
-            this.resultMessageLabel.Size = new System.Drawing.Size(1256, 60);
+            this.resultMessageLabel.Size = new System.Drawing.Size(1256, 44);
             this.resultMessageLabel.TabIndex = 0;
             this.resultMessageLabel.Text = "Ready to scan";
             this.resultMessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,12 +133,23 @@ namespace Evently.Forms
             this.insideCountLabel.AutoSize = false;
             this.insideCountLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.insideCountLabel.ForeColor = System.Drawing.Color.FromArgb(43, 87, 154);
-            this.insideCountLabel.Location = new System.Drawing.Point(0, 72);
+            this.insideCountLabel.Location = new System.Drawing.Point(0, 56);
             this.insideCountLabel.Name = "insideCountLabel";
-            this.insideCountLabel.Size = new System.Drawing.Size(1256, 48);
+            this.insideCountLabel.Size = new System.Drawing.Size(1256, 40);
             this.insideCountLabel.TabIndex = 1;
             this.insideCountLabel.Text = "0 inside";
             this.insideCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // scannerGuidanceLabel
+            this.scannerGuidanceLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            this.scannerGuidanceLabel.AutoSize = false;
+            this.scannerGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.scannerGuidanceLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
+            this.scannerGuidanceLabel.Location = new System.Drawing.Point(0, 102);
+            this.scannerGuidanceLabel.Name = "scannerGuidanceLabel";
+            this.scannerGuidanceLabel.Size = new System.Drawing.Size(1256, 26);
+            this.scannerGuidanceLabel.TabIndex = 2;
+            this.scannerGuidanceLabel.Text = "First scan marks guest as checked in; second scan marks guest as checked out.";
+            this.scannerGuidanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // CheckInForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,5 +186,7 @@ namespace Evently.Forms
         private System.Windows.Forms.Panel bottomPanel;
         private System.Windows.Forms.Label resultMessageLabel;
         private System.Windows.Forms.Label insideCountLabel;
+        private System.Windows.Forms.Label scannerGuidanceLabel;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }

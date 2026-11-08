@@ -16,6 +16,7 @@ namespace Evently.Forms
             this.components = new System.ComponentModel.Container();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.heroSublineLabel = new System.Windows.Forms.Label();
             this.contentPanel = new System.Windows.Forms.Panel();
             this.dashboardLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.attendanceGroupBox = new System.Windows.Forms.GroupBox();
@@ -30,11 +31,13 @@ namespace Evently.Forms
             this.reviewRequestLabel = new System.Windows.Forms.Label();
             this.emailsGroupBox = new System.Windows.Forms.GroupBox();
             this.ticketsEmailedLabel = new System.Windows.Forms.Label();
+            this.emailsHelperLabel = new System.Windows.Forms.Label();
             this.recentCheckInsGroupBox = new System.Windows.Forms.GroupBox();
             this.recentCheckInsListBox = new System.Windows.Forms.ListBox();
             this.topPanel = new System.Windows.Forms.Panel();
             this.eventLabel = new System.Windows.Forms.Label();
             this.eventComboBox = new System.Windows.Forms.ComboBox();
+            this.autoRefreshLabel = new System.Windows.Forms.Label();
             this.lastUpdatedLabel = new System.Windows.Forms.Label();
             this.dashboardTimer = new System.Windows.Forms.Timer(this.components);
             this.headerPanel.SuspendLayout();
@@ -49,6 +52,7 @@ namespace Evently.Forms
             // headerPanel
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.headerPanel.Controls.Add(this.titleLabel);
+            this.headerPanel.Controls.Add(this.heroSublineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
@@ -56,17 +60,27 @@ namespace Evently.Forms
             this.headerPanel.Size = new System.Drawing.Size(1280, 64);
             this.headerPanel.TabIndex = 0;
             // titleLabel
-            this.titleLabel.AutoSize = false;
+            this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(12, 0);
+            this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1256, 64);
+            this.titleLabel.Size = new System.Drawing.Size(149, 25);
             this.titleLabel.TabIndex = 0;
             this.titleLabel.Text = "Live Dashboard";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // heroSublineLabel
+            this.heroSublineLabel.AutoSize = true;
+            this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
+            this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
+            this.heroSublineLabel.Name = "heroSublineLabel";
+            this.heroSublineLabel.Size = new System.Drawing.Size(434, 15);
+            this.heroSublineLabel.TabIndex = 1;
+            this.heroSublineLabel.Text = "Live headcount, entry progress, and attendee satisfaction metrics.";
+            this.heroSublineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // contentPanel
             this.contentPanel.BackColor = System.Drawing.Color.White;
             this.contentPanel.Controls.Add(this.dashboardLayoutPanel);
@@ -81,6 +95,7 @@ namespace Evently.Forms
             this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.eventLabel);
             this.topPanel.Controls.Add(this.eventComboBox);
+            this.topPanel.Controls.Add(this.autoRefreshLabel);
             this.topPanel.Controls.Add(this.lastUpdatedLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(12, 12);
@@ -99,16 +114,26 @@ namespace Evently.Forms
             this.eventComboBox.FormattingEnabled = true;
             this.eventComboBox.Location = new System.Drawing.Point(58, 8);
             this.eventComboBox.Name = "eventComboBox";
-            this.eventComboBox.Size = new System.Drawing.Size(1042, 23);
+            this.eventComboBox.Size = new System.Drawing.Size(810, 23);
             this.eventComboBox.TabIndex = 1;
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
+            // autoRefreshLabel
+            this.autoRefreshLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.autoRefreshLabel.AutoSize = true;
+            this.autoRefreshLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
+            this.autoRefreshLabel.Location = new System.Drawing.Point(880, 12);
+            this.autoRefreshLabel.Name = "autoRefreshLabel";
+            this.autoRefreshLabel.Size = new System.Drawing.Size(232, 15);
+            this.autoRefreshLabel.TabIndex = 2;
+            this.autoRefreshLabel.Text = "Refreshes automatically every 5 seconds";
             // lastUpdatedLabel
             this.lastUpdatedLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lastUpdatedLabel.AutoSize = true;
             this.lastUpdatedLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.lastUpdatedLabel.Location = new System.Drawing.Point(1134, 12);
             this.lastUpdatedLabel.Name = "lastUpdatedLabel";
-            this.lastUpdatedLabel.TabIndex = 2;
+            this.lastUpdatedLabel.Size = new System.Drawing.Size(100, 15);
+            this.lastUpdatedLabel.TabIndex = 3;
             this.lastUpdatedLabel.Text = "Last updated: --:--";
             // dashboardLayoutPanel
             this.dashboardLayoutPanel.ColumnCount = 2;
@@ -209,6 +234,7 @@ namespace Evently.Forms
             // emailsGroupBox
             this.emailsGroupBox.BackColor = System.Drawing.Color.White;
             this.emailsGroupBox.Controls.Add(this.ticketsEmailedLabel);
+            this.emailsGroupBox.Controls.Add(this.emailsHelperLabel);
             this.emailsGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailsGroupBox.Location = new System.Drawing.Point(8, 463);
             this.emailsGroupBox.Margin = new System.Windows.Forms.Padding(8);
@@ -223,6 +249,15 @@ namespace Evently.Forms
             this.ticketsEmailedLabel.Name = "ticketsEmailedLabel";
             this.ticketsEmailedLabel.TabIndex = 0;
             this.ticketsEmailedLabel.Text = "Tickets emailed: 0 of 0";
+            // emailsHelperLabel
+            this.emailsHelperLabel.AutoSize = true;
+            this.emailsHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.emailsHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
+            this.emailsHelperLabel.Location = new System.Drawing.Point(12, 54);
+            this.emailsHelperLabel.Name = "emailsHelperLabel";
+            this.emailsHelperLabel.Size = new System.Drawing.Size(306, 13);
+            this.emailsHelperLabel.TabIndex = 1;
+            this.emailsHelperLabel.Text = "Emailed tickets count only attendees with confirmed delivery";
             // recentCheckInsGroupBox
             this.recentCheckInsGroupBox.BackColor = System.Drawing.Color.White;
             this.recentCheckInsGroupBox.Controls.Add(this.recentCheckInsListBox);
@@ -297,12 +332,15 @@ namespace Evently.Forms
         private System.Windows.Forms.Label reviewRequestLabel;
         private System.Windows.Forms.GroupBox emailsGroupBox;
         private System.Windows.Forms.Label ticketsEmailedLabel;
+        private System.Windows.Forms.Label emailsHelperLabel;
         private System.Windows.Forms.GroupBox recentCheckInsGroupBox;
         private System.Windows.Forms.ListBox recentCheckInsListBox;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label eventLabel;
         private System.Windows.Forms.ComboBox eventComboBox;
+        private System.Windows.Forms.Label autoRefreshLabel;
         private System.Windows.Forms.Label lastUpdatedLabel;
         private System.Windows.Forms.Timer dashboardTimer;
+        private System.Windows.Forms.Label heroSublineLabel;
     }
 }
