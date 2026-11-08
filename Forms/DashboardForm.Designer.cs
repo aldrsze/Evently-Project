@@ -28,7 +28,6 @@ namespace Evently.Forms
             this.topPanel = new System.Windows.Forms.Panel();
             this.eventLabel = new System.Windows.Forms.Label();
             this.eventComboBox = new System.Windows.Forms.ComboBox();
-            this.autoRefreshLabel = new System.Windows.Forms.Label();
             this.lastUpdatedLabel = new System.Windows.Forms.Label();
             this.dashboardLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.attendanceGroupBox = new System.Windows.Forms.GroupBox();
@@ -120,7 +119,6 @@ namespace Evently.Forms
             this.topPanel.BackColor = System.Drawing.Color.White;
             this.topPanel.Controls.Add(this.eventLabel);
             this.topPanel.Controls.Add(this.eventComboBox);
-            this.topPanel.Controls.Add(this.autoRefreshLabel);
             this.topPanel.Controls.Add(this.lastUpdatedLabel);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(12, 12);
@@ -147,25 +145,15 @@ namespace Evently.Forms
             this.eventComboBox.TabIndex = 1;
             this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
 
-            // autoRefreshLabel
-            this.autoRefreshLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            this.autoRefreshLabel.AutoSize = true;
-            this.autoRefreshLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.autoRefreshLabel.Location = new System.Drawing.Point(642, 10);
-            this.autoRefreshLabel.Name = "autoRefreshLabel";
-            this.autoRefreshLabel.Size = new System.Drawing.Size(232, 15);
-            this.autoRefreshLabel.TabIndex = 2;
-            this.autoRefreshLabel.Text = "Refreshes automatically every 5 seconds";
-
             // lastUpdatedLabel
             this.lastUpdatedLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.lastUpdatedLabel.AutoSize = true;
             this.lastUpdatedLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.lastUpdatedLabel.Location = new System.Drawing.Point(850, 10);
+            this.lastUpdatedLabel.Location = new System.Drawing.Point(860, 10);
             this.lastUpdatedLabel.Name = "lastUpdatedLabel";
             this.lastUpdatedLabel.Size = new System.Drawing.Size(112, 15);
             this.lastUpdatedLabel.TabIndex = 3;
-            this.lastUpdatedLabel.Text = "Updated: --:--";
+            this.lastUpdatedLabel.Text = "Last Updated: --:--";
 
             // dashboardLayoutPanel
             this.dashboardLayoutPanel.ColumnCount = 2;
@@ -499,7 +487,6 @@ namespace Evently.Forms
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Label eventLabel;
         private System.Windows.Forms.ComboBox eventComboBox;
-        private System.Windows.Forms.Label autoRefreshLabel;
         private System.Windows.Forms.Label lastUpdatedLabel;
         private System.Windows.Forms.TableLayoutPanel dashboardLayoutPanel;
         private System.Windows.Forms.GroupBox attendanceGroupBox;
