@@ -12,14 +12,6 @@ namespace Evently
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginForm());
-            Application.Run(new MainForm());
-            Application.Run(new UserListForm());
-            Application.Run(new EventListForm());
-            Application.Run(new EventEditForm());
-            Application.Run(new AttendeesForm());
-            Application.Run(new ReviewsForm());
-            Application.Run(new CheckInForm());
-            Application.Run(new DashboardForm());
         }
     }
 }

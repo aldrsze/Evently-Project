@@ -12,7 +12,14 @@ namespace Evently.Forms
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // TODO: Authenticate user, open MainForm, hide LoginForm
+            Hide();
+
+            using (var mainForm = new MainForm())
+            {
+                mainForm.ShowDialog(this);
+            }
+
+            Show();
         }
     }
 }
