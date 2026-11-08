@@ -10,6 +10,7 @@ namespace Evently.Forms
         public MainForm()
         {
             InitializeComponent();
+            ShowForm(new EventListForm());
         }
 
         private void ShowForm(Form form)
