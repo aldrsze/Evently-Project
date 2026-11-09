@@ -25,5 +25,14 @@ namespace _.Services
             cmd.Parameters.AddWithValue("@username", username);
             return cmd.ExecuteScalar()?.ToString();
         }
+
+        public static string? GetRole(string username)
+        {
+            using var conn = DatabaseConnection.GetConnection();
+            string query = "SELECT role FROM users WHERE username = @username";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            return cmd.ExecuteScalar()?.ToString();
+        }
     }
 }

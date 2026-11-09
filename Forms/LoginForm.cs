@@ -1,3 +1,4 @@
+using _.Helpers;
 using _.Services;
 
 namespace Evently.Forms
@@ -18,14 +19,16 @@ namespace Evently.Forms
             {
                 if (AuthService.VerifyAuth(username, password))
                 {
+                    Session.CurrentUsername = username;
+                    Session.CurrentRole = AuthService.GetRole(username) ?? "";
                     MessageBox.Show("Login Successful.");
                     usernameTextBox.Text = "";
                     passwordTextBox.Text = "";
                     Hide();
-                    using (var mainForm = new MainForm())
-                    {
-                        mainForm.ShowDialog(this);
-                    }
+                    using var mainForm = new MainForm();
+                    mainForm.ShowDialog(this);
+                    Session.CurrentUsername = "";
+                    Session.CurrentRole = "";
                     Show();
                 }
                 else { MessageBox.Show("Invalid username or password."); }

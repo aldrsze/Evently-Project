@@ -30,12 +30,12 @@ namespace Evently.Forms
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.roleLabel = new System.Windows.Forms.Label();
             this.roleComboBox = new System.Windows.Forms.ComboBox();
-            this.roleHelperLabel = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.actionPanel = new System.Windows.Forms.Panel();
             this.accountStatusGuidanceLabel = new System.Windows.Forms.Label();
             this.deactivateButton = new System.Windows.Forms.Button();
             this.reactivateButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.gridHostPanel.SuspendLayout();
@@ -164,7 +164,6 @@ namespace Evently.Forms
             this.addUserGroupBox.Controls.Add(this.passwordTextBox);
             this.addUserGroupBox.Controls.Add(this.roleLabel);
             this.addUserGroupBox.Controls.Add(this.roleComboBox);
-            this.addUserGroupBox.Controls.Add(this.roleHelperLabel);
             this.addUserGroupBox.Controls.Add(this.addButton);
             this.addUserGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addUserGroupBox.Location = new System.Drawing.Point(0, 16);
@@ -211,15 +210,6 @@ namespace Evently.Forms
             this.roleComboBox.SelectedIndex = 0;
             this.roleComboBox.Size = new System.Drawing.Size(100, 23);
             this.roleComboBox.TabIndex = 5;
-            // roleHelperLabel
-            this.roleHelperLabel.AutoSize = true;
-            this.roleHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.roleHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
-            this.roleHelperLabel.Location = new System.Drawing.Point(82, 56);
-            this.roleHelperLabel.Name = "roleHelperLabel";
-            this.roleHelperLabel.Size = new System.Drawing.Size(325, 13);
-            this.roleHelperLabel.TabIndex = 7;
-            this.roleHelperLabel.Text = "Staff accounts can only access the QR check-in scanner screen";
             // addButton
             this.addButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.addButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -236,6 +226,7 @@ namespace Evently.Forms
             // actionPanel
             this.actionPanel.BackColor = System.Drawing.Color.White;
             this.actionPanel.Controls.Add(this.accountStatusGuidanceLabel);
+            this.actionPanel.Controls.Add(this.editButton);
             this.actionPanel.Controls.Add(this.deactivateButton);
             this.actionPanel.Controls.Add(this.reactivateButton);
             this.actionPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -270,6 +261,15 @@ namespace Evently.Forms
             this.reactivateButton.Text = "&Reactivate";
             this.reactivateButton.UseVisualStyleBackColor = true;
             this.reactivateButton.Click += new System.EventHandler(this.ReactivateButton_Click);
+            // editButton
+            this.editButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.editButton.Location = new System.Drawing.Point(970, 16);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(90, 30);
+            this.editButton.TabIndex = 2;
+            this.editButton.Text = "&Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // UserListForm
             this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -315,12 +315,12 @@ namespace Evently.Forms
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label roleLabel;
         private System.Windows.Forms.ComboBox roleComboBox;
-        private System.Windows.Forms.Label roleHelperLabel;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Panel actionPanel;
         private System.Windows.Forms.Label accountStatusGuidanceLabel;
         private System.Windows.Forms.Button deactivateButton;
         private System.Windows.Forms.Button reactivateButton;
+        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Label heroSublineLabel;
     }
 }
