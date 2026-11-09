@@ -144,7 +144,7 @@ namespace Evently.Forms
             this.urlLabel.Text = "Google Form URL:";
             // reviewFormUrlTextBox
             this.reviewFormUrlTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            this.reviewFormUrlTextBox.Location = new System.Drawing.Point(130, 26);
+            this.reviewFormUrlTextBox.Location = new System.Drawing.Point(138, 26);
             this.reviewFormUrlTextBox.Name = "reviewFormUrlTextBox";
             this.reviewFormUrlTextBox.Size = new System.Drawing.Size(370, 23);
             this.reviewFormUrlTextBox.TabIndex = 1;

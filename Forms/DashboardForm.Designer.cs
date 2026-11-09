@@ -139,7 +139,7 @@ namespace Evently.Forms
             this.eventComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.eventComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.eventComboBox.FormattingEnabled = true;
-            this.eventComboBox.Location = new System.Drawing.Point(48, 7);
+            this.eventComboBox.Location = new System.Drawing.Point(56, 7);
             this.eventComboBox.Name = "eventComboBox";
             this.eventComboBox.Size = new System.Drawing.Size(580, 23);
             this.eventComboBox.TabIndex = 1;

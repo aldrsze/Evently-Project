@@ -224,7 +224,7 @@ namespace Evently.Forms
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name:";
             // nameTextBox
-            this.nameTextBox.Location = new System.Drawing.Point(58, 26);
+            this.nameTextBox.Location = new System.Drawing.Point(68, 26);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(160, 23);
             this.nameTextBox.TabIndex = 1;
@@ -235,7 +235,7 @@ namespace Evently.Forms
             this.emailLabel.TabIndex = 2;
             this.emailLabel.Text = "Email:";
             // emailTextBox
-            this.emailTextBox.Location = new System.Drawing.Point(280, 26);
+            this.emailTextBox.Location = new System.Drawing.Point(288, 26);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(220, 23);
             this.emailTextBox.TabIndex = 3;

@@ -179,9 +179,9 @@ namespace Evently.Forms
             this.usernameLabel.TabIndex = 0;
             this.usernameLabel.Text = "Username:";
             // usernameTextBox
-            this.usernameTextBox.Location = new System.Drawing.Point(82, 26);
+            this.usernameTextBox.Location = new System.Drawing.Point(94, 26);
             this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(140, 23);
+            this.usernameTextBox.Size = new System.Drawing.Size(120, 23);
             this.usernameTextBox.TabIndex = 1;
             // passwordLabel
             this.passwordLabel.AutoSize = true;
@@ -190,9 +190,9 @@ namespace Evently.Forms
             this.passwordLabel.TabIndex = 2;
             this.passwordLabel.Text = "Password:";
             // passwordTextBox
-            this.passwordTextBox.Location = new System.Drawing.Point(306, 26);
+            this.passwordTextBox.Location = new System.Drawing.Point(316, 26);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(140, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(120, 23);
             this.passwordTextBox.TabIndex = 3;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // roleLabel
@@ -205,7 +205,7 @@ namespace Evently.Forms
             this.roleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.roleComboBox.FormattingEnabled = true;
             this.roleComboBox.Items.AddRange(new object[] { "ADMIN", "STAFF" });
-            this.roleComboBox.Location = new System.Drawing.Point(504, 26);
+            this.roleComboBox.Location = new System.Drawing.Point(508, 26);
             this.roleComboBox.Name = "roleComboBox";
             this.roleComboBox.SelectedIndex = 0;
             this.roleComboBox.Size = new System.Drawing.Size(100, 23);
