@@ -1,3 +1,5 @@
+using _.Services;
+
 namespace Evently.Forms
 {
     public partial class UserEditForm : Form
@@ -10,7 +12,7 @@ namespace Evently.Forms
 
             if (lockRole)
             {
-                // only admins change roles, and nobody changes their own
+                // nobody changes their own role
                 roleComboBox.Enabled = false;
             }
         }
@@ -33,12 +35,21 @@ namespace Evently.Forms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (usernameTextBox.Text == "")
+            string username = usernameTextBox.Text.Trim();
+
+            if (username == "")
             {
                 MessageBox.Show("Username is required.");
                 return;
             }
 
+            if (passwordTextBox.Text != "" && passwordTextBox.Text.Length < UserService.MinPasswordLength)
+            {
+                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                return;
+            }
+
+            usernameTextBox.Text = username;
             DialogResult = DialogResult.OK;
             Close();
         }

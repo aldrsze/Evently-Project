@@ -12,7 +12,7 @@ namespace Evently.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string username = usernameTextBox.Text;
+            string username = usernameTextBox.Text.Trim();
             string password = passwordTextBox.Text;
 
             try

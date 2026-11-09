@@ -9,11 +9,6 @@ namespace Evently.Forms
         {
             InitializeComponent();
             LoadUsers();
-
-            if (Session.CurrentRole != "ADMIN")
-            {
-                roleComboBox.Enabled = false;
-            }
         }
 
         private void LoadUsers()
@@ -24,11 +19,17 @@ namespace Evently.Forms
 
         private void AddButton_Click(object sender, EventArgs e) 
         {
-            string username = usernameTextBox.Text;
+            string username = usernameTextBox.Text.Trim();
             string password = passwordTextBox.Text;
             string role = roleComboBox.Text;
 
             if (username == "" || password == "" || role == "") { MessageBox.Show("Please complete all fields."); return; }
+
+            if (password.Length < UserService.MinPasswordLength)
+            {
+                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                return;
+            }
 
             try
             {
@@ -67,10 +68,19 @@ namespace Evently.Forms
             }
 
             string username = Convert.ToString(usersDataGridView.CurrentRow.Cells[0].Value) ?? "";
+            username = username.Trim();
 
-            if (isActive == false && username == Session.CurrentUsername)
+            bool isSelf = string.Equals(username, Session.CurrentUsername, StringComparison.OrdinalIgnoreCase);
+
+            if (isActive == false && isSelf)
             {
                 MessageBox.Show("You cannot deactivate your own account.");
+                return;
+            }
+
+            if (isActive == false && WouldRemoveLastAdmin(username))
+            {
+                MessageBox.Show("This is the last active admin. Deactivating it would lock everyone out.");
                 return;
             }
 
@@ -93,6 +103,18 @@ namespace Evently.Forms
             }
         }
 
+        private static bool WouldRemoveLastAdmin(string username)
+        {
+            string role = AuthService.GetRole(username) ?? "";
+
+            if (role != "ADMIN")
+            {
+                return false; // not an admin, nothing to protect
+            }
+
+            return UserService.CountActiveAdmins() <= 1;
+        }
+
         private void EditButton_Click(object sender, EventArgs e)
         {
             if (usersDataGridView.CurrentRow == null)
@@ -104,8 +126,8 @@ namespace Evently.Forms
             string username = Convert.ToString(usersDataGridView.CurrentRow.Cells[0].Value) ?? "";
             string role = Convert.ToString(usersDataGridView.CurrentRow.Cells[1].Value) ?? "";
 
-            // only an admin may change roles, and nobody changes their own
-            bool lockRole = username == Session.CurrentUsername || Session.CurrentRole != "ADMIN";
+            // nobody changes their own role
+            bool lockRole = string.Equals(username, Session.CurrentUsername, StringComparison.OrdinalIgnoreCase);
 
             using UserEditForm dialog = new(username, role, lockRole);
             if (dialog.ShowDialog(this) == DialogResult.OK)
@@ -116,11 +138,31 @@ namespace Evently.Forms
 
         private void SaveUserChanges(string oldUsername, string newUsername, string role, string newPassword)
         {
+            newUsername = newUsername.Trim();
+
+            if (newUsername == "")
+            {
+                MessageBox.Show("Username is required.");
+                return;
+            }
+
+            if (newPassword != "" && newPassword.Length < UserService.MinPasswordLength)
+            {
+                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                return;
+            }
+
+            if (role != "ADMIN" && WouldRemoveLastAdmin(oldUsername))
+            {
+                MessageBox.Show("This is the last active admin. Changing its role would lock everyone out.");
+                return;
+            }
+
             try
             {
                 if (UserService.UpdateUser(oldUsername, newUsername, role, newPassword))
                 {
-                    if (oldUsername == Session.CurrentUsername)
+                    if (string.Equals(oldUsername, Session.CurrentUsername, StringComparison.OrdinalIgnoreCase))
                     {
                         Session.CurrentUsername = newUsername;
                     }
