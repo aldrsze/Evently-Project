@@ -1,15 +1,13 @@
-using BCrypt.Net;
-
-namespace Evently.Helpers
+namespace _.Helpers
 {
     public static class PasswordHelper
     {
-        public static string hashPassword(string password)
+        public static string HashPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
 
-        public static bool verifyPassword(string password, string hash)
+        public static bool VerifyPassword(string password, string hash)
         {
             return BCrypt.Net.BCrypt.Verify(password, hash);
         }

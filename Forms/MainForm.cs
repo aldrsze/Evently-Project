@@ -17,20 +17,61 @@ namespace Evently.Forms
 
         private void ShowForm(Form form)
         {
-            if (currentForm != null)
+            if (currentForm != null) // if form is already shown on the panel detach it.
             {
-                contentPlaceholderPanel.Controls.Remove(currentForm);
-                currentForm.Dispose();
+                contentPlaceholderPanel.Controls.Remove(currentForm); // take it off the panel first
+                currentForm.Dispose(); // Dispose frees the old form's controls and memory
             }
 
+            // keep the new form in currentForm so the next call can dispose it
             currentForm = form;
-            form.WindowState = FormWindowState.Normal;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.TopLevel = false;
-            form.MinimumSize = new System.Drawing.Size(0, 0);
-            form.Dock = DockStyle.Fill;
-            contentPlaceholderPanel.Controls.Add(form);
-            form.Show();
+            form.WindowState = FormWindowState.Normal; // Normal makes the DoctStyle.Fill possible
+            form.FormBorderStyle = FormBorderStyle.None; // removes title bar
+            form.TopLevel = false; // must be false, a top level form cannot be added to a panel
+            form.MinimumSize = new System.Drawing.Size(0, 0); // stops shrinking
+            form.Dock = DockStyle.Fill; // follows the panel when the window resizes
+            contentPlaceholderPanel.Controls.Add(form); // puts the form inside the panel
+            form.Show(); // adding a child form does not show it, Show does
+        }
+
+        private void EventsButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new EventListForm());
+        }
+
+        private void AttendeesButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new AttendeesForm());
+        }
+
+        private void ReviewsButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new ReviewsForm());
+        }
+
+        private void CheckInButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new CheckInForm());
+        }
+
+        private void DashboardButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new DashboardForm());
+        }
+
+        private void UsersButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new UserListForm());
+        }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            DialogResult answer = MessageBox.Show("Log out of Evently?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (answer == DialogResult.Yes)
+            {
+                loggingOut = true;
+                Close();
+            }
         }
 
         private void MainForm_FormClosing(object? form, FormClosingEventArgs e)
@@ -43,44 +84,5 @@ namespace Evently.Forms
             }
         }
 
-        private void eventsButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new EventListForm());
-        }
-
-        private void attendeesButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new AttendeesForm());
-        }
-
-        private void reviewsButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new ReviewsForm());
-        }
-
-        private void checkInButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new CheckInForm());
-        }
-
-        private void dashboardButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new DashboardForm());
-        }
-
-        private void usersButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new UserListForm());
-        }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            DialogResult answer = MessageBox.Show("Log out of Evently?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (answer == DialogResult.Yes)
-            {
-                loggingOut = true;
-                Close();
-            }
-        }
     }
 }

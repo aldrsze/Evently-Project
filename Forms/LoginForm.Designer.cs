@@ -26,7 +26,7 @@ namespace Evently.Forms
             this.errorLabel = new System.Windows.Forms.Label();
             this.loginHintLabel = new System.Windows.Forms.Label();
             this.reassuranceLabel = new System.Windows.Forms.Label();
-            this.loginButton = new System.Windows.Forms.Button();
+            this.LoginButton = new System.Windows.Forms.Button();
             this.headerPanel.SuspendLayout();
             this.contentPanel.SuspendLayout();
             this.centerLayoutPanel.SuspendLayout();
@@ -99,7 +99,7 @@ namespace Evently.Forms
             this.loginPanel.Controls.Add(this.errorLabel);
             this.loginPanel.Controls.Add(this.loginHintLabel);
             this.loginPanel.Controls.Add(this.reassuranceLabel);
-            this.loginPanel.Controls.Add(this.loginButton);
+            this.loginPanel.Controls.Add(this.LoginButton);
             this.loginPanel.Location = new System.Drawing.Point(428, 206);
             this.loginPanel.Name = "loginPanel";
             this.loginPanel.Size = new System.Drawing.Size(400, 220);
@@ -153,20 +153,20 @@ namespace Evently.Forms
             this.reassuranceLabel.TabIndex = 7;
             this.reassuranceLabel.Text = "Data stays stored in your local database";
             // loginButton
-            this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
-            this.loginButton.FlatAppearance.BorderSize = 0;
-            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(286, 160);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(90, 30);
-            this.loginButton.TabIndex = 5;
-            this.loginButton.Text = "&Login";
-            this.loginButton.UseVisualStyleBackColor = false;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LoginButton.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
+            this.LoginButton.FlatAppearance.BorderSize = 0;
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.ForeColor = System.Drawing.Color.White;
+            this.LoginButton.Location = new System.Drawing.Point(286, 160);
+            this.LoginButton.Name = "loginButton";
+            this.LoginButton.Size = new System.Drawing.Size(90, 30);
+            this.LoginButton.TabIndex = 5;
+            this.LoginButton.Text = "&Login";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // LoginForm
-            this.AcceptButton = this.loginButton;
+            this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -204,7 +204,7 @@ namespace Evently.Forms
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label loginHintLabel;
         private System.Windows.Forms.Label reassuranceLabel;
-        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label heroSublineLabel;
     }
 }

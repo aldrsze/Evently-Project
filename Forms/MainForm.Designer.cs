@@ -129,7 +129,7 @@ namespace Evently.Forms
             this.eventsButton.TabIndex = 0;
             this.eventsButton.Text = "&Events";
             this.eventsButton.UseVisualStyleBackColor = true;
-            this.eventsButton.Click += new System.EventHandler(this.eventsButton_Click);
+            this.eventsButton.Click += new System.EventHandler(this.EventsButton_Click);
             // attendeesButton
             this.attendeesButton.Location = new System.Drawing.Point(3, 52);
             this.attendeesButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -138,7 +138,7 @@ namespace Evently.Forms
             this.attendeesButton.TabIndex = 1;
             this.attendeesButton.Text = "At&tendees";
             this.attendeesButton.UseVisualStyleBackColor = true;
-            this.attendeesButton.Click += new System.EventHandler(this.attendeesButton_Click);
+            this.attendeesButton.Click += new System.EventHandler(this.AttendeesButton_Click);
             // reviewsButton
             this.reviewsButton.Location = new System.Drawing.Point(3, 100);
             this.reviewsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -147,7 +147,7 @@ namespace Evently.Forms
             this.reviewsButton.TabIndex = 2;
             this.reviewsButton.Text = "&Reviews";
             this.reviewsButton.UseVisualStyleBackColor = true;
-            this.reviewsButton.Click += new System.EventHandler(this.reviewsButton_Click);
+            this.reviewsButton.Click += new System.EventHandler(this.ReviewsButton_Click);
             // checkInButton
             this.checkInButton.Location = new System.Drawing.Point(3, 148);
             this.checkInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -156,7 +156,7 @@ namespace Evently.Forms
             this.checkInButton.TabIndex = 3;
             this.checkInButton.Text = "Check-&In Scanner";
             this.checkInButton.UseVisualStyleBackColor = true;
-            this.checkInButton.Click += new System.EventHandler(this.checkInButton_Click);
+            this.checkInButton.Click += new System.EventHandler(this.CheckInButton_Click);
             // dashboardButton
             this.dashboardButton.Location = new System.Drawing.Point(3, 196);
             this.dashboardButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -165,7 +165,7 @@ namespace Evently.Forms
             this.dashboardButton.TabIndex = 4;
             this.dashboardButton.Text = "&Live Dashboard";
             this.dashboardButton.UseVisualStyleBackColor = true;
-            this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
+            this.dashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
             // usersButton
             this.usersButton.Location = new System.Drawing.Point(3, 244);
             this.usersButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -174,7 +174,7 @@ namespace Evently.Forms
             this.usersButton.TabIndex = 5;
             this.usersButton.Text = "&Manage Users";
             this.usersButton.UseVisualStyleBackColor = true;
-            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
+            this.usersButton.Click += new System.EventHandler(this.UsersButton_Click);
             // logoutButton
             this.logoutButton.Location = new System.Drawing.Point(3, 308);
             this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 4);
@@ -183,7 +183,7 @@ namespace Evently.Forms
             this.logoutButton.TabIndex = 6;
             this.logoutButton.Text = "L&ogout";
             this.logoutButton.UseVisualStyleBackColor = true;
-            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
+            this.logoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // sidebarHeaderLabel
             this.sidebarHeaderLabel.AutoSize = true;
             this.sidebarHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);

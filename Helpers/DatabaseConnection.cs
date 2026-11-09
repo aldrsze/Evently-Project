@@ -1,37 +1,31 @@
 using MySqlConnector;
 
-namespace Evently.Helpers
+namespace _.Helpers
 {
     public static class DatabaseConnection
     {
         public static readonly string connectionString = "Server=localhost;Database=evently_db;User ID=aldrsze;Password=;";
 
-        public static MySqlConnection getConnection()
+        public static MySqlConnection GetConnection()
         {
             var conn = new MySqlConnection(connectionString);
             conn.Open();
             return conn;
         }
 
-        public static void testConnection()
+        public static void TestConnection()
         {
-            using (var conn = getConnection())
-            {
-                MessageBox.Show("Database Connected Successfully.");
-            }
+            using var conn = GetConnection();
+            MessageBox.Show("Database Connected Successfully.");
         }
 
-        public static string? getPasswordHash(string username)
+        public static string? GetPasswordHash(string username)
         {
-            using (var conn = getConnection())
-            {
-                string query = "SELECT password FROM users WHERE username = @username";
-                using (var cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@username", username);
-                    return cmd.ExecuteScalar()?.ToString();
-                }
-            }
+            using var conn = GetConnection();
+            string query = "SELECT password FROM users WHERE username = @username";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            return cmd.ExecuteScalar()?.ToString();
         }
     }
 }
