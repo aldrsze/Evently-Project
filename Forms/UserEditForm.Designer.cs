@@ -67,7 +67,7 @@ namespace Evently.Forms
             this.passwordTextBox.UseSystemPasswordChar = true;
             // passwordHintLabel
             this.passwordHintLabel.AutoSize = true;
-            this.passwordHintLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.passwordHintLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.passwordHintLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.passwordHintLabel.Location = new System.Drawing.Point(140, 128);
             this.passwordHintLabel.Name = "passwordHintLabel";
@@ -96,7 +96,7 @@ namespace Evently.Forms
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // UserEditForm
             this.AcceptButton = this.saveButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.cancelButton;
@@ -110,7 +110,7 @@ namespace Evently.Forms
             this.Controls.Add(this.passwordHintLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

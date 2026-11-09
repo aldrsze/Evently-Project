@@ -51,7 +51,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -62,7 +62,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -158,7 +158,7 @@ namespace Evently.Forms
             this.saveUrlButton.Click += new System.EventHandler(this.saveUrlButton_Click);
             // urlHelperLabel
             this.urlHelperLabel.AutoSize = true;
-            this.urlHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.urlHelperLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.urlHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
             this.urlHelperLabel.Location = new System.Drawing.Point(230, 66);
             this.urlHelperLabel.Name = "urlHelperLabel";
@@ -209,7 +209,7 @@ namespace Evently.Forms
             // reassuranceLabel
             this.reassuranceLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.reassuranceLabel.AutoSize = true;
-            this.reassuranceLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.reassuranceLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.reassuranceLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
             this.reassuranceLabel.Location = new System.Drawing.Point(24, 296);
             this.reassuranceLabel.Name = "reassuranceLabel";
@@ -218,11 +218,11 @@ namespace Evently.Forms
             this.reassuranceLabel.Text = "Review requests are only sent to guests who checked in at the door";
             // ReviewsForm
             this.AcceptButton = this.saveUrlButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

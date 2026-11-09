@@ -44,7 +44,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -55,7 +55,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -121,7 +121,7 @@ namespace Evently.Forms
             // resultMessageLabel
             this.resultMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.resultMessageLabel.AutoSize = false;
-            this.resultMessageLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.resultMessageLabel.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
             this.resultMessageLabel.Location = new System.Drawing.Point(0, 8);
             this.resultMessageLabel.Name = "resultMessageLabel";
             this.resultMessageLabel.Size = new System.Drawing.Size(1256, 44);
@@ -131,7 +131,7 @@ namespace Evently.Forms
             // insideCountLabel
             this.insideCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.insideCountLabel.AutoSize = false;
-            this.insideCountLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.insideCountLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.insideCountLabel.ForeColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.insideCountLabel.Location = new System.Drawing.Point(0, 56);
             this.insideCountLabel.Name = "insideCountLabel";
@@ -142,7 +142,7 @@ namespace Evently.Forms
             // scannerGuidanceLabel
             this.scannerGuidanceLabel.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             this.scannerGuidanceLabel.AutoSize = false;
-            this.scannerGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.scannerGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.scannerGuidanceLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.scannerGuidanceLabel.Location = new System.Drawing.Point(0, 102);
             this.scannerGuidanceLabel.Name = "scannerGuidanceLabel";
@@ -151,11 +151,11 @@ namespace Evently.Forms
             this.scannerGuidanceLabel.Text = "First scan marks guest as checked in; second scan marks guest as checked out.";
             this.scannerGuidanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // CheckInForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

@@ -57,7 +57,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -68,7 +68,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -106,7 +106,7 @@ namespace Evently.Forms
             this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usersDataGridView.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.usersDataGridView.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
-            this.usersDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.usersDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.usersDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.usersDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.usersDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -236,7 +236,7 @@ namespace Evently.Forms
             this.actionPanel.TabIndex = 2;
             // accountStatusGuidanceLabel
             this.accountStatusGuidanceLabel.AutoSize = true;
-            this.accountStatusGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.accountStatusGuidanceLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountStatusGuidanceLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.accountStatusGuidanceLabel.Location = new System.Drawing.Point(0, 22);
             this.accountStatusGuidanceLabel.Name = "accountStatusGuidanceLabel";
@@ -272,11 +272,11 @@ namespace Evently.Forms
             this.editButton.Click += new System.EventHandler(this.EditButton_Click);
             // UserListForm
             this.AcceptButton = this.addButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

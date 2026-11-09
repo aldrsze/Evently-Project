@@ -47,7 +47,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -58,7 +58,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -95,7 +95,7 @@ namespace Evently.Forms
             this.eventsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.eventsDataGridView.ColumnHeadersDefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.eventsDataGridView.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(43, 87, 154);
-            this.eventsDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.eventsDataGridView.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.eventsDataGridView.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.eventsDataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.eventsDataGridView.ColumnHeadersDefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -151,7 +151,7 @@ namespace Evently.Forms
             this.bottomPanel.TabIndex = 1;
             // helperLabel
             this.helperLabel.AutoSize = true;
-            this.helperLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.helperLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.helperLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.helperLabel.Location = new System.Drawing.Point(0, 22);
             this.helperLabel.Name = "helperLabel";
@@ -190,11 +190,11 @@ namespace Evently.Forms
             this.deleteButton.UseVisualStyleBackColor = true;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // EventListForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

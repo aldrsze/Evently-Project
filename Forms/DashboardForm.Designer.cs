@@ -83,7 +83,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -95,7 +95,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -128,7 +128,7 @@ namespace Evently.Forms
 
             // eventLabel
             this.eventLabel.AutoSize = true;
-            this.eventLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.eventLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.eventLabel.Location = new System.Drawing.Point(0, 10);
             this.eventLabel.Name = "eventLabel";
             this.eventLabel.Size = new System.Drawing.Size(42, 15);
@@ -231,7 +231,7 @@ namespace Evently.Forms
 
             // insideLabel
             this.insideLabel.AutoSize = true;
-            this.insideLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.insideLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.insideLabel.ForeColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.insideLabel.Location = new System.Drawing.Point(4, 62);
             this.insideLabel.Name = "insideLabel";
@@ -262,7 +262,7 @@ namespace Evently.Forms
             this.attendancePieChart.Dock = System.Windows.Forms.DockStyle.Fill;
             pieLegend.BackColor = System.Drawing.Color.Transparent;
             pieLegend.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            pieLegend.Font = new System.Drawing.Font("Segoe UI", 8F);
+            pieLegend.Font = new System.Drawing.Font("Segoe UI", 9F);
             pieLegend.Name = "PieLegend";
             this.attendancePieChart.Legends.Add(pieLegend);
             this.attendancePieChart.Location = new System.Drawing.Point(232, 0);
@@ -291,11 +291,11 @@ namespace Evently.Forms
             this.timelineGroupBox.Text = "Check-Ins Over Time";
 
             // timelineChart
-            timelineChartArea.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            timelineChartArea.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             timelineChartArea.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             timelineChartArea.AxisX.LineColor = System.Drawing.Color.FromArgb(210, 210, 210);
             timelineChartArea.AxisX.MajorGrid.LineColor = System.Drawing.Color.FromArgb(242, 242, 242);
-            timelineChartArea.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            timelineChartArea.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F);
             timelineChartArea.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             timelineChartArea.AxisY.LineColor = System.Drawing.Color.FromArgb(210, 210, 210);
             timelineChartArea.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(242, 242, 242);
@@ -306,7 +306,7 @@ namespace Evently.Forms
             timelineLegend.Alignment = System.Drawing.StringAlignment.Far;
             timelineLegend.BackColor = System.Drawing.Color.Transparent;
             timelineLegend.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            timelineLegend.Font = new System.Drawing.Font("Segoe UI", 8F);
+            timelineLegend.Font = new System.Drawing.Font("Segoe UI", 9F);
             timelineLegend.Name = "TimelineLegend";
             this.timelineChart.Legends.Add(timelineLegend);
             this.timelineChart.Location = new System.Drawing.Point(8, 24);
@@ -402,7 +402,7 @@ namespace Evently.Forms
 
             // emailsHelperLabel
             this.emailsHelperLabel.AutoSize = true;
-            this.emailsHelperLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.emailsHelperLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.emailsHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
             this.emailsHelperLabel.Location = new System.Drawing.Point(8, 56);
             this.emailsHelperLabel.MaximumSize = new System.Drawing.Size(210, 0);
@@ -428,7 +428,7 @@ namespace Evently.Forms
             this.recentCheckInsListBox.BackColor = System.Drawing.Color.White;
             this.recentCheckInsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.recentCheckInsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.recentCheckInsListBox.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.recentCheckInsListBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.recentCheckInsListBox.FormattingEnabled = true;
             this.recentCheckInsListBox.IntegralHeight = false;
             this.recentCheckInsListBox.ItemHeight = 15;
@@ -443,11 +443,11 @@ namespace Evently.Forms
             this.dashboardTimer.Tick += new System.EventHandler(this.dashboardTimer_Tick);
 
             // DashboardForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;

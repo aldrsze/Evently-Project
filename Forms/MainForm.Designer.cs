@@ -50,7 +50,7 @@ namespace Evently.Forms
             // titleLabel
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(12, 10);
             this.titleLabel.Name = "titleLabel";
@@ -61,7 +61,7 @@ namespace Evently.Forms
             // heroSublineLabel
             this.heroSublineLabel.AutoSize = true;
             this.heroSublineLabel.BackColor = System.Drawing.Color.Transparent;
-            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.heroSublineLabel.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.heroSublineLabel.ForeColor = System.Drawing.Color.FromArgb(218, 230, 245);
             this.heroSublineLabel.Location = new System.Drawing.Point(12, 38);
             this.heroSublineLabel.Name = "heroSublineLabel";
@@ -186,7 +186,7 @@ namespace Evently.Forms
             this.logoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // sidebarHeaderLabel
             this.sidebarHeaderLabel.AutoSize = true;
-            this.sidebarHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 8.5F, System.Drawing.FontStyle.Bold);
+            this.sidebarHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.sidebarHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.sidebarHeaderLabel.Location = new System.Drawing.Point(6, 372);
             this.sidebarHeaderLabel.Margin = new System.Windows.Forms.Padding(6, 20, 3, 6);
@@ -196,7 +196,7 @@ namespace Evently.Forms
             this.sidebarHeaderLabel.Text = "Evently capabilities";
             // bullet1Label
             this.bullet1Label.AutoSize = true;
-            this.bullet1Label.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.bullet1Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet1Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.bullet1Label.Location = new System.Drawing.Point(6, 395);
             this.bullet1Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
@@ -206,7 +206,7 @@ namespace Evently.Forms
             this.bullet1Label.Text = "• Issue and email unique QR tickets";
             // bullet2Label
             this.bullet2Label.AutoSize = true;
-            this.bullet2Label.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.bullet2Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet2Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.bullet2Label.Location = new System.Drawing.Point(6, 412);
             this.bullet2Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
@@ -216,7 +216,7 @@ namespace Evently.Forms
             this.bullet2Label.Text = "• Scan guests at entry and exit";
             // bullet3Label
             this.bullet3Label.AutoSize = true;
-            this.bullet3Label.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.bullet3Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet3Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
             this.bullet3Label.Location = new System.Drawing.Point(6, 429);
             this.bullet3Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
@@ -226,7 +226,7 @@ namespace Evently.Forms
             this.bullet3Label.Text = "• Enforce venue capacity limits";
             // sidebarFooterLabel
             this.sidebarFooterLabel.AutoSize = true;
-            this.sidebarFooterLabel.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.sidebarFooterLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sidebarFooterLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
             this.sidebarFooterLabel.Location = new System.Drawing.Point(6, 464);
             this.sidebarFooterLabel.Margin = new System.Windows.Forms.Padding(6, 20, 3, 2);
@@ -236,10 +236,10 @@ namespace Evently.Forms
             this.sidebarFooterLabel.TabIndex = 11;
             this.sidebarFooterLabel.Text = "Local database keeps attendee records synchronized";
             // MainForm
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.headerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
