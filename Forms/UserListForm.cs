@@ -1,5 +1,4 @@
-using System;
-using System.Windows.Forms;
+using _.Helpers;
 
 namespace Evently.Forms
 {
@@ -8,10 +7,17 @@ namespace Evently.Forms
         public UserListForm()
         {
             InitializeComponent();
+            LoadUsers();
         }
 
-        private void addButton_Click(object sender, EventArgs e) { /* TODO: Add user */ }
-        private void deactivateButton_Click(object sender, EventArgs e) { /* TODO: Deactivate user */ }
-        private void reactivateButton_Click(object sender, EventArgs e) { /* TODO: Reactivate user */ }
+        private void LoadUsers()
+        {
+            usersDataGridView.DataSource = null;
+            usersDataGridView.DataSource = UserService.GetUser();
+        }
+
+        private void AddButton_Click(object sender, EventArgs e) { /* TODO: Add user */ }
+        private void DeactivateButton_Click(object sender, EventArgs e) { /* TODO: Deactivate user */ }
+        private void ReactivateButton_Click(object sender, EventArgs e) { /* TODO: Reactivate user */ }
     }
 }

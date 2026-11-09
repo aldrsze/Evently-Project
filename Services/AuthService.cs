@@ -13,12 +13,10 @@ namespace Evently.Services
 
                 if (storedHash != null && PasswordHelper.VerifyPassword(password, storedHash))
                 {
-                    MessageBox.Show("Login Successful.");
                     return true;
                 } // end if
                 else
                 {
-                    MessageBox.Show("Invalid username or password.");
                     return false;
                 } // end else
             }

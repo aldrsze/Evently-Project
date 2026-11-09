@@ -100,7 +100,7 @@ namespace Evently.Forms
             this.usersDataGridView.AllowUserToAddRows = false;
             this.usersDataGridView.AllowUserToDeleteRows = false;
             this.usersDataGridView.AllowUserToResizeRows = false;
-            this.usersDataGridView.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(249, 249, 249);
+            this.usersDataGridView.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.usersDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.usersDataGridView.BackgroundColor = System.Drawing.Color.White;
             this.usersDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -117,14 +117,15 @@ namespace Evently.Forms
             this.roleColumn,
             this.activeColumn});
             this.usersDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.usersDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
-            this.usersDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.usersDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(233, 238, 246);
+            this.usersDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.usersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.usersDataGridView.EnableHeadersVisualStyles = false;
             this.usersDataGridView.GridColor = System.Drawing.Color.FromArgb(224, 224, 224);
             this.usersDataGridView.Location = new System.Drawing.Point(0, 0);
             this.usersDataGridView.MultiSelect = false;
             this.usersDataGridView.Name = "usersDataGridView";
+            this.usersDataGridView.AutoGenerateColumns = false;
             this.usersDataGridView.ReadOnly = true;
             this.usersDataGridView.RowHeadersVisible = false;
             this.usersDataGridView.RowTemplate.Height = 28;
@@ -135,14 +136,17 @@ namespace Evently.Forms
             this.usernameColumn.HeaderText = "Username";
             this.usernameColumn.Name = "usernameColumn";
             this.usernameColumn.ReadOnly = true;
+            this.usernameColumn.DataPropertyName = "username";
             // roleColumn
             this.roleColumn.HeaderText = "Role";
             this.roleColumn.Name = "roleColumn";
             this.roleColumn.ReadOnly = true;
+            this.roleColumn.DataPropertyName = "role";
             // activeColumn
             this.activeColumn.HeaderText = "Active";
             this.activeColumn.Name = "activeColumn";
             this.activeColumn.ReadOnly = true;
+            this.activeColumn.DataPropertyName = "is_active";
             // addUserWrapperPanel
             this.addUserWrapperPanel.BackColor = System.Drawing.Color.White;
             this.addUserWrapperPanel.Controls.Add(this.addUserGroupBox);
@@ -227,7 +231,7 @@ namespace Evently.Forms
             this.addButton.TabIndex = 6;
             this.addButton.Text = "&Add";
             this.addButton.UseVisualStyleBackColor = false;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // actionPanel
             this.actionPanel.BackColor = System.Drawing.Color.White;
             this.actionPanel.Controls.Add(this.accountStatusGuidanceLabel);
@@ -255,7 +259,7 @@ namespace Evently.Forms
             this.deactivateButton.TabIndex = 0;
             this.deactivateButton.Text = "&Deactivate";
             this.deactivateButton.UseVisualStyleBackColor = true;
-            this.deactivateButton.Click += new System.EventHandler(this.deactivateButton_Click);
+            this.deactivateButton.Click += new System.EventHandler(this.DeactivateButton_Click);
             // reactivateButton
             this.reactivateButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.reactivateButton.Location = new System.Drawing.Point(1166, 16);
@@ -264,7 +268,7 @@ namespace Evently.Forms
             this.reactivateButton.TabIndex = 1;
             this.reactivateButton.Text = "&Reactivate";
             this.reactivateButton.UseVisualStyleBackColor = true;
-            this.reactivateButton.Click += new System.EventHandler(this.reactivateButton_Click);
+            this.reactivateButton.Click += new System.EventHandler(this.ReactivateButton_Click);
             // UserListForm
             this.AcceptButton = this.addButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
