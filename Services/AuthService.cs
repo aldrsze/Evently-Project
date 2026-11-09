@@ -20,7 +20,7 @@ namespace _.Services
         public static string? GetPasswordHash(string username)
         {
             using var conn = DatabaseConnection.GetConnection();
-            string query = "SELECT password FROM users WHERE username = @username";
+            string query = "SELECT password FROM users WHERE username = @username AND is_active = 1";
             using var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@username", username);
             return cmd.ExecuteScalar()?.ToString();
