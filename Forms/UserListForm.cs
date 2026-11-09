@@ -164,7 +164,7 @@ namespace Evently.Forms
                 {
                     if (string.Equals(oldUsername, Session.CurrentUsername, StringComparison.OrdinalIgnoreCase))
                     {
-                        Session.CurrentUsername = newUsername;
+                        Session.RenameCurrentUser(newUsername);
                     }
                     MessageBox.Show("User updated.");
                     LoadUsers();
