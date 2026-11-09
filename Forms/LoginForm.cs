@@ -11,22 +11,29 @@ namespace Evently.Forms
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            String username = usernameTextBox.Text;
-            String password = passwordTextBox.Text;
+            string username = usernameTextBox.Text;
+            string password = passwordTextBox.Text;
 
-            if (AuthService.VerifyAuth(username, password))
+            try
             {
-                MessageBox.Show("Login Successful.");
-                usernameTextBox.Text = "";
-                passwordTextBox.Text = "";
-                Hide();
-                using (var mainForm = new MainForm())
+                if (AuthService.VerifyAuth(username, password))
                 {
-                    mainForm.ShowDialog(this);
+                    MessageBox.Show("Login Successful.");
+                    usernameTextBox.Text = "";
+                    passwordTextBox.Text = "";
+                    Hide();
+                    using (var mainForm = new MainForm())
+                    {
+                        mainForm.ShowDialog(this);
+                    }
+                    Show();
                 }
-                Show();
+                else { MessageBox.Show("Invalid username or password."); }
             }
-            else { MessageBox.Show("Invalid username or password."); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
 
         } // end loginButton_Click
 

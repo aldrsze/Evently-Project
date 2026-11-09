@@ -5,27 +5,18 @@ namespace _.Services
 {
     public static class AuthService
     {
-        public static Boolean VerifyAuth(String username, String password)
+        public static bool VerifyAuth(string username, string password)
         {
-            try
-            {
-                string? storedHash = GetPasswordHash(username);
+            string? storedHash = GetPasswordHash(username);
 
-                if (storedHash != null && PasswordHelper.VerifyPassword(password, storedHash))
-                {
-                    return true;
-                } // end if
-                else
-                {
-                    return false;
-                } // end else
-            }
-            catch (Exception ex)
+            if (storedHash == null)
             {
-                MessageBox.Show("Error: " + ex.Message);
                 return false;
-            } // end catch
-        }
+            }
+
+            return PasswordHelper.VerifyPassword(password, storedHash);
+        } // end VerifyAuth
+
         public static string? GetPasswordHash(string username)
         {
             using var conn = DatabaseConnection.GetConnection();

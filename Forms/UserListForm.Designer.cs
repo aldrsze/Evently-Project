@@ -208,6 +208,7 @@ namespace Evently.Forms
             this.roleComboBox.Items.AddRange(new object[] { "ADMIN", "STAFF" });
             this.roleComboBox.Location = new System.Drawing.Point(504, 26);
             this.roleComboBox.Name = "roleComboBox";
+            this.roleComboBox.SelectedIndex = 0;
             this.roleComboBox.Size = new System.Drawing.Size(100, 23);
             this.roleComboBox.TabIndex = 5;
             // roleHelperLabel
