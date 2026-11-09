@@ -1,5 +1,4 @@
-using System;
-using System.Windows.Forms;
+using _.Helpers;
 
 namespace Evently.Forms
 {
@@ -13,6 +12,7 @@ namespace Evently.Forms
             InitializeComponent();
             FormClosing += MainForm_FormClosing;
             ShowForm(new EventListForm());
+            DatabaseConnection.TestConnection();
         }
 
         private void ShowForm(Form form)
@@ -66,7 +66,7 @@ namespace Evently.Forms
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            DialogResult answer = MessageBox.Show("Log out of Evently?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult answer = MessageBox.Show("Log out of Evently? You will need your password to sign in again.", "Confirm logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (answer == DialogResult.Yes)
             {
                 loggingOut = true;
@@ -80,7 +80,7 @@ namespace Evently.Forms
             {
                 e.Cancel = true; // Prevents the window from closing
                 // Optional: Show a warning message
-                MessageBox.Show("Please use the designated logout button inside the app.", "Action Blocked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Close this window with Log out in the sidebar.", "Use Log out", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

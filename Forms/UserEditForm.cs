@@ -39,13 +39,13 @@ namespace Evently.Forms
 
             if (username == "")
             {
-                MessageBox.Show("Username is required.");
+                MessageBox.Show("Enter a username.", "Edit account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (passwordTextBox.Text != "" && passwordTextBox.Text.Length < UserService.MinPasswordLength)
             {
-                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                MessageBox.Show("Use at least " + UserService.MinPasswordLength + " characters for the password.", "Edit account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

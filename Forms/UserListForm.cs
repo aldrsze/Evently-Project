@@ -23,11 +23,11 @@ namespace Evently.Forms
             string password = passwordTextBox.Text;
             string role = roleComboBox.Text;
 
-            if (username == "" || password == "" || role == "") { MessageBox.Show("Please complete all fields."); return; }
+            if (username == "" || password == "" || role == "") { MessageBox.Show("Fill in username, password, and role.", "Add account", MessageBoxButtons.OK, MessageBoxIcon.Warning); return; }
 
             if (password.Length < UserService.MinPasswordLength)
             {
-                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                MessageBox.Show("Use at least " + UserService.MinPasswordLength + " characters for the password.", "Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -35,16 +35,16 @@ namespace Evently.Forms
             {
                 if (UserService.AddUser(username, password, role))
                 {
-                    MessageBox.Show("User added.");
+                    MessageBox.Show("Account created. It can sign in right away.", "Account added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     usernameTextBox.Text = "";
                     passwordTextBox.Text = "";
                     LoadUsers();
                 }
-                else { MessageBox.Show("Username already used."); }
+                else { MessageBox.Show("That username is already taken. Choose another one.", "Username taken", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("The change could not be saved. " + ex.Message, "Save failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -63,7 +63,7 @@ namespace Evently.Forms
         {
             if (usersDataGridView.CurrentRow == null)
             {
-                MessageBox.Show("Select a user first.");
+                MessageBox.Show("Select a user in the list first.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -74,13 +74,13 @@ namespace Evently.Forms
 
             if (isActive == false && isSelf)
             {
-                MessageBox.Show("You cannot deactivate your own account.");
+                MessageBox.Show("You cannot deactivate the account you are signed in with.", "Own account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (isActive == false && WouldRemoveLastAdmin(username))
             {
-                MessageBox.Show("This is the last active admin. Deactivating it would lock everyone out.");
+                MessageBox.Show("This is the only active admin. Create another admin before deactivating this one.", "Last active admin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -88,18 +88,18 @@ namespace Evently.Forms
             {
                 if (UserService.SetUserActive(username, isActive))
                 {
-                    if (isActive) { MessageBox.Show("User reactivated."); }
-                    else { MessageBox.Show("User deactivated."); }
+                    if (isActive) { MessageBox.Show("Account reactivated. It can sign in again.", "Account updated", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                    else { MessageBox.Show("Account deactivated. It can no longer sign in.", "Account updated", MessageBoxButtons.OK, MessageBoxIcon.Information); }
                     LoadUsers();
                 }
                 else
                 {
-                    MessageBox.Show("No change. The user is missing or already in that state.");
+                    MessageBox.Show("Nothing changed. The account is missing or already in that state.", "No change", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("The change could not be saved. " + ex.Message, "Save failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,7 +119,7 @@ namespace Evently.Forms
         {
             if (usersDataGridView.CurrentRow == null)
             {
-                MessageBox.Show("Select a user first.");
+                MessageBox.Show("Select a user in the list first.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -142,19 +142,19 @@ namespace Evently.Forms
 
             if (newUsername == "")
             {
-                MessageBox.Show("Username is required.");
+                MessageBox.Show("Enter a username.", "Edit account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (newPassword != "" && newPassword.Length < UserService.MinPasswordLength)
             {
-                MessageBox.Show("Password must be at least " + UserService.MinPasswordLength + " characters.");
+                MessageBox.Show("Use at least " + UserService.MinPasswordLength + " characters for the password.", "Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (role != "ADMIN" && WouldRemoveLastAdmin(oldUsername))
             {
-                MessageBox.Show("This is the last active admin. Changing its role would lock everyone out.");
+                MessageBox.Show("This is the only active admin. Give another account the admin role first.", "Last active admin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -166,17 +166,17 @@ namespace Evently.Forms
                     {
                         Session.RenameCurrentUser(newUsername);
                     }
-                    MessageBox.Show("User updated.");
+                    MessageBox.Show("Account updated.", "Account saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadUsers();
                 }
                 else
                 {
-                    MessageBox.Show("Username already used.");
+                    MessageBox.Show("That username is already taken. Choose another one.", "Username taken", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("The change could not be saved. " + ex.Message, "Save failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

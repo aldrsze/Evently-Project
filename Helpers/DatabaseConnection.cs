@@ -16,7 +16,7 @@ namespace _.Helpers
         public static void TestConnection()
         {
             using var conn = GetConnection();
-            MessageBox.Show("Database Connected Successfully.");
+            MessageBox.Show("Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }

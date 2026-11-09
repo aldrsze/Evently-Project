@@ -20,7 +20,7 @@ namespace Evently.Forms
                 if (AuthService.VerifyAuth(username, password))
                 {
                     Session.SignIn(username, AuthService.GetRole(username) ?? "");
-                    MessageBox.Show("Login Successful.");
+                    MessageBox.Show("You are signed in. Opening Evently now.", "Signed in", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     usernameTextBox.Text = "";
                     passwordTextBox.Text = "";
                     Hide();
@@ -29,11 +29,11 @@ namespace Evently.Forms
                     Session.SignOut();
                     Show();
                 }
-                else { MessageBox.Show("Invalid username or password."); }
+                else { MessageBox.Show("That username and password do not match an active account.", "Sign-in failed", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Could not sign in. " + ex.Message, "Sign-in error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         } // end loginButton_Click
