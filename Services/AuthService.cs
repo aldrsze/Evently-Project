@@ -1,4 +1,5 @@
 using _.Helpers;
+using MySqlConnector;
 
 namespace Evently.Services
 {
@@ -8,7 +9,7 @@ namespace Evently.Services
         {
             try
             {
-                string? storedHash = DatabaseConnection.GetPasswordHash(username);
+                string? storedHash = GetPasswordHash(username);
 
                 if (storedHash != null && PasswordHelper.VerifyPassword(password, storedHash))
                 {
@@ -26,6 +27,14 @@ namespace Evently.Services
                 MessageBox.Show("Error: " + ex.Message);
                 return false;
             } // end catch
+        }
+        public static string? GetPasswordHash(string username)
+        {
+            using var conn = DatabaseConnection.GetConnection();
+            string query = "SELECT password FROM users WHERE username = @username";
+            using var cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@username", username);
+            return cmd.ExecuteScalar()?.ToString();
         }
     }
 }

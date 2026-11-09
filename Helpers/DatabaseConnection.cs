@@ -19,13 +19,5 @@ namespace _.Helpers
             MessageBox.Show("Database Connected Successfully.");
         }
 
-        public static string? GetPasswordHash(string username)
-        {
-            using var conn = GetConnection();
-            string query = "SELECT password FROM users WHERE username = @username";
-            using var cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@username", username);
-            return cmd.ExecuteScalar()?.ToString();
-        }
     }
 }
