@@ -1,0 +1,5 @@
+# Copy this file to db.config and fill in your own MySQL settings.
+Server=localhost
+Database=evently_db
+User=root
+Password=your_password_here
