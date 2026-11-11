@@ -32,11 +32,17 @@ Login is `admin` / `admin123`. Change it after your first sign in.
 
 `db.config` is git-ignored, so each machine keeps its own credentials. The project copies it next to the exe on build, so keep it in the project root.
 
+Do this before the first run. If `db.config` is missing, the app starts anyway and falls back to the built-in defaults (empty password), which usually just fails to connect.
+
 4. Build and run:
 
 ```
 dotnet run
 ```
+
+`dotnet run` restores packages and builds for you, so no separate `dotnet build` is needed.
+
+Because `db.config` is copied at build time, a later edit to it only takes effect after the next build. Stop the app, run `dotnet run` again, and it copies the new values.
 
 ## Updating the schema
 
