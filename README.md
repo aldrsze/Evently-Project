@@ -12,11 +12,14 @@ Windows Forms app (.NET 9) for managing events, attendees and tickets. Data is s
 
 1. Clone the repo.
 
-2. Create the database and its tables:
+2. Create the database, then its tables:
 
 ```
-cmd /c "mysql -u root -p < db\schema.sql"
+cmd /c "mysql -u root -p -e \"CREATE DATABASE IF NOT EXISTS evently_db\""
+cmd /c "mysql -u root -p evently_db < db\schema.sql"
 ```
+
+`db\schema.sql` is hand-written, so it holds only `CREATE TABLE` statements — no `CREATE DATABASE`, no `USE`, no rows. That is why the database is created first and named on the second line.
 
 Then add the demo admin, or you will have no account to sign in with:
 
@@ -46,15 +49,9 @@ Because `db.config` is copied at build time, a later edit to it only takes effec
 
 ## Updating the schema
 
-After you change tables, re-export the structure. `db\schema.sql` holds only `CREATE TABLE` statements, never real rows.
+`db\schema.sql` is the source of truth and is edited by hand. Keep it to `CREATE TABLE` statements only: no real rows, no database commands.
 
-```
-cmd /c "mysqldump -u root -p --no-data --set-gtid-purged=OFF --databases evently_db > db\schema.sql"
-```
-
-Run it from `cmd` or through `cmd /c` like above. PowerShell's `>` writes UTF-16, and the MySQL client will not import that.
-
-`--no-data` keeps every row out. `--databases` adds `CREATE DATABASE IF NOT EXISTS` and `USE`, so the dump restores on a machine that has no database yet.
+To apply an edit on your machine, run the changed statements in a MySQL client, or drop the database and import the file again following step 2.
 
 ## Never commit
 
