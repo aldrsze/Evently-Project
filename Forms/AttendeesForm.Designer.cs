@@ -24,10 +24,6 @@ namespace Evently.Forms
             this.attendeesDataGridView = new System.Windows.Forms.DataGridView();
             this.attendeeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ticketEmailedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkedInColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkedOutColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ratingColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addAttendeeWrapperPanel = new System.Windows.Forms.Panel();
             this.addAttendeeGroupBox = new System.Windows.Forms.GroupBox();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -149,11 +145,7 @@ namespace Evently.Forms
             this.attendeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.attendeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.attendeeNameColumn,
-            this.emailColumn,
-            this.ticketEmailedColumn,
-            this.checkedInColumn,
-            this.checkedOutColumn,
-            this.ratingColumn});
+            this.emailColumn});
             this.attendeesDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.attendeesDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
             this.attendeesDataGridView.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -177,22 +169,6 @@ namespace Evently.Forms
             this.emailColumn.HeaderText = "Email";
             this.emailColumn.Name = "emailColumn";
             this.emailColumn.ReadOnly = true;
-            // ticketEmailedColumn
-            this.ticketEmailedColumn.HeaderText = "Ticket Emailed";
-            this.ticketEmailedColumn.Name = "ticketEmailedColumn";
-            this.ticketEmailedColumn.ReadOnly = true;
-            // checkedInColumn
-            this.checkedInColumn.HeaderText = "Checked In";
-            this.checkedInColumn.Name = "checkedInColumn";
-            this.checkedInColumn.ReadOnly = true;
-            // checkedOutColumn
-            this.checkedOutColumn.HeaderText = "Checked Out";
-            this.checkedOutColumn.Name = "checkedOutColumn";
-            this.checkedOutColumn.ReadOnly = true;
-            // ratingColumn
-            this.ratingColumn.HeaderText = "Rating";
-            this.ratingColumn.Name = "ratingColumn";
-            this.ratingColumn.ReadOnly = true;
             // addAttendeeWrapperPanel
             this.addAttendeeWrapperPanel.BackColor = System.Drawing.Color.White;
             this.addAttendeeWrapperPanel.Controls.Add(this.addAttendeeGroupBox);
@@ -369,10 +345,6 @@ namespace Evently.Forms
         private System.Windows.Forms.DataGridView attendeesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn attendeeNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ticketEmailedColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkedInColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkedOutColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ratingColumn;
         private System.Windows.Forms.Panel addAttendeeWrapperPanel;
         private System.Windows.Forms.GroupBox addAttendeeGroupBox;
         private System.Windows.Forms.Label nameLabel;
