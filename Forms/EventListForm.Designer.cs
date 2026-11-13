@@ -21,6 +21,7 @@ namespace Evently.Forms
             this.eventsDataGridView = new System.Windows.Forms.DataGridView();
             this.eventNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.venueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.capacityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bottomPanel = new System.Windows.Forms.Panel();
@@ -104,6 +105,7 @@ namespace Evently.Forms
             this.eventsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.eventNameColumn,
             this.venueColumn,
+            this.descriptionColumn,
             this.dateColumn,
             this.capacityColumn});
             this.eventsDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -126,14 +128,22 @@ namespace Evently.Forms
             this.eventNameColumn.Name = "eventNameColumn";
             this.eventNameColumn.ReadOnly = true;
             // venueColumn
+            this.venueColumn.FillWeight = 60F;
             this.venueColumn.HeaderText = "Venue";
             this.venueColumn.Name = "venueColumn";
             this.venueColumn.ReadOnly = true;
+            // descriptionColumn
+            this.descriptionColumn.FillWeight = 110F;
+            this.descriptionColumn.HeaderText = "Description";
+            this.descriptionColumn.Name = "descriptionColumn";
+            this.descriptionColumn.ReadOnly = true;
             // dateColumn
+            this.dateColumn.FillWeight = 60F;
             this.dateColumn.HeaderText = "Date";
             this.dateColumn.Name = "dateColumn";
             this.dateColumn.ReadOnly = true;
             // capacityColumn
+            this.capacityColumn.FillWeight = 40F;
             this.capacityColumn.HeaderText = "Capacity";
             this.capacityColumn.Name = "capacityColumn";
             this.capacityColumn.ReadOnly = true;
@@ -221,6 +231,7 @@ namespace Evently.Forms
         private System.Windows.Forms.DataGridView eventsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn eventNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn venueColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn capacityColumn;
         private System.Windows.Forms.Panel bottomPanel;
