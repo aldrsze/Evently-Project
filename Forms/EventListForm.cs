@@ -10,8 +10,8 @@ namespace Evently.Forms
             InitializeComponent();
         }
 
-        private void createButton_Click(object sender, EventArgs e) { /* TODO: Open EventEditForm for new event */ }
-        private void editButton_Click(object sender, EventArgs e) { /* TODO: Open EventEditForm for selected event */ }
+        private void createButton_Click(object sender, EventArgs e) { /* TODO: Create event */ }
+        private void editButton_Click(object sender, EventArgs e) { /* TODO: Edit selected event */ }
         private void deleteButton_Click(object sender, EventArgs e) { /* TODO: Delete selected event */ }
     }
 }

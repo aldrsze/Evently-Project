@@ -360,7 +360,6 @@ evently/
 │   ├── UserListForm.cs / .Designer.cs
 │   ├── UserEditForm.cs / .Designer.cs
 │   ├── EventListForm.cs / .Designer.cs
-│   ├── EventEditForm.cs / .Designer.cs
 │   ├── AttendeesForm.cs / .Designer.cs
 │   ├── ReviewsForm.cs / .Designer.cs
 │   ├── CheckInForm.cs / .Designer.cs
