@@ -44,6 +44,11 @@ namespace Evently.Forms
             ShowForm(new AttendeesForm());
         }
 
+        private void ManagersButton_Click(object sender, EventArgs e)
+        {
+            ShowForm(new OrganizersForm());
+        }
+
         private void ReviewsButton_Click(object sender, EventArgs e)
         {
             ShowForm(new ReviewsForm());

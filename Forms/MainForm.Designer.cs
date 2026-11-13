@@ -22,6 +22,7 @@ namespace Evently.Forms
             this.menuPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.eventsButton = new System.Windows.Forms.Button();
             this.attendeesButton = new System.Windows.Forms.Button();
+            this.managersButton = new System.Windows.Forms.Button();
             this.reviewsButton = new System.Windows.Forms.Button();
             this.checkInButton = new System.Windows.Forms.Button();
             this.dashboardButton = new System.Windows.Forms.Button();
@@ -103,6 +104,7 @@ namespace Evently.Forms
             this.menuPanel.BackColor = System.Drawing.Color.FromArgb(249, 249, 249);
             this.menuPanel.Controls.Add(this.eventsButton);
             this.menuPanel.Controls.Add(this.attendeesButton);
+            this.menuPanel.Controls.Add(this.managersButton);
             this.menuPanel.Controls.Add(this.reviewsButton);
             this.menuPanel.Controls.Add(this.checkInButton);
             this.menuPanel.Controls.Add(this.dashboardButton);
@@ -139,48 +141,57 @@ namespace Evently.Forms
             this.attendeesButton.Text = "At&tendees";
             this.attendeesButton.UseVisualStyleBackColor = true;
             this.attendeesButton.Click += new System.EventHandler(this.AttendeesButton_Click);
+            // managersButton
+            this.managersButton.Location = new System.Drawing.Point(3, 100);
+            this.managersButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.managersButton.Name = "managersButton";
+            this.managersButton.Size = new System.Drawing.Size(200, 40);
+            this.managersButton.TabIndex = 2;
+            this.managersButton.Text = "Ma&nagers";
+            this.managersButton.UseVisualStyleBackColor = true;
+            this.managersButton.Click += new System.EventHandler(this.ManagersButton_Click);
             // reviewsButton
-            this.reviewsButton.Location = new System.Drawing.Point(3, 100);
+            this.reviewsButton.Location = new System.Drawing.Point(3, 148);
             this.reviewsButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.reviewsButton.Name = "reviewsButton";
             this.reviewsButton.Size = new System.Drawing.Size(200, 40);
-            this.reviewsButton.TabIndex = 2;
+            this.reviewsButton.TabIndex = 3;
             this.reviewsButton.Text = "&Reviews";
             this.reviewsButton.UseVisualStyleBackColor = true;
             this.reviewsButton.Click += new System.EventHandler(this.ReviewsButton_Click);
             // checkInButton
-            this.checkInButton.Location = new System.Drawing.Point(3, 148);
+            this.checkInButton.Location = new System.Drawing.Point(3, 196);
             this.checkInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.checkInButton.Name = "checkInButton";
             this.checkInButton.Size = new System.Drawing.Size(200, 40);
-            this.checkInButton.TabIndex = 3;
+            this.checkInButton.TabIndex = 4;
             this.checkInButton.Text = "Check-&In Scanner";
             this.checkInButton.UseVisualStyleBackColor = true;
             this.checkInButton.Click += new System.EventHandler(this.CheckInButton_Click);
             // dashboardButton
-            this.dashboardButton.Location = new System.Drawing.Point(3, 196);
+            this.dashboardButton.Location = new System.Drawing.Point(3, 244);
             this.dashboardButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dashboardButton.Name = "dashboardButton";
             this.dashboardButton.Size = new System.Drawing.Size(200, 40);
-            this.dashboardButton.TabIndex = 4;
+            this.dashboardButton.TabIndex = 5;
             this.dashboardButton.Text = "&Live Dashboard";
             this.dashboardButton.UseVisualStyleBackColor = true;
             this.dashboardButton.Click += new System.EventHandler(this.DashboardButton_Click);
             // usersButton
-            this.usersButton.Location = new System.Drawing.Point(3, 244);
+            this.usersButton.Location = new System.Drawing.Point(3, 292);
             this.usersButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usersButton.Name = "usersButton";
             this.usersButton.Size = new System.Drawing.Size(200, 40);
-            this.usersButton.TabIndex = 5;
+            this.usersButton.TabIndex = 6;
             this.usersButton.Text = "&Manage Users";
             this.usersButton.UseVisualStyleBackColor = true;
             this.usersButton.Click += new System.EventHandler(this.UsersButton_Click);
             // logoutButton
-            this.logoutButton.Location = new System.Drawing.Point(3, 308);
+            this.logoutButton.Location = new System.Drawing.Point(3, 356);
             this.logoutButton.Margin = new System.Windows.Forms.Padding(3, 20, 3, 4);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(200, 40);
-            this.logoutButton.TabIndex = 6;
+            this.logoutButton.TabIndex = 7;
             this.logoutButton.Text = "L&ogout";
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
@@ -188,52 +199,52 @@ namespace Evently.Forms
             this.sidebarHeaderLabel.AutoSize = true;
             this.sidebarHeaderLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.sidebarHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.sidebarHeaderLabel.Location = new System.Drawing.Point(6, 372);
+            this.sidebarHeaderLabel.Location = new System.Drawing.Point(6, 420);
             this.sidebarHeaderLabel.Margin = new System.Windows.Forms.Padding(6, 20, 3, 6);
             this.sidebarHeaderLabel.Name = "sidebarHeaderLabel";
             this.sidebarHeaderLabel.Size = new System.Drawing.Size(117, 15);
-            this.sidebarHeaderLabel.TabIndex = 7;
+            this.sidebarHeaderLabel.TabIndex = 8;
             this.sidebarHeaderLabel.Text = "Evently capabilities";
             // bullet1Label
             this.bullet1Label.AutoSize = true;
             this.bullet1Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet1Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.bullet1Label.Location = new System.Drawing.Point(6, 395);
+            this.bullet1Label.Location = new System.Drawing.Point(6, 443);
             this.bullet1Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
             this.bullet1Label.Name = "bullet1Label";
             this.bullet1Label.Size = new System.Drawing.Size(184, 13);
-            this.bullet1Label.TabIndex = 8;
+            this.bullet1Label.TabIndex = 9;
             this.bullet1Label.Text = "• Issue and email unique QR tickets";
             // bullet2Label
             this.bullet2Label.AutoSize = true;
             this.bullet2Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet2Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.bullet2Label.Location = new System.Drawing.Point(6, 412);
+            this.bullet2Label.Location = new System.Drawing.Point(6, 460);
             this.bullet2Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
             this.bullet2Label.Name = "bullet2Label";
             this.bullet2Label.Size = new System.Drawing.Size(155, 13);
-            this.bullet2Label.TabIndex = 9;
+            this.bullet2Label.TabIndex = 10;
             this.bullet2Label.Text = "• Scan guests at entry and exit";
             // bullet3Label
             this.bullet3Label.AutoSize = true;
             this.bullet3Label.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bullet3Label.ForeColor = System.Drawing.Color.FromArgb(95, 95, 95);
-            this.bullet3Label.Location = new System.Drawing.Point(6, 429);
+            this.bullet3Label.Location = new System.Drawing.Point(6, 477);
             this.bullet3Label.Margin = new System.Windows.Forms.Padding(6, 2, 3, 2);
             this.bullet3Label.Name = "bullet3Label";
             this.bullet3Label.Size = new System.Drawing.Size(162, 13);
-            this.bullet3Label.TabIndex = 10;
+            this.bullet3Label.TabIndex = 11;
             this.bullet3Label.Text = "• Enforce venue capacity limits";
             // sidebarFooterLabel
             this.sidebarFooterLabel.AutoSize = true;
             this.sidebarFooterLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.sidebarFooterLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
-            this.sidebarFooterLabel.Location = new System.Drawing.Point(6, 464);
+            this.sidebarFooterLabel.Location = new System.Drawing.Point(6, 512);
             this.sidebarFooterLabel.Margin = new System.Windows.Forms.Padding(6, 20, 3, 2);
             this.sidebarFooterLabel.MaximumSize = new System.Drawing.Size(200, 0);
             this.sidebarFooterLabel.Name = "sidebarFooterLabel";
             this.sidebarFooterLabel.Size = new System.Drawing.Size(193, 26);
-            this.sidebarFooterLabel.TabIndex = 11;
+            this.sidebarFooterLabel.TabIndex = 12;
             this.sidebarFooterLabel.Text = "Local database keeps attendee records synchronized";
             // MainForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -265,6 +276,7 @@ namespace Evently.Forms
         private System.Windows.Forms.FlowLayoutPanel menuPanel;
         private System.Windows.Forms.Button eventsButton;
         private System.Windows.Forms.Button attendeesButton;
+        private System.Windows.Forms.Button managersButton;
         private System.Windows.Forms.Button reviewsButton;
         private System.Windows.Forms.Button checkInButton;
         private System.Windows.Forms.Button dashboardButton;
