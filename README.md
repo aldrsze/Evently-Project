@@ -1,11 +1,11 @@
 # Evently
 
-Windows Forms app (.NET 9) for managing events, attendees and tickets. Data is stored in MySQL.
+Windows Forms app (.NET 10) for managing events, attendees and tickets. Data is stored in MySQL.
 
 ## Requirements
 
 - Windows
-- .NET 9 SDK
+- .NET 10 SDK
 - MySQL Server 8 or newer, with `mysql` and `mysqldump` on PATH
 
 ## Setup on a new machine
