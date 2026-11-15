@@ -1,5 +1,5 @@
-using _.Helpers;
-using _.Services;
+using Evently.Core.Services;
+using Evently.Helpers;
 
 namespace Evently.Forms
 {

@@ -1,4 +1,4 @@
-using _.Helpers;
+using Evently.Core.Helpers;
 
 namespace Evently.Forms
 {
@@ -12,7 +12,11 @@ namespace Evently.Forms
             InitializeComponent();
             FormClosing += MainForm_FormClosing;
             ShowForm(new EventListForm());
-            DatabaseConnection.TestConnection();
+
+            if (DatabaseConnection.TestConnection())
+            {
+                MessageBox.Show("Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void ShowForm(Form form)

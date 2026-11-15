@@ -1,7 +1,7 @@
 using MySqlConnector;
 using System.IO;
 
-namespace _.Helpers
+namespace Evently.Core.Helpers
 {
     public static class DatabaseConnection
     {
@@ -69,10 +69,10 @@ namespace _.Helpers
             return conn;
         }
 
-        public static void TestConnection()
+        public static bool TestConnection()
         {
             using var conn = GetConnection();
-            MessageBox.Show("Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return conn.State == System.Data.ConnectionState.Open;
         }
 
     }

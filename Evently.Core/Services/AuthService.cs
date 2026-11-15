@@ -1,7 +1,7 @@
-using _.Helpers;
+using Evently.Core.Helpers;
 using MySqlConnector;
 
-namespace _.Services
+namespace Evently.Core.Services
 {
     public static class AuthService
     {

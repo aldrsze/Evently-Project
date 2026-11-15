@@ -1,4 +1,4 @@
-namespace _.Helpers
+namespace Evently.Core.Helpers
 {
     public static class PasswordHelper
     {

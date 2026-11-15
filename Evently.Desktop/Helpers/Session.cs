@@ -1,4 +1,4 @@
-namespace _.Helpers
+namespace Evently.Helpers
 {
     // who is logged in right now, kept for the whole app run
     public static class Session

@@ -351,6 +351,7 @@ CREATE TABLE reviews (
 * Organizers and `event_organizers` have no screen or service.
 * The dashboard shows sample events instead of database rows.
 * Services for events, tickets, CSV, QR, email, reviews, and dashboard are empty files; `Forms/*Form.cs` handlers are TODO stubs.
+* CheckInForm still exists in the desktop project although scanning moved to the website; delete it after the web scan page works.
 * Service files use the namespace `_` (`using _.Services`), which should become `Evently.Core.Services` during the split.
 
 **Project Structure (target):**
@@ -395,6 +396,7 @@ evently/
 │       ├── EventListForm.cs / .Designer.cs
 │       ├── AttendeesForm.cs / .Designer.cs
 │       ├── ReviewsForm.cs / .Designer.cs
+│       ├── OrganizersForm.cs / .Designer.cs
 │       └── DashboardForm.cs / .Designer.cs / .resx
 │
 └── Evently.Web/

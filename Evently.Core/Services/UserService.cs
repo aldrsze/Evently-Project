@@ -1,8 +1,8 @@
 using System.Data;
 using MySqlConnector;
-using _.Helpers;
+using Evently.Core.Helpers;
 
-namespace _.Services
+namespace Evently.Core.Services
 {
     public static class UserService
     {

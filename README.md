@@ -31,19 +31,19 @@ Both lines use `cmd /c` because PowerShell cannot do `<` redirection.
 
 Login is `admin` / `admin123`. Change it after your first sign in.
 
-3. Create your own config file. Copy `db.config.example` to `db.config` and fill in your MySQL user and password.
+3. Create your own config file. Copy `db.config.example` to `Evently.Desktop\db.config` and fill in your MySQL user and password.
 
-`db.config` is git-ignored, so each machine keeps its own credentials. The project copies it next to the exe on build, so keep it in the project root.
+`db.config` is git-ignored, so each machine keeps its own credentials. The desktop project copies it next to the exe on build, so keep it inside `Evently.Desktop`.
 
 Do this before the first run. If `db.config` is missing, the app starts anyway and falls back to the built-in defaults (empty password), which usually just fails to connect.
 
 4. Build and run:
 
 ```
-dotnet run
+dotnet run --project Evently.Desktop
 ```
 
-`dotnet run` restores packages and builds for you, so no separate `dotnet build` is needed.
+`dotnet run` restores packages and builds for you, so no separate `dotnet build` is needed. Build everything with `dotnet build Evently.sln`.
 
 Because `db.config` is copied at build time, a later edit to it only takes effect after the next build. Stop the app, run `dotnet run` again, and it copies the new values.
 
