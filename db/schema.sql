@@ -12,8 +12,7 @@ CREATE TABLE events (
     venue           VARCHAR(100),
     description     TEXT,
     event_date      DATETIME NOT NULL,
-    capacity        INT NOT NULL CHECK (capacity > 0),
-    review_form_url VARCHAR(255) NULL
+    capacity        INT NOT NULL CHECK (capacity > 0)
 );
 
 CREATE TABLE attendees (
@@ -43,6 +42,7 @@ CREATE TABLE tickets (
     attendee_id    INT NOT NULL,
     event_id       INT NOT NULL,
     ticket_emailed BOOLEAN NOT NULL DEFAULT FALSE,
+    review_emailed BOOLEAN NOT NULL DEFAULT FALSE,
     checked_in_at  DATETIME NULL,
     checked_out_at DATETIME NULL,
     UNIQUE (event_id, attendee_id),
@@ -51,9 +51,10 @@ CREATE TABLE tickets (
 );
 
 CREATE TABLE reviews (
-    ticket_id CHAR(36) PRIMARY KEY,
-    rating    TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
-    comment   VARCHAR(500) NULL,
+    ticket_id    CHAR(36) PRIMARY KEY,
+    rating       TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    comment      VARCHAR(500) NULL,
+    submitted_at DATETIME NOT NULL,
     FOREIGN KEY (ticket_id) REFERENCES tickets(ticket_id) ON DELETE CASCADE
 );
 
