@@ -17,8 +17,10 @@ CREATE TABLE events (
 
 CREATE TABLE attendees (
     attendee_id INT AUTO_INCREMENT PRIMARY KEY,
-    full_name   VARCHAR(100) NOT NULL,
-    email       VARCHAR(100) NOT NULL UNIQUE
+    first_name  VARCHAR(50) NOT NULL,
+    last_name   VARCHAR(50) NOT NULL,
+    email       VARCHAR(100) NOT NULL UNIQUE,
+    birthdate   DATE NULL
 );
 
 CREATE TABLE organizers (

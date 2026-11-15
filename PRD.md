@@ -103,9 +103,9 @@ Status reflects what is in the repository today, which is still the single-proje
 | 1 | Login & Roles | Users sign in with a username and password (hashed). Two roles: Administrator (desktop plus website) and Staff (website scan page only). The desktop app refuses Staff. A demo administrator is created by `db/seed.sql` (`admin` / `admin123`). | Desktop, Web | High | Desktop login done. Web staff login not started. |
 | 2 | User Accounts | Administrators can add, edit, deactivate, and reactivate staff or admin accounts. Usernames are unique, passwords need at least 8 characters, the last active admin and your own account are protected, and you cannot change your own role. | Desktop | Medium | Done. |
 | 3 | Event Management | Admin can create, edit, and delete events with a name, venue, date and time, description, review link text, and maximum guest limit. | Desktop | High | Screen built. Save, edit, and delete are not wired. |
-| 4 | Guest Self-Registration | A guest opens the site on their phone, picks an open event, types first name, last name, email, and birthday, and is registered. A full event is refused, and a known email is reused without creating a second attendee row. | Web | High | Not started. |
-| 5 | Manual Registration | Admin registers a walk-in by typing first name, last name, email, and birthday into the desktop app, for the selected event. | Desktop | High | Screen built. Logic not written. |
-| 6 | CSV Import | Admin imports `first_name`, `last_name`, `email`, `birthday` rows from a CSV file into a selected event, with duplicate handling, capacity enforcement, and a result summary. | Desktop, Core | High | Button only. |
+| 4 | Guest Self-Registration | A guest opens the site on their phone, picks an open event, types first name, last name, email, and birthdate, and is registered. A full event is refused, and a known email is reused without creating a second attendee row. | Web | High | Not started. |
+| 5 | Manual Registration | Admin registers a walk-in by typing first name, last name, email, and birthdate into the desktop app, for the selected event. | Desktop | High | Screen built. Logic not written. |
+| 6 | CSV Import | Admin imports `first_name`, `last_name`, `email`, `birthdate` rows from a CSV file into a selected event, with duplicate handling, capacity enforcement, and a result summary. | Desktop, Core | High | Button only. |
 | 7 | QR Ticket Creation | The system generates a unique UUID for each ticket and builds a QR image from it. | Core | High | Service file empty. |
 | 8 | Ticket Page | Right after registering, the guest sees their QR ticket, event name, venue, and date on the website, and can open the same page again later from a saved link. | Web | High | Not started. |
 | 9 | Email Tickets | Admin clicks "Send Tickets" and the desktop app emails the QR image to every attendee who has not been emailed yet. | Desktop, Core | High | Service file empty. |
@@ -115,7 +115,7 @@ Status reflects what is in the repository today, which is still the single-proje
 | 13 | Rating Request Email | Admin clicks "Send Review Request" on the desktop app, and every checked-in guest gets an email with their personal rating link. | Desktop, Core | High | Screen built. Email and "already sent" tracking not implemented. |
 | 14 | Rating Form | The guest opens the link on their phone, picks 1 to 5, optionally writes a comment, and submits. The review is saved only for a checked-in ticket that has no review yet. | Web | High | Not started. |
 | 15 | Live Dashboard | A screen with an event selector, metrics, a doughnut chart, a check-ins-over-time chart, and a recent check-ins list (section 5.4). | Desktop | High | Layout, charts, and 5-second timer done with sample data. Real queries not written. |
-| 16 | Attendance Export (CSV) | Admin can export an event's attendee list (first name, last name, birthday, email, check-in time, check-out time, rating, comment) as a CSV file. | Desktop, Core | High | Button only. |
+| 16 | Attendance Export (CSV) | Admin can export an event's attendee list (first name, last name, birthdate, email, check-in time, check-out time, rating, comment) as a CSV file. | Desktop, Core | High | Button only. |
 | 17 | Event Organizers | The schema stores organizers and links them to events through `event_organizers`, so one event can list several organizer contacts. | Core | Medium | Schema only. No screens or services yet. |
 
 ### 5.2 Nice-to-Have Features (Stretch Goals)
@@ -234,7 +234,7 @@ Until the services exist, these values are sample data held in memory, and the t
 
 * **User**: `user_id`, `username`, `password` (BCrypt hash), `role` (ADMIN or STAFF), `is_active`.
 * **Event**: `event_id`, `name`, `venue`, `description`, `event_date`, `capacity`.
-* **Attendee**: `attendee_id`, `first_name`, `last_name`, `email` (unique across the whole app), `birthday` (optional date of birth).
+* **Attendee**: `attendee_id`, `first_name`, `last_name`, `email` (unique across the whole app), `birthdate` (optional date of birth).
 * **Organizer**: `organizer_id`, `full_name`, `email` (unique), `phone`, `organization`.
 * **EventOrganizer**: `event_id` + `organizer_id` (one row per organizer of an event).
 * **Ticket**: `ticket_id` (UUID used as the QR code), `attendee_id`, `event_id`, `ticket_emailed` (yes/no), `review_emailed` (yes/no), `checked_in_at` (empty until checked in), `checked_out_at` (empty until checked out).
@@ -245,7 +245,7 @@ Until the services exist, these values are sample data held in memory, and the t
 * `events.review_form_url` is dropped. The rating page is part of Evently, so there is no link to paste.
 * `tickets.review_emailed` is added, so "Send Review Request" can email only the guests who have not been asked yet.
 * `reviews.submitted_at` is added for the dashboard's "latest reviews".
-* `attendees.full_name` is split into `first_name` and `last_name`, and `birthday` is added, so the door screen and the emails can greet by first name and organizers can see ages.
+* `attendees.full_name` is split into `first_name` and `last_name`, and `birthdate` is added, so the door screen and the emails can greet by first name and organizers can see ages.
 
 ```sql
 CREATE TABLE users (
@@ -270,7 +270,7 @@ CREATE TABLE attendees (
     first_name  VARCHAR(50) NOT NULL,
     last_name   VARCHAR(50) NOT NULL,
     email       VARCHAR(100) NOT NULL UNIQUE,
-    birthday    DATE NULL
+    birthdate   DATE NULL
 );
 
 CREATE TABLE organizers (
@@ -326,7 +326,7 @@ CREATE TABLE reviews (
 * **Passwords:** Minimum length of 8 (`UserService.MinPasswordLength`), hashed with BCrypt, never logged or saved as plain text.
 * **Session:** Desktop: after a successful login, `Session.SignIn` stores the username and role for the rest of the run, and the main window can only be closed with Log out. Web: `AddAuthentication` with a cookie; `/Scan` requires the STAFF or ADMIN role, `/Register`, `/Ticket`, and `/Review` are public.
 * **Registration flow (shared):** Look up the email in `attendees`. If it exists, reuse that row; otherwise insert the attendee. Then insert a ticket for the event. Both steps run in one transaction with the capacity check, so two phones registering the last slot at the same moment cannot both succeed.
-* **Self-registration page:** `/Register` lists only events that have not happened yet and are not full. A direct link `/Register?eventId=3` opens the form for one event, which is what a poster QR points to. The page asks for first name, last name, email, and birthday; no account, no password.
+* **Self-registration page:** `/Register` lists only events that have not happened yet and are not full. A direct link `/Register?eventId=3` opens the form for one event, which is what a poster QR points to. The page asks for first name, last name, email, and birthdate; no account, no password.
 * **Ticket page:** `/Ticket/{ticket_id}` shows the QR image, the event name, venue, and date. The UUID in the URL is the ticket, so the link works while the site runs. Guests are told to screenshot it.
 * **Ticket states (worked out from columns, not stored):**
   * `checked_in_at` empty: **Registered** (not arrived).
@@ -338,7 +338,7 @@ CREATE TABLE reviews (
 * **Email:** "Send Tickets" only sends to tickets where `ticket_emailed` is false, so clicking it again retries only the failures. "Send Review Request" only sends to checked-in tickets where `review_emailed` is false and no review exists. Each summary shows sent and failed counts.
 * **Rating link:** the email contains `/Review/{ticket_id}`. The page refuses a ticket that is not checked in and a ticket that already has a review, so no email typing is needed and nobody can rate as someone else. This removes the old Google Forms weakness.
 * **Rating form:** one radio group (1 to 5), one optional comment box (max 500 characters), one Submit button, and a thank-you state afterwards.
-* **CSV:** attendee import (`first_name`, `last_name`, `email`, `birthday`) and attendance export stay on the desktop. Review CSV import is removed because reviews now arrive on the site. Names are stored split, so displays and emails join them as `first_name + ' ' + last_name` and greet by first name; the CSV header change means old import files with `full_name` must be updated.
+* **CSV:** attendee import (`first_name`, `last_name`, `email`, `birthdate`) and attendance export stay on the desktop. Review CSV import is removed because reviews now arrive on the site. Names are stored split, so displays and emails join them as `first_name + ' ' + last_name` and greet by first name; the CSV header change means old import files with `full_name` must be updated.
 * **Dashboard:** Uses a `System.Windows.Forms.Timer` at 5000 ms with simple `COUNT` and `AVG` queries, one event at a time. It does not push updates to the web; each web scan answers with the scanned ticket's event name and inside count, so staff see the number move without picking anything.
 * **UI shell (desktop):** `MainForm` is a sidebar plus a content panel; each menu button swaps a child form into the panel (`TopLevel = false`, `Dock = Fill`). Login `Hide()`s itself and opens `MainForm` as a modal dialog, then shows itself again after logout.
 * **UI (web):** mobile-first, single column, big tap targets, Segoe UI with system fallbacks, and the same blue-and-slate palette as the desktop app. Pages must be readable in daylight at a door: large result text and no hover-only actions.
@@ -422,7 +422,7 @@ evently/
 | --- | --- | --- | --- |
 | 0 | Solution split | Not started | Move the current project to `Evently.Desktop/`, add `Evently.Core` as a class library, move `Helpers` and `Services` into Core, fix the `Forms\*Form.cs` path and `db.config` copy, confirm the desktop app still builds and logs in. One commit. |
 | 1 | Web project | Not started | Add `Evently.Web` (Razor Pages), add a project reference to Core, set it to listen on `0.0.0.0:5000`, load the site from a phone on the LAN. |
-| 2 | Schema changes | Not started | Edit `db/schema.sql`: drop `events.review_form_url`, add `tickets.review_emailed` and `reviews.submitted_at`, split `attendees.full_name` into `first_name` and `last_name`, add `attendees.birthday`. Apply by hand to the running database. |
+| 2 | Schema changes | Not started | Edit `db/schema.sql`: drop `events.review_form_url`, add `tickets.review_emailed` and `reviews.submitted_at`, split `attendees.full_name` into `first_name` and `last_name`, add `attendees.birthdate`. Apply by hand to the running database. |
 | 3 | Events | Screen only | `EventService` create/edit/delete + desktop grid binding, plus the upcoming-events query for the web home page. |
 | 4 | Registration | Screen only | `TicketService` register (transaction + capacity + duplicate email), used by `/Register`, the desktop walk-in form, and the CSV importer. |
 | 5 | QR tickets | Not started | `QrCodeService` (Core, returns PNG bytes), `/Ticket` page, `EmailService` + "Send Tickets" with a sent/failed summary. |
@@ -451,9 +451,9 @@ evently/
 * They enter the name, venue, description, date and time, and maximum number of guests (e.g., 200), then save.
 
 **4. Registering Attendees**
-* **Self-registration (guest, phone):** The guest opens the site link (or the poster QR for one event), picks the event, types first name, last name, email, and birthday, and taps Register. If the event is full or their email is already registered for that event, the page says so in plain words and nothing is saved.
-* **Walk-in (admin, desktop):** The admin opens "Attendees," selects the event, types first name, last name, email, and birthday, and clicks "Add."
-* **CSV (admin, desktop):** The admin clicks "Import CSV" and chooses a file with `first_name`, `last_name`, `email`, and `birthday` columns. The app imports valid rows until the event is full and shows a summary: "48 imported, 3 duplicates skipped, 2 invalid, 0 over capacity."
+* **Self-registration (guest, phone):** The guest opens the site link (or the poster QR for one event), picks the event, types first name, last name, email, and birthdate, and taps Register. If the event is full or their email is already registered for that event, the page says so in plain words and nothing is saved.
+* **Walk-in (admin, desktop):** The admin opens "Attendees," selects the event, types first name, last name, email, and birthdate, and clicks "Add."
+* **CSV (admin, desktop):** The admin clicks "Import CSV" and chooses a file with `first_name`, `last_name`, `email`, and `birthdate` columns. The app imports valid rows until the event is full and shows a summary: "48 imported, 3 duplicates skipped, 2 invalid, 0 over capacity."
 
 **5. Tickets**
 * After a successful registration, the website goes straight to `/Ticket/{ticket_id}`: the QR image, the event details, and a note to screenshot it. The guest can open the same page again from a saved link.
@@ -482,7 +482,7 @@ evently/
 
 **10. Exporting Attendance (Admin, Desktop)**
 * On the "Attendees" screen, the admin selects an event and clicks "Export CSV."
-* The app saves a file with each attendee's first name, last name, birthday, email, check-in time, check-out time, rating, and comment.
+* The app saves a file with each attendee's first name, last name, birthdate, email, check-in time, check-out time, rating, and comment.
 
 ---
 
@@ -507,7 +507,7 @@ evently/
   * Fill an event with self-registrations and confirm the form refuses the next one and the event drops off the home page list.
   * Register a walk-in in the desktop app and a CSV batch into the same event, and confirm all three paths respect one shared capacity limit.
   * Try two browsers submitting the last slot at once and confirm only one ticket is created.
-  * Register with the birthday left empty and confirm it saves as NULL, then register with a birthday and confirm the date is stored unchanged.
+  * Register with the birthdate left empty and confirm it saves as NULL, then register with a birthdate and confirm the date is stored unchanged.
 
 * **Database Tests (MySQL):**
   * Add, read, update, and delete users, events, attendees, organizers, and tickets using the service classes.
