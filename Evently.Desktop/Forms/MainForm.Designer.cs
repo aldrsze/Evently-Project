@@ -24,7 +24,6 @@ namespace Evently.Forms
             this.attendeesButton = new System.Windows.Forms.Button();
             this.managersButton = new System.Windows.Forms.Button();
             this.reviewsButton = new System.Windows.Forms.Button();
-            this.checkInButton = new System.Windows.Forms.Button();
             this.dashboardButton = new System.Windows.Forms.Button();
             this.usersButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
@@ -106,7 +105,6 @@ namespace Evently.Forms
             this.menuPanel.Controls.Add(this.attendeesButton);
             this.menuPanel.Controls.Add(this.managersButton);
             this.menuPanel.Controls.Add(this.reviewsButton);
-            this.menuPanel.Controls.Add(this.checkInButton);
             this.menuPanel.Controls.Add(this.dashboardButton);
             this.menuPanel.Controls.Add(this.usersButton);
             this.menuPanel.Controls.Add(this.logoutButton);
@@ -159,15 +157,6 @@ namespace Evently.Forms
             this.reviewsButton.Text = "&Reviews";
             this.reviewsButton.UseVisualStyleBackColor = true;
             this.reviewsButton.Click += new System.EventHandler(this.ReviewsButton_Click);
-            // checkInButton
-            this.checkInButton.Location = new System.Drawing.Point(3, 196);
-            this.checkInButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkInButton.Name = "checkInButton";
-            this.checkInButton.Size = new System.Drawing.Size(200, 40);
-            this.checkInButton.TabIndex = 4;
-            this.checkInButton.Text = "Check-&In Scanner";
-            this.checkInButton.UseVisualStyleBackColor = true;
-            this.checkInButton.Click += new System.EventHandler(this.CheckInButton_Click);
             // dashboardButton
             this.dashboardButton.Location = new System.Drawing.Point(3, 244);
             this.dashboardButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -278,7 +267,6 @@ namespace Evently.Forms
         private System.Windows.Forms.Button attendeesButton;
         private System.Windows.Forms.Button managersButton;
         private System.Windows.Forms.Button reviewsButton;
-        private System.Windows.Forms.Button checkInButton;
         private System.Windows.Forms.Button dashboardButton;
         private System.Windows.Forms.Button usersButton;
         private System.Windows.Forms.Button logoutButton;

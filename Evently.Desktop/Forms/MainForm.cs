@@ -58,11 +58,6 @@ namespace Evently.Forms
             ShowForm(new ReviewsForm());
         }
 
-        private void CheckInButton_Click(object sender, EventArgs e)
-        {
-            ShowForm(new CheckInForm());
-        }
-
         private void DashboardButton_Click(object sender, EventArgs e)
         {
             ShowForm(new DashboardForm());
