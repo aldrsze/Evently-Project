@@ -1,6 +1,6 @@
 # Evently
 
-Windows Forms app (.NET 10) for managing events, attendees and tickets. Data is stored in MySQL.
+Evently has two apps on one MySQL database: a Windows Forms desktop app (.NET 10) for organizers, and an ASP.NET Core website for guests and door staff. Both talk to the same database through a shared `Evently.Core` library.
 
 ## Requirements
 
@@ -46,6 +46,20 @@ dotnet run --project Evently.Desktop
 `dotnet run` restores packages and builds for you, so no separate `dotnet build` is needed. Build everything with `dotnet build Evently.sln`.
 
 Because `db.config` is copied at build time, a later edit to it only takes effect after the next build. Stop the app, run `dotnet run` again, and it copies the new values.
+
+## Running the website
+
+The website is the guest side: registration, the QR ticket, the staff scan page, and the rating form. It uses the same `db.config`, so there is nothing extra to set up.
+
+```
+dotnet run --project Evently.Web
+```
+
+It listens on port 5000 on all network cards, so the laptop opens `http://localhost:5000` and a phone on the same Wi-Fi opens `http://<laptop-ip>:5000` (run `ipconfig` and use the IPv4 address of the Wi-Fi adapter). The first request from the phone triggers a Windows Firewall prompt; allow access on private networks.
+
+HTTP is used on the local network on purpose. HTTPS would need a certificate the phone trusts, and the site is never published to the internet.
+
+Both apps can run at the same time. They share one MySQL database, so a check-in from the phone shows up on the desktop dashboard.
 
 ## Updating the schema
 

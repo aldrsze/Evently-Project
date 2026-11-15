@@ -189,7 +189,7 @@ Until the services exist, these values are sample data held in memory, and the t
 | Database | MySQL 8.x, accessed with `MySqlConnector` 2.6.2 and plain SQL |
 | Authentication | Desktop: local accounts in MySQL, `Session` in memory. Web: same accounts, cookie sign-in. Passwords hashed with `BCrypt.Net-Next` 4.2.0. |
 | Charts | `WinForms.DataVisualization` 1.10.2 (doughnut and spline charts on the desktop dashboard) |
-| Configuration | One `db.config` in the repo root with four plain `key=value` lines (`Server`, `Database`, `User`, `Password`), copied next to both apps' output. `Evently.Core` reads it. |
+| Configuration | One `db.config` inside `Evently.Desktop/` with four plain `key=value` lines (`Server`, `Database`, `User`, `Password`). `Evently.Core` reads it, and both apps copy it next to their output at build time. |
 | Hosting | Desktop and website run on the organizer's Windows laptop with MySQL installed locally. Phones connect to the website over the same Wi-Fi using the laptop's IP address. |
 
 **Libraries:**
@@ -415,6 +415,7 @@ evently/
         ├── Login.cshtml           (staff)
         ├── Logout.cshtml
         ├── Scan.cshtml
+        ├── Error.cshtml
         └── Shared/_Layout.cshtml
 ```
 
@@ -423,7 +424,7 @@ evently/
 | # | Area | State | Next work |
 | --- | --- | --- | --- |
 | 0 | Solution split | Not started | Move the current project to `Evently.Desktop/`, add `Evently.Core` as a class library, move `Helpers` and `Services` into Core, fix the `Forms\*Form.cs` path and `db.config` copy, confirm the desktop app still builds and logs in. One commit. |
-| 1 | Web project | Not started | Add `Evently.Web` (Razor Pages), add a project reference to Core, set it to listen on `0.0.0.0:5000`, load the site from a phone on the LAN. |
+| 1 | Web project | Done | `Evently.Web` (Razor Pages) builds, references Core, listens on `0.0.0.0:5000`, and serves a placeholder home page on the LAN. Template Bootstrap/jQuery removed on purpose; pages get added as their services land. |
 | 2 | Schema changes | Not started | Edit `db/schema.sql`: drop `events.review_form_url`, add `tickets.review_emailed` and `reviews.submitted_at`, split `attendees.full_name` into `first_name` and `last_name`, add `attendees.birthdate`. Apply by hand to the running database. |
 | 3 | Events | Screen only | `EventService` create/edit/delete + desktop grid binding, plus the upcoming-events query for the web home page. |
 | 4 | Registration | Screen only | `TicketService` register (transaction + capacity + duplicate email), used by `/Register`, the desktop walk-in form, and the CSV importer. |
