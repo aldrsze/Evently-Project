@@ -31,11 +31,11 @@ Both lines use `cmd /c` because PowerShell cannot do `<` redirection.
 
 Login is `admin` / `admin123`. Change it after your first sign in.
 
-3. Create your own config file. Copy `db.config.example` to `Evently.Desktop\db.config` and fill in your MySQL user and password.
+3. Create your own config file. Copy `db.config.example` to `db.config` in the repo root and fill in your MySQL user and password.
 
-`db.config` is git-ignored, so each machine keeps its own credentials. The desktop project copies it next to the exe on build, so keep it inside `Evently.Desktop`.
+`db.config` is git-ignored, so each machine keeps its own credentials. The desktop and web projects both copy that one file next to their exe on build, so it stays the only place the database settings live.
 
-Do this before the first run. If `db.config` is missing, the app starts anyway and falls back to the built-in defaults (empty password), which usually just fails to connect.
+Do this before the first build. If `db.config` is missing the build cannot copy it, and at run time the app throws "db.config not found next to the app." There are no built-in defaults to fall back on.
 
 4. Build and run:
 
