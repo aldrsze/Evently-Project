@@ -13,10 +13,6 @@ namespace Evently.Forms
             FormClosing += MainForm_FormClosing;
             ShowForm(new EventListForm());
 
-            if (DatabaseConnection.TestConnection())
-            {
-                MessageBox.Show("Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void ShowForm(Form form)
