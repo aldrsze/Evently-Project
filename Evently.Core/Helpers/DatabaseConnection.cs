@@ -11,7 +11,7 @@ namespace Evently.Core.Helpers
         {
             string server = "localhost";
             string database = "evently_db";
-            string user = "aldrsze";
+            string user = "root";
             string password = "";
 
             string configPath = Path.Combine(AppContext.BaseDirectory, "db.config");
