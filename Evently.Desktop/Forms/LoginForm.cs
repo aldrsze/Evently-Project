@@ -1,5 +1,6 @@
 using Evently.Core.Services;
 using Evently.Helpers;
+using Evently.Core.Helpers;
 
 namespace Evently.Forms
 {
@@ -8,6 +9,16 @@ namespace Evently.Forms
         public LoginForm()
         {
             InitializeComponent();
+
+            if (DatabaseConnection.TestConnection())
+            {
+                MessageBox.Show("Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("NOT Connected to the Evently database.", "Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
