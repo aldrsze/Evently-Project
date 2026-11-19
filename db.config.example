@@ -1,4 +1,4 @@
-# Copy this file to Evently.Desktop\db.config and fill in your own MySQL settings.
+# Copy this file to db.config in the repo root and fill in your own MySQL settings.
 Server=localhost
 Database=evently_db
 User=root

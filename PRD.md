@@ -189,7 +189,7 @@ Until the services exist, these values are sample data held in memory, and the t
 | Database | MySQL 8.x, accessed with `MySqlConnector` 2.6.2 and plain SQL |
 | Authentication | Desktop: local accounts in MySQL, `Session` in memory. Web: same accounts, cookie sign-in. Passwords hashed with `BCrypt.Net-Next` 4.2.0. |
 | Charts | `WinForms.DataVisualization` 1.10.2 (doughnut and spline charts on the desktop dashboard) |
-| Configuration | One `db.config` inside `Evently.Desktop/` with four plain `key=value` lines (`Server`, `Database`, `User`, `Password`). `Evently.Core` reads it, and both apps copy it next to their output at build time. |
+| Configuration | One `db.config` in the repo root with four plain `key=value` lines (`Server`, `Database`, `User`, `Password`). `Evently.Core` reads it, and both apps copy it next to their output at build time. |
 | Hosting | Desktop and website run on the organizer's Windows laptop with MySQL installed locally. Phones connect to the website over the same Wi-Fi using the laptop's IP address. |
 
 **Libraries:**
@@ -311,7 +311,7 @@ CREATE TABLE reviews (
 );
 ```
 
-`db/schema.sql` holds only `CREATE TABLE` statements. `db/seed.sql` adds the demo admin (`admin` / `admin123`, change it after first sign-in) and nothing else. The README explains creating `evently_db`, importing both files, copying `db.config.example` to `db.config`, and starting both projects.
+`db/schema.sql` holds only `CREATE TABLE` statements. `db/seed.sql` adds the demo admin (`admin` / `admin123`, change it after first sign-in) and nothing else. `setup.md` explains creating `evently_db`, importing both files, copying `db.config.example` to `db.config`, and starting both projects.
 
 **Rules the database enforces:**
 
@@ -356,11 +356,12 @@ CREATE TABLE reviews (
 **Project Structure (target):**
 
 ```
-evently/
+evently-project/
 ├── Evently.sln
-├── Evently.csproj                 (to be removed once the split is done)
 ├── PRD.md
 ├── README.md
+├── setup.md
+├── db.config                      (git-ignored, copied to both apps at build)
 ├── db.config.example
 ├── db/
 │   ├── schema.sql                 (7 tables, CREATE TABLE only)
@@ -385,7 +386,6 @@ evently/
 ├── Evently.Desktop/
 │   ├── Evently.Desktop.csproj
 │   ├── Program.cs                 (opens LoginForm)
-│   ├── db.config
 │   ├── Helpers/Session.cs
 │   └── Forms/
 │       ├── LoginForm.cs / .Designer.cs

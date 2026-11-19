@@ -18,8 +18,8 @@ git config --global user.email "you@example.com"
 4. Clone the project:
 
 ```bash
-git clone https://github.com/aldrsze/Evently-Project.git
-cd Evently-Project
+git clone https://github.com/aldrsze/evently-project.git
+cd evently-project
 ```
 
 5. Create your personal branch (use your own name, lowercase, no spaces):
