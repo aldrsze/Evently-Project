@@ -5,9 +5,9 @@ How to get **Evently** running on your machine. Do this once, after cloning (see
 ## What you need
 
 - Windows
-- [.NET 10 SDK](https://dotnet.microsoft.com/download)
+- [.NET 9 SDK](https://dotnet.microsoft.com/download)
 - [MySQL Server 8+](https://dev.mysql.com/downloads/mysql/) with `mysql` available in your terminal (on PATH)
-- An editor: Visual Studio 2026 or VS Code
+- An editor: Visual Studio 2022 or VS Code
 
 Check that everything is installed:
 
@@ -86,7 +86,7 @@ To build everything: `dotnet build Evently.sln`
 |---|---|
 | App can't connect to the database | Check `db.config` (repo root) has the right user and password, then rebuild and rerun |
 | `mysql` is not recognized | Add MySQL's `bin` folder to your PATH, then reopen the terminal |
-| `dotnet` is not recognized | Install the .NET 10 SDK and reopen the terminal |
+| `dotnet` is not recognized | Install the .NET 9 SDK and reopen the terminal |
 | Can't log in | Make sure you ran `db\seed.sql`, then use `admin` / `admin123` |
 | Phone can't open the website | Same Wi-Fi as the laptop, use `http://<laptop-ip>:5000`, allow the Windows Firewall prompt |
 

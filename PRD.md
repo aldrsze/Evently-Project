@@ -176,16 +176,16 @@ Until the services exist, these values are sample data held in memory, and the t
 
 | Project | Type | Framework | Job |
 | --- | --- | --- | --- |
-| `Evently.Core` | Class library | `net10.0` | Services and helpers: SQL, rules, QR images, email, CSV. No Windows Forms, no ASP.NET. Referenced by both apps. |
-| `Evently.Desktop` | WinExe | `net10.0-windows`, WinForms | Admin screens, dashboard, export. No scanner; scanning is on the website. |
-| `Evently.Web` | Web app | `net10.0`, ASP.NET Core Razor Pages | Guest registration, ticket page, phone scan page, staff login, rating form. |
+| `Evently.Core` | Class library | `net9.0` | Services and helpers: SQL, rules, QR images, email, CSV. No Windows Forms, no ASP.NET. Referenced by both apps. |
+| `Evently.Desktop` | WinExe | `net9.0-windows`, WinForms | Admin screens, dashboard, export. No scanner; scanning is on the website. |
+| `Evently.Web` | Web app | `net9.0`, ASP.NET Core Razor Pages | Guest registration, ticket page, phone scan page, staff login, rating form. |
 
 **Tech Stack:**
 
 | Layer | Technology |
 | --- | --- |
-| Desktop App | Windows Forms on .NET 10 (`net10.0-windows`), C#, WinForms Designer |
-| Website | ASP.NET Core Razor Pages on .NET 10 (`net10.0`), plain HTML/CSS, one small JS file |
+| Desktop App | Windows Forms on .NET 9 (`net9.0-windows`), C#, WinForms Designer |
+| Website | ASP.NET Core Razor Pages on .NET 9 (`net9.0`), plain HTML/CSS, one small JS file |
 | Database | MySQL 8.x, accessed with `MySqlConnector` 2.6.2 and plain SQL |
 | Authentication | Desktop: local accounts in MySQL, `Session` in memory. Web: same accounts, cookie sign-in. Passwords hashed with `BCrypt.Net-Next` 4.2.0. |
 | Charts | `WinForms.DataVisualization` 1.10.2 (doughnut and spline charts on the desktop dashboard) |
@@ -566,7 +566,7 @@ evently-project/
 
 * ASP.NET Core Razor Pages: [https://learn.microsoft.com/en-us/aspnet/core/razor-pages/](https://learn.microsoft.com/en-us/aspnet/core/razor-pages/)
 * Windows Forms Docs: [https://learn.microsoft.com/en-us/dotnet/desktop/winforms/](https://learn.microsoft.com/en-us/dotnet/desktop/winforms/)
-* .NET 10 Downloads: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+* .NET 9 Downloads: [https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 * MySQL Reference Manual: [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)
 * MySqlConnector: [https://mysqlconnector.net/](https://mysqlconnector.net/)
 * BCrypt.Net-Next (password hashing): [https://github.com/BcryptNet/bcrypt.net](https://github.com/BcryptNet/bcrypt.net)

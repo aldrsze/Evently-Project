@@ -2,7 +2,7 @@
 
 Event management system with two apps sharing one MySQL database:
 
-- **Evently.Desktop** – Windows Forms app (.NET 10) for organizers
+- **Evently.Desktop** – Windows Forms app (.NET 9) for organizers
 - **Evently.Web** – ASP.NET Core website for guests and door staff (registration, QR ticket, check-in scan, ratings)
 
 Both use the shared `Evently.Core` library.
@@ -10,7 +10,7 @@ Both use the shared `Evently.Core` library.
 ## Requirements
 
 - Windows
-- [.NET 10 SDK](https://dotnet.microsoft.com/download)
+- [.NET 9 SDK](https://dotnet.microsoft.com/download)
 - MySQL Server 8+
 
 ## Setup
