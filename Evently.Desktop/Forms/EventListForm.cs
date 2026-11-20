@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using Evently.Core.Services;
 
 namespace Evently.Forms
 {
@@ -8,6 +9,13 @@ namespace Evently.Forms
         public EventListForm()
         {
             InitializeComponent();
+            LoadEvents();
+        }
+
+        private void LoadEvents()
+        {
+            eventsDataGridView.DataSource = null;
+            eventsDataGridView.DataSource = EventService.GetEvent();
         }
 
         private void createButton_Click(object sender, EventArgs e) { /* TODO: Create event */ }
