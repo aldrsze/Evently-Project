@@ -117,6 +117,7 @@ namespace Evently.Forms
             this.eventsDataGridView.Location = new System.Drawing.Point(0, 0);
             this.eventsDataGridView.MultiSelect = false;
             this.eventsDataGridView.Name = "eventsDataGridView";
+            this.eventsDataGridView.AutoGenerateColumns = false;
             this.eventsDataGridView.ReadOnly = true;
             this.eventsDataGridView.RowHeadersVisible = false;
             this.eventsDataGridView.RowTemplate.Height = 28;
@@ -127,26 +128,31 @@ namespace Evently.Forms
             this.eventNameColumn.HeaderText = "Name";
             this.eventNameColumn.Name = "eventNameColumn";
             this.eventNameColumn.ReadOnly = true;
+            this.eventNameColumn.DataPropertyName = "name";
             // venueColumn
             this.venueColumn.FillWeight = 60F;
             this.venueColumn.HeaderText = "Venue";
             this.venueColumn.Name = "venueColumn";
             this.venueColumn.ReadOnly = true;
+            this.venueColumn.DataPropertyName = "venue";
             // descriptionColumn
             this.descriptionColumn.FillWeight = 110F;
             this.descriptionColumn.HeaderText = "Description";
             this.descriptionColumn.Name = "descriptionColumn";
             this.descriptionColumn.ReadOnly = true;
+            this.descriptionColumn.DataPropertyName = "description";
             // dateColumn
             this.dateColumn.FillWeight = 60F;
             this.dateColumn.HeaderText = "Date";
             this.dateColumn.Name = "dateColumn";
             this.dateColumn.ReadOnly = true;
+            this.dateColumn.DataPropertyName = "event_date";
             // capacityColumn
             this.capacityColumn.FillWeight = 40F;
             this.capacityColumn.HeaderText = "Capacity";
             this.capacityColumn.Name = "capacityColumn";
             this.capacityColumn.ReadOnly = true;
+            this.capacityColumn.DataPropertyName = "capacity";
             // bottomPanel
             this.bottomPanel.BackColor = System.Drawing.Color.White;
             this.bottomPanel.Controls.Add(this.helperLabel);
