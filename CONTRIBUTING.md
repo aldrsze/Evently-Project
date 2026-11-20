@@ -48,10 +48,10 @@ Edit files, then test that they actually run.
 
 ```bash
 git add .
-git commit -m "Add login page"
+git commit -m "feat: add login page"
 ```
 
-Write a short message saying **what** you did.
+Write a short message saying **what** you did. See [Commit messages](#commit-messages) for the format.
 
 ### 4. Upload your branch
 
@@ -76,6 +76,29 @@ After your PR is merged (or when teammates merge theirs), pull the latest into y
 git checkout yourname
 git pull origin main
 ```
+
+## Commit messages
+
+Format: `type: subject`
+
+| Type | Use for |
+|---|---|
+| `feat` | new feature |
+| `fix` | bug fix |
+| `docs` | docs only |
+| `style` | CSS or formatting, no logic |
+| `refactor` | same behavior, cleaner code |
+| `chore` | config, packages, cleanup |
+
+Rules: lowercase, no period, one line, say what changed.
+
+```bash
+git commit -m "feat: add staff login page"
+git commit -m "fix: block double check-in on one ticket"
+git commit -m "docs: add database steps to setup"
+```
+
+Good: `feat: add event delete button` — Bad: `updated stuff`
 
 ## Rules
 
@@ -108,7 +131,7 @@ Pick what to keep, delete the marker lines, then:
 
 ```bash
 git add .
-git commit -m "Resolve merge conflict"
+git commit -m "chore: resolve merge conflict"
 git push origin yourname
 ```
 
