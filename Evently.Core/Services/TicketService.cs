@@ -166,5 +166,37 @@ namespace Evently.Core.Services
                 throw;
             }
         }
+
+        public static DataTable GetUnemailedTicketsByEvent(int eventId)
+        {
+            using var conn = DatabaseConnection.GetConnection();
+            string query = @"SELECT 
+                                t.ticket_id,
+                                a.email,
+                                CONCAT(a.first_name, ' ', a.last_name) AS attendee_name,
+                                e.name AS event_name,
+                                e.venue,
+                                e.event_date
+                             FROM tickets t
+                             INNER JOIN attendees a ON t.attendee_id = a.attendee_id
+                             INNER JOIN events e ON t.event_id = e.event_id
+                             WHERE t.event_id = @eventId AND t.ticket_emailed = FALSE;";
+
+            using MySqlCommand cmd = new(query, conn);
+            cmd.Parameters.AddWithValue("@eventId", eventId);
+            MySqlDataAdapter adapter = new(cmd);
+            DataTable table = new();
+            adapter.Fill(table);
+            return table;
+        }
+
+        public static bool MarkTicketAsEmailed(string ticketId)
+        {
+            using var conn = DatabaseConnection.GetConnection();
+            string query = "UPDATE tickets SET ticket_emailed = TRUE WHERE ticket_id = @ticketId;";
+            using MySqlCommand cmd = new(query, conn);
+            cmd.Parameters.AddWithValue("@ticketId", ticketId);
+            return cmd.ExecuteNonQuery() > 0;
+        }
     }
 }

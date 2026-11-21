@@ -59,6 +59,12 @@ namespace Evently.Forms
                 return;
             }
 
+            if (!email.Contains('@') || !email.Contains('.'))
+            {
+                MessageBox.Show("Enter a valid email address.", "Add Attendee", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 if (TicketService.AddAttendee(eventId, firstName, lastName, email, birthdate))
@@ -167,7 +173,56 @@ namespace Evently.Forms
         }
 
         private void ImportCsvButton_Click(object sender, EventArgs e) { /* TODO: Import CSV logic */ }
-        private void SendTicketsButton_Click(object sender, EventArgs e) { /* TODO: Send emails */ }
+
+        private void SendTicketsButton_Click(object sender, EventArgs e)
+        {
+            if (eventComboBox.SelectedValue == null || !int.TryParse(eventComboBox.SelectedValue.ToString(), out int eventId))
+            {
+                MessageBox.Show("Please select an event first.", "Send Tickets", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataTable unemailedTickets = TicketService.GetUnemailedTicketsByEvent(eventId);
+            if (unemailedTickets.Rows.Count == 0)
+            {
+                MessageBox.Show("All attendees for this event have already received their tickets.", "Send Tickets", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            int sentCount = 0;
+            int failedCount = 0;
+
+            foreach (DataRow row in unemailedTickets.Rows)
+            {
+                string ticketId = row["ticket_id"].ToString() ?? "";
+                string recipientEmail = row["email"].ToString() ?? "";
+                string attendeeName = row["attendee_name"].ToString() ?? "";
+                string eventName = row["event_name"].ToString() ?? "";
+                string venue = row["venue"].ToString() ?? "";
+                DateTime eventDate = Convert.ToDateTime(row["event_date"]);
+
+                bool success = EmailService.SendTicketEmail(recipientEmail, attendeeName, eventName, venue, eventDate, ticketId);
+                if (success)
+                {
+                    TicketService.MarkTicketAsEmailed(ticketId);
+                    sentCount++;
+                }
+                else
+                {
+                    failedCount++;
+                }
+            }
+
+            string resultMsg = $"Tickets sent: {sentCount}";
+            if (failedCount > 0)
+            {
+                resultMsg += $"\nFailed: {failedCount}";
+            }
+
+            resultLabel.Text = resultMsg;
+            MessageBox.Show(resultMsg, "Send Tickets", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void ExportCsvButton_Click(object sender, EventArgs e) { /* TODO: Export CSV */ }
     }
 }

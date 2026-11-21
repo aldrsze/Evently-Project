@@ -45,8 +45,12 @@ Enter your MySQL password when asked. `seed.sql` already starts with `USE eventl
 
 ### 3. Create your config file
 
-Copy `db.config.example` to `db.config` in the repo root, then open it and fill in your own MySQL username and password.
+Copy `db.config.example` to `db.config` in the repo root, then open it and fill in your own settings:
 
+- **MySQL credentials:** `Server`, `Database`, `User`, `Password`
+- **Email sending (optional, for QR tickets):** `SmtpEmail` (your Gmail address) and `SmtpPassword` (a 16-character Google App Password without spaces). To generate one: Google Account > Security > 2-Step Verification > App Passwords.
+
+Notes:
 - `db.config` is git-ignored, so your password never gets pushed.
 - It must be in the repo root (next to `Evently.sln`). Both apps use this one file.
 - Each build copies it next to the app, so after editing it, stop the app and run it again.

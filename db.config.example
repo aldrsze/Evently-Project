@@ -3,3 +3,5 @@ Server=localhost
 Database=evently_db
 User=root
 Password=your_password_here
+SmtpEmail=yourgmail@gmail.com
+SmtpPassword=your16charapppassword

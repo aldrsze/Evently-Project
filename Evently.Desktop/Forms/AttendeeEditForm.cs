@@ -55,6 +55,13 @@ namespace Evently.Forms
                 return;
             }
 
+            string email = emailTextBox.Text.Trim();
+            if (!email.Contains('@') || !email.Contains('.'))
+            {
+                MessageBox.Show("Enter a valid email address.", "Attendee", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DialogResult = DialogResult.OK;
             Close();
         }

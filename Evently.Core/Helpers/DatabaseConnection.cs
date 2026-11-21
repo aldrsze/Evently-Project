@@ -41,7 +41,7 @@ namespace Evently.Core.Helpers
         }
 
         // Returns "" when the key is not in the file.
-        private static string ReadValue(string[] lines, string wantedKey)
+        public static string ReadValue(string[] lines, string wantedKey)
         {
             foreach (string line in lines)
             {
@@ -52,7 +52,7 @@ namespace Evently.Core.Helpers
                     continue;
                 }
 
-                if (text.StartsWith("#"))
+                if (text.StartsWith('#'))
                 {
                     continue;
                 }
