@@ -23,11 +23,20 @@ namespace Evently.Forms
             this.gridHostPanel = new System.Windows.Forms.Panel();
             this.attendeesDataGridView = new System.Windows.Forms.DataGridView();
             this.attendeeNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attendeeIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.birthdateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addAttendeeWrapperPanel = new System.Windows.Forms.Panel();
             this.addAttendeeGroupBox = new System.Windows.Forms.GroupBox();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.birthdateLabel = new System.Windows.Forms.Label();
+            this.birthdateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.emailLabel = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.emailHelperLabel = new System.Windows.Forms.Label();
@@ -36,6 +45,8 @@ namespace Evently.Forms
             this.resultLabel = new System.Windows.Forms.Label();
             this.actionPanel = new System.Windows.Forms.Panel();
             this.actionHintLabel = new System.Windows.Forms.Label();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.importCsvButton = new System.Windows.Forms.Button();
             this.sendTicketsButton = new System.Windows.Forms.Button();
             this.exportCsvButton = new System.Windows.Forms.Button();
@@ -117,7 +128,7 @@ namespace Evently.Forms
             this.eventComboBox.Name = "eventComboBox";
             this.eventComboBox.Size = new System.Drawing.Size(1198, 23);
             this.eventComboBox.TabIndex = 1;
-            this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.eventComboBox_SelectedIndexChanged);
+            this.eventComboBox.SelectedIndexChanged += new System.EventHandler(this.EventComboBox_SelectedIndexChanged);
             // gridHostPanel
             this.gridHostPanel.BackColor = System.Drawing.Color.White;
             this.gridHostPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -144,7 +155,12 @@ namespace Evently.Forms
             this.attendeesDataGridView.ColumnHeadersHeight = 36;
             this.attendeesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.attendeesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.attendeeIdColumn,
+            this.firstNameColumn,
+            this.lastNameColumn,
+            this.birthdateColumn,
             this.attendeeNameColumn,
+            this.ageColumn,
             this.emailColumn});
             this.attendeesDataGridView.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.attendeesDataGridView.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(43, 87, 154);
@@ -161,11 +177,42 @@ namespace Evently.Forms
             this.attendeesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.attendeesDataGridView.Size = new System.Drawing.Size(1254, 400);
             this.attendeesDataGridView.TabIndex = 0;
+            // attendeeIdColumn
+            this.attendeeIdColumn.DataPropertyName = "attendee_id";
+            this.attendeeIdColumn.HeaderText = "ID";
+            this.attendeeIdColumn.Name = "attendeeIdColumn";
+            this.attendeeIdColumn.ReadOnly = true;
+            this.attendeeIdColumn.Visible = false;
+            // firstNameColumn
+            this.firstNameColumn.DataPropertyName = "first_name";
+            this.firstNameColumn.HeaderText = "First Name";
+            this.firstNameColumn.Name = "firstNameColumn";
+            this.firstNameColumn.ReadOnly = true;
+            this.firstNameColumn.Visible = false;
+            // lastNameColumn
+            this.lastNameColumn.DataPropertyName = "last_name";
+            this.lastNameColumn.HeaderText = "Last Name";
+            this.lastNameColumn.Name = "lastNameColumn";
+            this.lastNameColumn.ReadOnly = true;
+            this.lastNameColumn.Visible = false;
+            // birthdateColumn
+            this.birthdateColumn.DataPropertyName = "birthdate";
+            this.birthdateColumn.HeaderText = "Birthdate";
+            this.birthdateColumn.Name = "birthdateColumn";
+            this.birthdateColumn.ReadOnly = true;
+            this.birthdateColumn.Visible = false;
             // attendeeNameColumn
+            this.attendeeNameColumn.DataPropertyName = "name";
             this.attendeeNameColumn.HeaderText = "Name";
             this.attendeeNameColumn.Name = "attendeeNameColumn";
             this.attendeeNameColumn.ReadOnly = true;
+            // ageColumn
+            this.ageColumn.DataPropertyName = "age";
+            this.ageColumn.HeaderText = "Age";
+            this.ageColumn.Name = "ageColumn";
+            this.ageColumn.ReadOnly = true;
             // emailColumn
+            this.emailColumn.DataPropertyName = "email";
             this.emailColumn.HeaderText = "Email";
             this.emailColumn.Name = "emailColumn";
             this.emailColumn.ReadOnly = true;
@@ -173,15 +220,19 @@ namespace Evently.Forms
             this.addAttendeeWrapperPanel.BackColor = System.Drawing.Color.White;
             this.addAttendeeWrapperPanel.Controls.Add(this.addAttendeeGroupBox);
             this.addAttendeeWrapperPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addAttendeeWrapperPanel.Location = new System.Drawing.Point(12, 454);
+            this.addAttendeeWrapperPanel.Location = new System.Drawing.Point(12, 424);
             this.addAttendeeWrapperPanel.Name = "addAttendeeWrapperPanel";
             this.addAttendeeWrapperPanel.Padding = new System.Windows.Forms.Padding(0, 16, 0, 0);
-            this.addAttendeeWrapperPanel.Size = new System.Drawing.Size(1256, 102);
+            this.addAttendeeWrapperPanel.Size = new System.Drawing.Size(1256, 132);
             this.addAttendeeWrapperPanel.TabIndex = 2;
             // addAttendeeGroupBox
             this.addAttendeeGroupBox.BackColor = System.Drawing.Color.White;
-            this.addAttendeeGroupBox.Controls.Add(this.nameLabel);
-            this.addAttendeeGroupBox.Controls.Add(this.nameTextBox);
+            this.addAttendeeGroupBox.Controls.Add(this.firstNameLabel);
+            this.addAttendeeGroupBox.Controls.Add(this.firstNameTextBox);
+            this.addAttendeeGroupBox.Controls.Add(this.lastNameLabel);
+            this.addAttendeeGroupBox.Controls.Add(this.lastNameTextBox);
+            this.addAttendeeGroupBox.Controls.Add(this.birthdateLabel);
+            this.addAttendeeGroupBox.Controls.Add(this.birthdateDateTimePicker);
             this.addAttendeeGroupBox.Controls.Add(this.emailLabel);
             this.addAttendeeGroupBox.Controls.Add(this.emailTextBox);
             this.addAttendeeGroupBox.Controls.Add(this.emailHelperLabel);
@@ -189,40 +240,63 @@ namespace Evently.Forms
             this.addAttendeeGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addAttendeeGroupBox.Location = new System.Drawing.Point(0, 16);
             this.addAttendeeGroupBox.Name = "addAttendeeGroupBox";
-            this.addAttendeeGroupBox.Size = new System.Drawing.Size(1256, 86);
+            this.addAttendeeGroupBox.Size = new System.Drawing.Size(1256, 116);
             this.addAttendeeGroupBox.TabIndex = 0;
             this.addAttendeeGroupBox.TabStop = false;
             this.addAttendeeGroupBox.Text = "Add Attendee";
-            // nameLabel
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 29);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Name:";
-            // nameTextBox
-            this.nameTextBox.Location = new System.Drawing.Point(68, 26);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(160, 23);
-            this.nameTextBox.TabIndex = 1;
+            // firstNameLabel
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(12, 29);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.TabIndex = 0;
+            this.firstNameLabel.Text = "First Name:";
+            // firstNameTextBox
+            this.firstNameTextBox.Location = new System.Drawing.Point(96, 26);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(160, 23);
+            this.firstNameTextBox.TabIndex = 1;
+            // lastNameLabel
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(276, 29);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.TabIndex = 2;
+            this.lastNameLabel.Text = "Last Name:";
+            // lastNameTextBox
+            this.lastNameTextBox.Location = new System.Drawing.Point(360, 26);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(160, 23);
+            this.lastNameTextBox.TabIndex = 3;
+            // birthdateLabel
+            this.birthdateLabel.AutoSize = true;
+            this.birthdateLabel.Location = new System.Drawing.Point(540, 29);
+            this.birthdateLabel.Name = "birthdateLabel";
+            this.birthdateLabel.TabIndex = 4;
+            this.birthdateLabel.Text = "Birthdate:";
+            // birthdateDateTimePicker
+            this.birthdateDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.birthdateDateTimePicker.Location = new System.Drawing.Point(616, 26);
+            this.birthdateDateTimePicker.Name = "birthdateDateTimePicker";
+            this.birthdateDateTimePicker.Size = new System.Drawing.Size(130, 23);
+            this.birthdateDateTimePicker.TabIndex = 5;
             // emailLabel
             this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(234, 29);
+            this.emailLabel.Location = new System.Drawing.Point(12, 69);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.TabIndex = 2;
+            this.emailLabel.TabIndex = 6;
             this.emailLabel.Text = "Email:";
             // emailTextBox
-            this.emailTextBox.Location = new System.Drawing.Point(288, 26);
+            this.emailTextBox.Location = new System.Drawing.Point(96, 66);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(220, 23);
-            this.emailTextBox.TabIndex = 3;
+            this.emailTextBox.Size = new System.Drawing.Size(260, 23);
+            this.emailTextBox.TabIndex = 7;
             // emailHelperLabel
             this.emailHelperLabel.AutoSize = true;
             this.emailHelperLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.emailHelperLabel.ForeColor = System.Drawing.Color.FromArgb(128, 128, 128);
-            this.emailHelperLabel.Location = new System.Drawing.Point(280, 56);
+            this.emailHelperLabel.Location = new System.Drawing.Point(368, 69);
             this.emailHelperLabel.Name = "emailHelperLabel";
-            this.emailHelperLabel.Size = new System.Drawing.Size(258, 13);
-            this.emailHelperLabel.TabIndex = 5;
+            this.emailHelperLabel.Size = new System.Drawing.Size(280, 15);
+            this.emailHelperLabel.TabIndex = 9;
             this.emailHelperLabel.Text = "Tickets with unique QR codes are sent to this address";
             // addAttendeeButton
             this.addAttendeeButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
@@ -230,13 +304,13 @@ namespace Evently.Forms
             this.addAttendeeButton.FlatAppearance.BorderSize = 0;
             this.addAttendeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addAttendeeButton.ForeColor = System.Drawing.Color.White;
-            this.addAttendeeButton.Location = new System.Drawing.Point(1154, 26);
+            this.addAttendeeButton.Location = new System.Drawing.Point(1154, 63);
             this.addAttendeeButton.Name = "addAttendeeButton";
             this.addAttendeeButton.Size = new System.Drawing.Size(90, 30);
-            this.addAttendeeButton.TabIndex = 4;
+            this.addAttendeeButton.TabIndex = 8;
             this.addAttendeeButton.Text = "&Add";
             this.addAttendeeButton.UseVisualStyleBackColor = false;
-            this.addAttendeeButton.Click += new System.EventHandler(this.addAttendeeButton_Click);
+            this.addAttendeeButton.Click += new System.EventHandler(this.AddAttendeeButton_Click);
             // resultPanel
             this.resultPanel.BackColor = System.Drawing.Color.White;
             this.resultPanel.Controls.Add(this.resultLabel);
@@ -259,6 +333,8 @@ namespace Evently.Forms
             // actionPanel
             this.actionPanel.BackColor = System.Drawing.Color.White;
             this.actionPanel.Controls.Add(this.actionHintLabel);
+            this.actionPanel.Controls.Add(this.editButton);
+            this.actionPanel.Controls.Add(this.deleteButton);
             this.actionPanel.Controls.Add(this.importCsvButton);
             this.actionPanel.Controls.Add(this.sendTicketsButton);
             this.actionPanel.Controls.Add(this.exportCsvButton);
@@ -276,6 +352,24 @@ namespace Evently.Forms
             this.actionHintLabel.Size = new System.Drawing.Size(423, 15);
             this.actionHintLabel.TabIndex = 3;
             this.actionHintLabel.Text = "Send Tickets only emails attendees who have not received their QR code yet.";
+            // editButton
+            this.editButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.editButton.Location = new System.Drawing.Point(734, 8);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(90, 30);
+            this.editButton.TabIndex = 0;
+            this.editButton.Text = "&Edit";
+            this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.EditButton_Click);
+            // deleteButton
+            this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            this.deleteButton.Location = new System.Drawing.Point(832, 8);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(90, 30);
+            this.deleteButton.TabIndex = 1;
+            this.deleteButton.Text = "&Delete";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // importCsvButton
             this.importCsvButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.importCsvButton.Location = new System.Drawing.Point(930, 8);
@@ -284,7 +378,7 @@ namespace Evently.Forms
             this.importCsvButton.TabIndex = 0;
             this.importCsvButton.Text = "&Import CSV";
             this.importCsvButton.UseVisualStyleBackColor = true;
-            this.importCsvButton.Click += new System.EventHandler(this.importCsvButton_Click);
+            this.importCsvButton.Click += new System.EventHandler(this.ImportCsvButton_Click);
             // sendTicketsButton
             this.sendTicketsButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.sendTicketsButton.Location = new System.Drawing.Point(1038, 8);
@@ -293,7 +387,7 @@ namespace Evently.Forms
             this.sendTicketsButton.TabIndex = 1;
             this.sendTicketsButton.Text = "Send &Tickets";
             this.sendTicketsButton.UseVisualStyleBackColor = true;
-            this.sendTicketsButton.Click += new System.EventHandler(this.sendTicketsButton_Click);
+            this.sendTicketsButton.Click += new System.EventHandler(this.SendTicketsButton_Click);
             // exportCsvButton
             this.exportCsvButton.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.exportCsvButton.Location = new System.Drawing.Point(1156, 8);
@@ -302,7 +396,7 @@ namespace Evently.Forms
             this.exportCsvButton.TabIndex = 2;
             this.exportCsvButton.Text = "&Export CSV";
             this.exportCsvButton.UseVisualStyleBackColor = true;
-            this.exportCsvButton.Click += new System.EventHandler(this.exportCsvButton_Click);
+            this.exportCsvButton.Click += new System.EventHandler(this.ExportCsvButton_Click);
             // AttendeesForm
             this.AcceptButton = this.addAttendeeButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -343,12 +437,21 @@ namespace Evently.Forms
         private System.Windows.Forms.ComboBox eventComboBox;
         private System.Windows.Forms.Panel gridHostPanel;
         private System.Windows.Forms.DataGridView attendeesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attendeeIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn birthdateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attendeeNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn emailColumn;
         private System.Windows.Forms.Panel addAttendeeWrapperPanel;
         private System.Windows.Forms.GroupBox addAttendeeGroupBox;
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label firstNameLabel;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.Label birthdateLabel;
+        private System.Windows.Forms.DateTimePicker birthdateDateTimePicker;
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.Label emailHelperLabel;
@@ -357,6 +460,8 @@ namespace Evently.Forms
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.Panel actionPanel;
         private System.Windows.Forms.Label actionHintLabel;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button importCsvButton;
         private System.Windows.Forms.Button sendTicketsButton;
         private System.Windows.Forms.Button exportCsvButton;
