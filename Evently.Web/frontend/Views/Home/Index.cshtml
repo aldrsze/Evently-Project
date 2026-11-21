@@ -1,0 +1,144 @@
+﻿@{
+    ViewData["Title"] = "Discover experiences";
+}
+<main class="home-page" data-page="home">
+    <section class="hero page-container">
+        <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-star">✦</span> GOOD THINGS HAPPEN HERE <span
+                class="eyebrow-line"></span></div>
+                <h1>Discover experiences.<br /><span>Create memories.</span></h1>
+                <p class="hero-lede">Find exciting events, connect with your community, and make room for the moments you’ll
+                    talk about later.</p>
+                    <div class="hero-actions"><a class="button button-primary button-large" href="/Events">Explore events <i
+                        data-lucide="arrow-up-right"></i></a><a class="button button-quiet button-large"
+                                                                href="/Organizer">Become an organizer <i data-lucide="arrow-right"></i></a></div>
+                        <div class="hero-proof">
+                            <div class="avatar-stack"><span>JM</span><span>KL</span><span>AR</span><span>+</span></div>
+                            <span><strong>Local plans,</strong> made more memorable</span>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <img class="hero-image" src="/manus-storage/async-images/krU8Zi9wY7kJi6edZs9oeJ/image-1.webp"
+                             alt="A lively Filipino audience at an open-air local music and cultural festival" />
+                        <div class="hero-image-shade"></div>
+                        <div class="hero-floating hero-float-top"><span class="float-icon float-icon-violet"><i
+                            data-lucide="ticket-check"></i></span><span><strong>Good plans,</strong><small>just around the
+                            corner</small></span><i class="float-arrow" data-lucide="arrow-up-right"></i></div>
+                            <div class="hero-floating hero-float-bottom"><span class="live-dot"></span><span><strong>Made for your
+                                next</strong><small>“we should go” moment</small></span></div>
+                                <span class="hero-visual-caption">LOCAL MOMENTS, BIG FEELINGS</span>
+                                <span class="hero-orbit hero-orbit-one"></span><span class="hero-orbit hero-orbit-two"></span>
+                            </div>
+                            <div class="hero-decoration hero-decoration-one"></div>
+                            <div class="hero-decoration hero-decoration-two"></div>
+                        </section>
+                        <section class="search-dock page-container" aria-label="Search events">
+                            <div class="search-intro"><span class="search-spark"><i data-lucide="sparkles"></i></span><span><strong>Find
+                                your thing</strong><small>Make a plan worth leaving home for</small></span></div>
+                                <form class="home-search" data-home-search><label><span><i data-lucide="search"></i> What</span><input name="q"
+                                                                                                                                           placeholder="Event, artist, experience" /></label><label><span><i data-lucide="map-pin"></i>
+                                    Where</span><select name="location">
+                                    <option value="">Anywhere in the Philippines</option>
+                                </select></label><label><span><i data-lucide="shapes"></i> Category</span><select name="category">
+                                <option value="">All categories</option>
+                            </select></label><label><span><i data-lucide="calendar-days"></i> When</span><input name="date"
+                                                                                                                type="date" aria-label="Choose a demo event date" /></label><button
+                            class="button button-primary search-submit" type="submit"><span>Search</span><i
+                            data-lucide="arrow-right"></i></button></form>
+                        </section>
+                        <section class="section-block page-container" id="featured">
+                            <div class="section-heading">
+                                <div><span class="section-kicker">A GOOD PLACE TO START</span>
+                                    <h2>Featured experiences</h2>
+                                    <p class="section-subtitle">A few local favorites to get your plans moving. Demo listings, made for
+                                        exploring.</p>
+                                    </div><a class="text-link" href="/Events">See all events <i data-lucide="arrow-up-right"></i></a>
+                                </div>
+                                <div class="event-grid featured-grid" data-featured-grid></div>
+                            </section>
+                            <section class="category-band" id="categories">
+                                <div class="page-container section-block">
+                                    <div class="section-heading">
+                                        <div><span class="section-kicker">FOLLOW YOUR CURIOSITY</span>
+                                            <h2>Find your kind of fun</h2>
+                                        </div><a class="text-link" href="/Events">All categories <i data-lucide="arrow-up-right"></i></a>
+                                    </div>
+                                    <div class="category-grid" data-category-grid></div>
+                                </div>
+                            </section>
+                            <section class="section-block page-container">
+                                <div class="section-heading">
+                                    <div><span class="section-kicker">THE BUZZ AROUND TOWN</span>
+                                        <h2>Trending near you</h2>
+                                        <p class="section-subtitle">Community picks from across the islands — shown here as sample listings.</p>
+                                    </div><a class="text-link" href="/Events?sort=popular">Browse what’s on <i
+                                    data-lucide="arrow-up-right"></i></a>
+                                </div>
+                                <div class="trending-grid" data-trending-grid></div>
+                            </section>
+                            <section class="why-section" id="why-evently">
+                                <div class="page-container why-layout">
+                                    <div class="why-intro"><span class="section-kicker">YOUR PEOPLE. YOUR PLANS.</span>
+                                        <h2>More ways to find the moments that matter.</h2>
+                                        <p>Life is better when there’s something to look forward to. Evently makes finding it feel effortless.
+                                        </p><a class="button button-dark" href="/Events">Find your next experience <i
+                                        data-lucide="arrow-right"></i></a>
+                                    </div>
+                                    <div class="benefit-grid">
+                                        <article class="benefit-card"><span class="benefit-icon benefit-lilac"><i
+                                            data-lucide="compass"></i></span>
+                                            <h3>Discover local experiences</h3>
+                                            <p>Explore gatherings and ideas from Quezon City to Siargao, all in one place.</p>
+                                        </article>
+                                        <article class="benefit-card"><span class="benefit-icon benefit-peach"><i
+                                            data-lucide="scan-search"></i></span>
+                                            <h3>Easy event discovery</h3>
+                                            <p>Simple filters help you get from “what’s on?” to “I’m in.”</p>
+                                        </article>
+                                        <article class="benefit-card"><span class="benefit-icon benefit-mint"><i
+                                            data-lucide="badge-check"></i></span>
+                                            <h3>Clear demo details</h3>
+                                            <p>Sample schedules and prices are marked so you know exactly what’s illustrative.</p>
+                                        </article>
+                                        <article class="benefit-card"><span class="benefit-icon benefit-yellow"><i
+                                            data-lucide="layout-dashboard"></i></span>
+                                            <h3>Everything in one place</h3>
+                                            <p>Keep saved ideas and simulated bookings together in your demo dashboard.</p>
+                                        </article>
+                                    </div>
+                                </div>
+                            </section>
+                            <section class="stats-section page-container">
+                                <div class="stats-heading"><span class="section-kicker">A LITTLE SOMETHING TO EXPLORE</span>
+                                    <h2>A community full of possibility.</h2>
+                                    <p>Illustrative demo figures only — not actual platform activity.</p>
+                                </div>
+                                <div class="stats-grid" data-demo-stats></div>
+                            </section>
+                            <section class="testimonial-section page-container">
+                                <div class="section-heading">
+                                    <div><span class="section-kicker">GOOD WORDS, GOOD COMPANY</span>
+                                        <h2>What local explorers might say</h2>
+                                        <p class="section-subtitle">Fictional profiles and sample quotes for this demo.</p>
+                                    </div>
+                                    <div class="testimonial-controls"><button class="icon-button" type="button" data-testimonial-prev
+                                                                                  aria-label="Previous testimonial"><i data-lucide="arrow-left"></i></button><button
+                                        class="icon-button" type="button" data-testimonial-next aria-label="Next testimonial"><i
+                                        data-lucide="arrow-right"></i></button></div>
+                                    </div>
+                                    <div class="testimonial-grid" data-testimonials></div>
+                                </section>
+                                <section class="promo-band page-container">
+                                    <div class="promo-copy"><span class="section-kicker">MAKE ROOM FOR SOMETHING NEW</span>
+                                        <h2>Your next unforgettable experience starts here.</h2>
+                                        <p>Pick a place. Follow a feeling. See what’s happening nearby.</p><a class="button button-white"
+                                                                                                              href="/Events">Explore events <i data-lucide="arrow-right"></i></a>
+                                    </div>
+                                    <div class="promo-art" aria-hidden="true"><span class="promo-star promo-star-one">✦</span><span
+                                        class="promo-star promo-star-two">✦</span>
+                                        <div class="promo-ticket"><span class="promo-ticket-top">YOUR NEXT PLAN</span><span
+                                            class="promo-ticket-title">make it<br />a moment</span><span class="promo-ticket-bottom">EVENTLY ·
+                                            PHILIPPINES</span><span class="promo-ticket-stamp"><i data-lucide="sparkles"></i></span></div>
+                                        </div>
+                                    </section>
+                                </main>

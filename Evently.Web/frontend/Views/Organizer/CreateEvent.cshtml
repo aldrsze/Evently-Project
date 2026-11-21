@@ -1,0 +1,111 @@
+@{
+    ViewData["Title"] = "Create an event";
+}
+<main class="dashboard-page" data-page="create-event">
+    <div class="page-container dashboard-layout">
+        <aside class="dashboard-sidebar organizer-sidebar" data-organizer-sidebar></aside>
+        <section class="dashboard-content">
+            <div class="dashboard-welcome form-page-heading">
+                <div><span class="section-kicker">A NEW STORY STARTS HERE</span>
+                    <h1>Create your <span>event.</span></h1>
+                    <p>Build a sample listing for the Evently demo.</p>
+                </div><a class="back-link" href="/Organizer"><i data-lucide="arrow-left"></i> Back to studio</a>
+            </div>
+            <form class="event-create-form" data-create-event-form novalidate>
+                <div class="create-event-layout">
+                    <div class="create-event-main">
+                        <section class="panel-card create-panel">
+                            <div class="panel-title"><span class="step-number">01</span>
+                                <div>
+                                    <h2>Event basics</h2>
+                                    <p>Give your idea a name and a little context.</p>
+                                </div>
+                            </div>
+                            <div class="form-grid"><label class="form-field form-field-wide"><span>Event title
+                                <b>*</b></span><input name="title"
+                                                      placeholder="e.g. Sunday Sessions: Local Sounds" required /><small
+                                class="field-error"></small></label><label class="form-field"><span>Category
+                                <b>*</b></span><select name="category" required>
+                                <option value="">Choose a category</option>
+                            </select><small class="field-error"></small></label><label
+                            class="form-field"><span>Event banner</span><input name="banner" type="file"
+                                                                               accept="image/*" data-banner-input /><small>JPG or PNG · Preview stays in this
+                            browser session</small></label><label
+                            class="form-field form-field-wide"><span>Description <b>*</b></span><textarea
+                            name="description" rows="5"
+                            placeholder="What makes this experience worth showing up for?"
+                            required></textarea><small class="field-error"></small></label><label
+                            class="form-field"><span>Demo date <b>*</b></span><input name="date" type="date"
+                                                                                     required /><small class="field-error"></small></label><label
+                            class="form-field"><span>Registration deadline</span><input name="deadline"
+                                                                                        type="date" /></label><label class="form-field"><span>Start time
+                            <b>*</b></span><input name="startTime" type="time" required /><small
+                            class="field-error"></small></label><label class="form-field"><span>End
+                            time</span><input name="endTime" type="time" /></label></div>
+                        </section>
+                        <section class="panel-card create-panel">
+                            <div class="panel-title"><span class="step-number">02</span>
+                                <div>
+                                    <h2>Where it’s happening</h2>
+                                    <p>Choose a Philippine location for this sample listing.</p>
+                                </div>
+                            </div>
+                            <div class="form-grid"><label class="form-field"><span>Venue name <b>*</b></span><input
+                                name="venue" placeholder="Venue or community space" required /><small
+                                class="field-error"></small></label><label class="form-field"><span>City
+                                <b>*</b></span><select name="city" required>
+                                <option value="">Select a city</option>
+                            </select><small class="field-error"></small></label><label
+                            class="form-field"><span>Province <b>*</b></span><input name="province"
+                                                                                    placeholder="Province or Metro Manila" required /><small
+                            class="field-error"></small></label><label class="form-field"><span>Complete
+                            address</span><input name="address"
+                                                 placeholder="Street, barangay, city" /></label></div>
+                        </section>
+                        <section class="panel-card create-panel">
+                            <div class="panel-title"><span class="step-number">03</span>
+                                <div>
+                                    <h2>Ticket types</h2>
+                                    <p>Set up sample ticket options and capacity.</p>
+                                </div><button type="button" class="button button-outline button-small"
+                                              data-add-ticket><i data-lucide="plus"></i> Add ticket type</button>
+                            </div>
+                            <div class="ticket-type-list" data-ticket-type-list></div>
+                        </section>
+                        <section class="panel-card create-panel">
+                            <div class="panel-title"><span class="step-number">04</span>
+                                <div>
+                                    <h2>Organizer details</h2>
+                                    <p>These are demo contact fields only.</p>
+                                </div>
+                            </div>
+                            <div class="form-grid"><label class="form-field"><span>Organizer name <b>*</b></span><input
+                                name="organizer" placeholder="Your group or studio" required /><small
+                                class="field-error"></small></label><label class="form-field"><span>Contact
+                                email <b>*</b></span><input name="organizerEmail" type="email"
+                                                            placeholder="hello@example.ph" required /><small
+                                class="field-error"></small></label><label class="form-field"><span>Contact
+                                number</span><input name="organizerPhone" type="tel"
+                                                    placeholder="+63 9XX XXX XXXX" /></label><label class="form-field"><span>Website
+                                or social media</span><input name="organizerLink"
+                                                             placeholder="https:// or @@handle" /></label></div>
+                            </section>
+                        </div>
+                        <aside class="create-event-aside">
+                            <div class="panel-card banner-preview-card"><span class="section-kicker">LISTING PREVIEW</span>
+                                <div class="banner-preview" data-banner-preview><span class="preview-placeholder"><i
+                                    data-lucide="image-plus"></i><small>Your event banner appears
+                                    here</small></span></div>
+                                    <div class="preview-data-note"><i data-lucide="info"></i> This is a demo listing. Publishing
+                                        does not create a real event.</div>
+                                    </div>
+                                    <div class="form-actions-card"><button class="button button-outline button-full" type="button"
+                                                                               data-save-draft>Save as draft</button><button class="button button-primary button-full"
+                                                                                      type="submit">Review & publish <i data-lucide="arrow-right"></i></button><span><i
+                                        data-lucide="shield-check"></i> Changes stay in local demo data</span></div>
+                                    </aside>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </main>

@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Explore events";
+}
+<main class="page-shell" data-page="explore">
+    <section class="page-hero compact-hero page-container">
+        <div><span class="section-kicker">THE PHILIPPINES, YOUR PLAYGROUND</span>
+            <h1>Find your <span>next thing.</span></h1>
+            <p>Browse local experiences, meet your people, and make a plan. All schedules and tickets here are demo
+                data.</p>
+            </div>
+            <div class="explore-hero-mark"><i data-lucide="compass"></i></div>
+        </section>
+        <section class="explore-layout page-container">
+            <aside class="filter-sidebar" data-filter-sidebar>
+                <div class="filter-head">
+                    <div><span class="section-kicker">MAKE IT YOURS</span>
+                        <h2>Filters</h2>
+                    </div><button class="text-button" type="button" data-clear-filters>Clear all</button><button
+                    class="icon-button filter-close" type="button" data-filter-close aria-label="Close filters"><i
+                    data-lucide="x"></i></button>
+                </div><label class="filter-label">Search events<div class="field-icon-wrap"><i
+                data-lucide="search"></i><input type="search" name="q" placeholder="Name, artist, activity"
+                                                data-filter="q" /></div></label><label class="filter-label">Location<select
+                data-filter="location">
+                <option value="">Anywhere in the Philippines</option>
+            </select></label><label class="filter-label">Category<select data-filter="category">
+            <option value="">All categories</option>
+        </select></label>
+        <div class="filter-label">When<div class="date-range-fields"><input aria-label="From date" type="date"
+                                                                                data-filter="from" /><input aria-label="To date" type="date" data-filter="to" /></div>
+        </div>
+        <div class="filter-label">Price range <div class="price-range-row"><span>₱0</span><input type="range"
+                                                                                                     min="0" max="5000" step="100" value="5000" data-filter="price"
+                                                                                                     aria-label="Maximum price" /><span data-price-max>₱5,000</span></div>
+        </div><label class="toggle-line"><span><strong>Free events</strong><small>Show no-cost demo
+        listings</small></span><input type="checkbox" data-filter="free" /><span class="switch"
+                                                                                 aria-hidden="true"></span></label>
+        <div class="filter-footnote"><i data-lucide="info"></i><span>Dates, pricing and availability are sample
+            information only.</span></div>
+        </aside>
+        <div class="explore-results">
+            <div class="explore-topbar"><button class="button button-outline filter-open" type="button"
+                                                    data-filter-open><i data-lucide="sliders-horizontal"></i> Filters</button>
+                <div class="results-title"><span class="section-kicker">A GOOD DAY TO GO OUT</span>
+                    <h2>Explore events</h2><span class="result-count" data-result-count></span>
+                </div><label class="sort-select"><span>Sort by</span><select data-sort>
+                <option value="newest">Newest</option>
+                <option value="popular">Most popular</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+            </select></label>
+        </div>
+        <div class="filter-chips" data-filter-chips></div>
+        <div class="event-grid listing-grid" data-event-list></div>
+        <div class="empty-state" data-empty-state hidden><span class="empty-illustration"><i
+            data-lucide="search-x"></i></span>
+            <h3>No events found just yet</h3>
+            <p>Try adjusting your filters or clearing them to see more local plans.</p><button
+            class="button button-primary" data-clear-filters type="button">Clear filters</button>
+        </div>
+        <div class="load-more-wrap"><button class="button button-outline" type="button" data-load-more>Show more
+            events <i data-lucide="arrow-down"></i></button></div>
+        </div>
+    </section>
+</main>

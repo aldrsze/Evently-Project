@@ -1,56 +1,53 @@
-# Evently outcome tracker
+# Evently delivery outcomes
 
-Status: implementation complete; outcomes 1–8 and 10 have evidence of delivery. Outcome 9 remains open: responsive layouts and dialog keyboard behavior were checked, but a complete color-contrast/accessibility audit was not performed.
+## 1. Public landing page and shared site shell — Complete
+- Implement `/` with Evently logo; Home, Explore Events, Categories, About Us, Contact, Login and Sign Up links; sticky navigation that may be transparent over the hero and becomes solid on scroll; active-link styling; smooth transitions; and an open/close mobile hamburger menu.
+- Provide a compelling hero with Philippine event photography, decorative accents, floating event information cards, the headline “Discover Experiences. Create Memories.”, supporting copy about experiences across the Philippines, and Explore Events / Become an Organizer CTAs.
+- Add a working homepage search for keyword, location, event category and date. Render 4–6 featured events with image, category, title, demo date/location/starting price, favorite toggle, View Details, accessible image zoom, elevation, and clickable navigation.
+- Include eight category cards (Music & Concerts, Festivals, Business, Technology, Education, Food & Lifestyle, Arts & Culture, Sports & Fitness) with icon, label and event count; trending events with popularity, category, location and PHP price; four Why Choose Evently benefits; promotional CTA; clearly labeled demo statistics; three fictional Philippine testimonials; and a footer with About, quick links, categories, contact, social links, privacy, terms and copyright.
 
-## 1. Public site shell and landing page — complete
-- Provide brand logo; Home; Explore Events; Categories; About; Contact; Sign In; and Get Started navigation, with a responsive mobile menu.
-- Hero communicates the platform and includes “Discover Experiences. Create Unforgettable Moments.”, supporting copy, Explore Events and Host an Event actions, event search, location and category selectors, and event-related imagery.
-- Featured event cards show image, category, title, date/time, location, price/free status, available seats or registration status, and a View Details action. Cards use 24px outer radius, 12px inner padding, 12px image radius, aligned content, equal heights, consistent image ratios and actions pinned to the bottom.
-- Include 8 visual categories (Conferences, Workshops, Seminars, Music and Entertainment, Technology, Business, Education, Community Events); why choose us; three how-it-works steps; clearly marked demonstration testimonials with name, role, rating, feedback and avatar/initials; conversion CTA; and a footer with brand, navigation, categories, contact, social links, privacy, terms and copyright.
+## 2. Event exploration and event details — Complete
+- Implement `/Events` with responsive desktop filter sidebar, mobile filter drawer, responsive event cards, keyword search, Philippine location/category/date/price filters, free-only toggle, newest/price/popularity sorting, active filter chips, clear-all, result count, load-more or pagination, loading skeletons, and a useful empty state. All filters operate on local sample data.
+- Event cards show image, title, category, demo date/time, location, PHP price, popularity and availability cues explicitly marked as demo values, favorite control, accessible image zoom and View Details.
+- Implement `/Events/Details/{id}` with banner, category, title, demo date/time, venue/location, fictional organizer, favorite and share; About, highlights, schedule, performers/speakers, venue, organizer profile and FAQ sections; and a sticky booking card with ticket type, demo price, quantity selector, demo ticket quantity and calculated total.
+- Support quantity/price updates, favorite toggle, share, reserve action and confirmation modal. Example displayed ticket tiers may use General Admission ₱500, VIP Admission ₱1,200 and Student Ticket ₱300, clearly labeled as demo prices.
 
-## 2. Event exploration and event information — complete
-- Dedicated discovery view provides search, category/date/location/price filters, free/paid control, featured-event banner, responsive event grid, sorting, active filter chips, Clear All Filters, empty state, loading skeleton and pagination or Load More. All filters operate on local mock event data.
-- Event detail view includes cover image, title, category, date/time, location, organizer, description, objectives, agenda/schedule, speakers/hosts, gallery, ticket/registration details, available slots, related events and a prominent “Register Now” action.
-- Save Event, Share Event and Copy Event Link work and return visible feedback.
+## 3. Simulated checkout and booking confirmation — Complete
+- Implement `/Booking/Checkout` with event image/title/date/venue, selected ticket/quantity, PHP price breakdown and total; attendee fields Full Name, Email Address, Mobile Number, City and Additional Information; required-field validation with inline messages; and visual GCash, Maya, Credit/Debit Card and Bank Transfer demo choices.
+- Do not connect payment providers or collect real payment credentials. Confirm Reservation creates only a local simulated booking and displays a successful booking state. Do not store typed attendee contact details or notes in localStorage; use only transient tab-session attendee display data for the immediate confirmation, then clear it.
+- Implement `/Booking/Success` with success illustration, confirmation, demo reference, event and attendee details, ticket type and total, browser-generated downloadable ticket, Back to Home and View My Bookings.
 
-## 3. Registration flow and simulated authentication — complete
-- Registration has Personal Information (Full Name, Email Address, Phone Number); Registration Details (Ticket Type, Number of Attendees, Organization or Institution, Special Requirements); and Confirmation (registration summary, event information, attendee details, total amount when applicable, Confirm Registration).
-- Show progress, previous/next controls, required indicators, frontend validation, inline errors on the same label row, prevent invalid submissions, success screen and generated mock registration reference. Persist registration in localStorage; do not process payments.
-- Login provides email, password, show/hide, remember me, forgot password, sign in and create account. Registration provides full name, email, password, confirm password and Terms and Conditions acceptance. Forgot Password provides email, reset instructions and success state. Persist mock auth in localStorage and clearly distinguish simulated auth from secure authentication.
+## 4. Attendee dashboard, bookings and saved events — Complete
+- Implement `/Dashboard` with Overview, My Bookings, Saved Events, Profile Settings, Notifications and Logout navigation; booking/upcoming/completed/saved counts; upcoming booking cards with image, title, date, venue, reference, ticket type and View Ticket; a recent-activity timeline; sidebar/tab behavior; booking-details modal; favorite management; profile editing; and sample notifications.
+- Implement `/Dashboard/Bookings` with upcoming, completed and cancelled booking states; reference, event, date, ticket quantity, total, status and details; search, status filters, sorting and empty states.
+- Implement `/Dashboard/Favorites` with searchable saved-event cards, remove favorite, details link, localStorage persistence, and an Explore Events empty-state CTA.
 
-## 4. About, contact and public supporting content — complete
-- About includes platform introduction, mission, vision, core values, differentiation, team and explore-events CTA in an editorial layout.
-- Contact includes full name, email, subject and message; inline validation; success feedback; contact information; social links; FAQ; and clearly simulated frontend submission.
+## 5. Organizer dashboard and event creation — Complete
+- Implement `/Organizer` with Overview, My Events, Create Event, Attendees, Analytics and Settings navigation; clearly labeled demo totals for events, registrations, upcoming events and estimated revenue; Chart.js sample charts for registrations over time, event-category distribution, ticket sales and monthly performance; and event table with name/date/location/tickets sold/status plus View/Edit/Delete simulated actions.
+- Implement `/Organizer/CreateEvent` with title, category, description, banner upload and preview, date, start/end times; venue, city, province and complete address using Philippine location choices; ticket type, PHP ticket price, quantity and registration deadline; organizer name, contact email, Philippine-format contact number and website/social link.
+- Validate required fields; support dynamic add/remove ticket types, Save as Draft and Publish Event simulation; show a confirmation modal before publishing; persist created/edited records only as local demo data; show saved drafts in the organizer form so they can be reopened, updated, deleted, or published without duplicating them.
 
-## 5. Attendee workspace — complete
-- Overview includes welcome message, total registered events, upcoming events, attended events and saved events.
-- My Registrations shows event thumbnail/name, reference, event date, registration status, View Details and Cancel Registration.
-- Saved Events shows bookmarks and supports remove, detail view and register now.
-- Profile Settings supports viewing/editing profile/contact data, mock change-password UI and notification preferences. Persist mock changes in localStorage.
+## 6. Administrative dashboard — Complete
+- Implement `/Admin` with visually distinct dashboard navigation for Overview, Manage Events, Manage Users, Manage Organizers, Manage Categories, Bookings, Reports and Settings.
+- Show clearly simulated totals for users, events, organizers, bookings and revenue. Management tables provide search, filters, sorting, pagination, status badges and action dropdowns.
+- Approve/reject/edit/delete events, view user details and suspend/restore demo accounts through confirmed local-only simulated interactions, and persist/display that simulated status in this browser.
 
-## 6. Admin overview and analytics — complete
-- Admin has a separate sidebar with Overview, Events, Create Event, Registrations, Attendees, Categories, Reports and Analytics, Settings and Logout.
-- Overview presents Total Events, Upcoming Events, Total Registrations, Total Attendees and Event Completion Rate; registration and event-performance charts; recent registrations; upcoming events; and event-status overview using realistic mock data.
-- Reports show monthly registrations, event popularity, attendance statistics, mock revenue overview and registration trends, with interactive charts and date filters.
+## 7. Frontend authentication UI — Complete
+- Implement `/Account/Login`, `/Account/Register` and `/Account/ForgotPassword` as simulations only. Login includes email, password, remember me, forgot-password link, register link, login action and password-visibility toggle. Registration includes full name, email, Philippine mobile, password/confirmation and Event Attendee/Event Organizer account type. Forgot Password gives simulated success feedback.
+- Do not implement real authentication and never persist typed passwords.
 
-## 7. Admin event lifecycle — complete
-- Event table columns: Event Image, Event Name, Category, Date, Location, Registrations, Status and Actions. Support search, filters, sorting and pagination.
-- Actions include View, Edit, Delete (with confirmation), Duplicate, Publish and Archive.
-- Event editor includes Basic Information (title, description, category, cover image and gallery); Date and Location (start/end dates and times, venue, address); Registration (capacity, ticket type/price, deadline); Organizer Information (name, contact email, contact number); Publishing (Draft, Publish Event, Preview Event); frontend validation and image preview.
+## 8. Centralized Philippine demo data and frontend behavior — Complete
+- Centralize reusable JavaScript data for events, fictional users/organizers, categories, bookings, favorites, notifications and tickets. Create at least 18 sample/demo events based in the Philippines, including the brief's named examples and additional photography workshops, technology conferences, business seminars, art exhibitions, food bazaars and fitness activities.
+- Include Quezon City, Manila, Makati, Pasig, Taguig, Cebu City, Davao City, Baguio City, Iloilo City, Bacolod City, Cagayan de Oro, Batangas, Pampanga, Palawan and Siargao. All locations, organizers, venues, addresses, dates/schedules, prices, ticket availability and statistics are sample records, not verified upcoming events. Do not invent official dates, confirmed organizers, actual ticket inventory or real booking links; label recurring festivals as demos rather than confirmed upcoming editions. Use PHP and Philippine date formatting.
+- Use unique IDs, consistent data relationships, safe defaults for empty/invalid localStorage, first-launch default data, persistence only for relevant non-sensitive demo changes, and a Reset Demo Data function.
+- Every visible interactive element performs a meaningful action: navigation, search/filters/sorting, category/location/date filtering, favorites, event details, ticket calculations, checkout validation, booking confirmation, dashboard tabs/sidebar, event creation/edit/delete, notifications, profile editing, charts, and mobile navigation.
 
-## 8. Admin registrations, attendees and settings — complete
-- Registration management includes attendee name/email, event, registration date, reference number, mock payment status and registration status; View Details, Approve, Reject, Cancel and Export CSV.
-- Attendee management provides directory, search, registration history, attendee details and status filters.
-- Settings screens expose usable controls; no decorative button may be inert.
+## 9. Reusable interface, accessibility and quality — Complete
+- Reuse navigation, footer, event/category/booking/statistic cards, search and filter sidebar/drawer, badges, price display, dashboard sidebar, tables, modal, toast, confirmation dialog, form controls, empty state, loading skeleton, pagination and profile avatar styling/behavior.
+- Apply the supplied navy/violet/orange/yellow/mint palette, Plus Jakarta Sans and Inter, consistent 8px spacing, 16–24px card radii, subtle shadows/borders, clear hierarchy, generous whitespace, accessible contrast, consistent icon sizing, hover states and responsive alignment. Keep the look original rather than cloning references.
+- Support desktop (1440px+), laptop (1024–1439px), tablet (768–1023px) and mobile (375–767px), including single-column mobile cards, touch controls, mobile filter drawer, responsive/scrollable data tables, and sticky booking CTA when appropriate; prevent horizontal overflow.
+- Use semantic HTML, heading hierarchy, labels, keyboard access, visible focus, descriptive alt text, modal accessibility, form error descriptions and text labels in addition to icons. Respect prefers-reduced-motion; keep common transitions around 150–300ms.
+- Keep images relevant and loading; use lazy loading, minimal JavaScript dependencies, reusable CSS, efficient filtering, and no broken asset URLs. Test principal routes, booking flow, filters, empty states, and responsive layouts; fix observed failures.
 
-## 9. Shared design, interaction, accessibility and responsive behavior — open (partial verification; full contrast audit remains)
-- Use blue primary actions with hover, active, focus and disabled states; secondary outlined/quiet actions; visible inline form errors beside their labels; readable typography; subtle reduced-motion-aware animation; and consistent nested card radii.
-- All visible navigation, filters, forms, tabs, modals, dropdowns, actions and state changes work. Persist reusable frontend state with localStorage. Use explicit frontend simulations for anything requiring a backend.
-- Support desktop (1440px+), laptop (1024–1439px), tablet (768–1023px), and mobile (320–767px); mobile has drawer navigation, single-column event cards, full-width primary actions, touch-friendly controls and stacked forms. Prevent horizontal overflow; tables scroll or convert to mobile cards.
-- Meet practical WCAG 2.2 AA principles: semantic HTML, keyboard access, visible focus, proper labels, accessible inline errors and dialogs, descriptive alt text, sufficient contrast, reduced-motion support and status communication beyond color alone.
-- Maintain reusable typed modules, central mock data, optimized/lazy-loaded imagery, empty/error states and a successful production build without console/type errors.
-
-## 10. Central mock data and frontend-only boundary — complete
-- Provide at least 12 sample events, 5 event categories, 6 sample attendees, 8 sample registrations, 4 organizers and sample analytics.
-- Include free and paid, upcoming and completed events, plus draft and cancelled statuses; use believable titles, dates, descriptions, prices and locations; map reusable cards from centralized data.
-- Do not build a backend, create/modify a database, or implement server-side functionality or real payment processing. Keep this frontend-only, using mock data, local state and localStorage where appropriate.
+## 10. Frontend-only constraints — Complete
+- No backend product logic, database, API, real authentication service, real payment gateway/provider connection, payment credential capture, or persistent storage of real passwords. Organizer/admin actions and all bookings remain locally simulated; all sample data and metrics stay clearly identified as demo content.

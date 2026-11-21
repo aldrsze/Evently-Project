@@ -1,0 +1,19 @@
+@{
+    ViewData["Title"] = "Saved events";
+}
+<main class="dashboard-page" data-page="favorites">
+    <div class="page-container dashboard-layout">
+        <aside class="dashboard-sidebar" data-dashboard-sidebar></aside>
+        <section class="dashboard-content">
+            <div class="dashboard-welcome">
+                <div><span class="section-kicker">YOUR MAYBE-LATER LIST</span>
+                    <h1>Saved <span>events.</span></h1>
+                    <p>Keep the ideas you love close by.</p>
+                </div><label class="favorite-search"><i data-lucide="search"></i><input type="search"
+                                                                                        placeholder="Search saved events" data-favorites-search
+                                                                                        aria-label="Search saved events" /></label>
+            </div>
+            <div data-favorites-view></div>
+        </section>
+    </div>
+</main>

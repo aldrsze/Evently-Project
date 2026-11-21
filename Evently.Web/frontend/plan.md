@@ -1,49 +1,41 @@
-# Evently — implementation and design plan
+# Evently implementation plan
 
-## Approved product scope
+## Approved scope
+Build the supplied Evently product as an ASP.NET Core MVC application using Razor views, CSS, and modular vanilla JavaScript. The app is a frontend-only demonstration: no database, API, payment gateway, real authentication, or storage of real passwords/payment details. User-visible event, booking, organizer, profile, and analytics data must be clearly marked as sample/demo data.
 
-Build a frontend-only, responsive event discovery and management platform. Attendees can discover, save and register for events; administrators can create and manage events, registrations, attendees and reports. Use centralized mock records and localStorage for user-facing persistence. No server, database, real authentication, or payment integration.
+The managed workspace was initialized empty and has no .NET SDK installed. Install the SDK into this project environment for development, build and run the Razor application there, and stop to ask before changing frameworks if that cannot be made reliable. Keep the managed project configured with server and database features disabled. Do not publish unless separately requested.
 
-## Implementation approach
-
-- Start from the empty initialized workspace with React, TypeScript and Vite; keep the runtime frontend-only on port 3000.
-- Use a lightweight History API router with explicit static and dynamic routes. Keep domain data in centralized typed fixtures and localStorage helpers; share reusable form, card, button, modal, toast, navigation and layout components.
-- Use Lucide React for interface icons, Recharts for mock analytics, and authored CSS/design tokens for a distinctive responsive visual system. Avoid unnecessary dependencies and generated backend code.
-- Organize app routes into public discovery/content, account simulation, attendee workspace and admin workspace. Keep multi-step registration and event creation forms controlled with inline validation. Make all state-changing actions visible and persist supported state locally.
-- Core routes: `/`, `/events`, `/events/:id`, `/register/:id`, `/about`, `/contact`, `/login`, `/signup`, `/forgot-password`, `/dashboard`, `/dashboard/registrations`, `/dashboard/saved`, `/dashboard/profile`, `/admin`, `/admin/events`, `/admin/events/new`, `/admin/events/:id/edit`, `/admin/registrations`, `/admin/attendees`, `/admin/analytics`, `/admin/settings`.
+## Product architecture
+- ASP.NET Core MVC routes and controllers serve distinct Razor pages for Home; Events/Index and Events/Details/{id}; Booking/Checkout and Booking/Success; Dashboard overview, bookings, and favorites; Organizer overview and CreateEvent; Admin overview; and Account Login, Register, and ForgotPassword.
+- Keep event fixtures centralized in a Philippine-only demo catalog. Use reusable Razor partials for the site shell, navigation, footer, cards, badges, statistics, and dialogs. Use JavaScript modules for local demo state, event discovery/filtering, booking, dashboard/organizer/admin interactions, and accessible UI behaviors.
+- Persist only non-sensitive demonstration data (favorites, simulated bookings, created demo events, and profile edits) to localStorage. Never persist typed passwords or payment credentials. Include a reset-demo-data control.
+- Provide a demo ticket download from browser-generated content. Payment options are presentational only.
 
 ## Project structure
+```text
+Controllers/       MVC page controllers for public, booking, attendee, organizer, admin, and account routes
+Models/            View models and demo event/ticket types (no persistence layer)
+Services/          Centralized sample catalog and route/view presentation helpers only
+Views/             Razor page views grouped by controller
+Views/Shared/      Shared layout, navigation/footer and reusable partials
+wwwroot/css/       Design tokens, responsive layout, component and page styling
+wwwroot/js/        Central demo data/state plus focused interaction modules
+wwwroot/images/    Curated/generated assets used by the interface
+Program.cs         MVC/static-file route setup; no backend product services
+```
 
-- `src/main.tsx`, `src/App.tsx`: bootstrap, route resolution and shared state boundaries.
-- `src/data/`: typed event, category, attendee, registration and analytics demo fixtures.
-- `src/lib/`: browser persistence, formatters, validation and small UI utilities.
-- `src/components/`: reusable public navigation/footer, event cards/filters, forms, dialogs, toast, badges and dashboard shell.
-- `src/pages/public/`: Home, Explore, Event details, Registration, About, Contact and authentication pages.
-- `src/pages/attendee/`: dashboard overview, registrations, saved events and profile.
-- `src/pages/admin/`: overview, event list/editor, registrations, attendees, analytics and settings.
-- `src/styles/`: design tokens, typography, responsive layout and page/component styles.
-- `public/`: route manifest and generated site imagery.
+## Design system
+- **Movement:** contemporary event editorial with product-grade dashboard polish, inspired by the supplied Eventbrite/Luma/Linear references without cloning them.
+- **Core principles:** high-energy discovery; clear trust and demo-data cues; tactile cards and booking controls; one coherent system across public and dashboard routes.
+- **Color philosophy:** midnight navy (#101828) grounds trust; electric violet (#7657F6) is the ownable brand signature; orange (#FF914D), yellow (#FFD166), and mint (#42D6A4) add event energy and status cues; off-white/soft gray backgrounds protect readability.
+- **Layout paradigm:** a roomy editorial landing page with asymmetrical hero composition and floating event details, followed by compact adaptive event grids and clear filter/dashboard rails.
+- **Signature elements:** a custom ticket-notch/wayfinder Evently mark; violet category chips with warm accent dots; small “DEMO DATA” labels placed beside event schedules, metrics, and prices.
+- **Interaction and animation:** direct, reversible actions with inline feedback; 150–300ms easing for hover, drawer, modal, and toast states; reduced-motion support and no unnecessary bounce.
+- **Typography:** Plus Jakarta Sans headings and Inter body copy; bold editorial hero, medium/semibold labels, consistent 8px spacing, 16–24px card radii, restrained shadows and visible focus states.
+- **Brand essence:** the Philippine-local guide to experiences worth going out for; energetic, welcoming, dependable. Voice is specific and inviting, e.g. “Find your next local favorite.” and “Good plans start nearby.” Logo is a compact violet ticket/wayfinder glyph paired with a custom-weight Evently wordmark.
 
-## Design direction
+## Data and accuracy
+Create at least 18 demo records, including the 15 supplied event concepts and additional photography, technology, business, art, food, and fitness activities. Use Philippine venues/cities and cover Quezon City, Manila, Makati, Pasig, Taguig, Cebu City, Davao City, Baguio City, Iloilo City, Bacolod City, Cagayan de Oro, Batangas, Pampanga, Palawan, and Siargao. All records, schedules, organizers, locations, availability, prices, metrics, testimonials, and bookings are visibly labeled as demonstration content; recurring festivals are not represented as verified upcoming editions. Display Philippine Peso and Philippine date formatting.
 
-Three styles considered: **editorial event journal** (0.08, selected), **Swiss SaaS utility** (0.06), and **nocturne culture-club aesthetic** (0.04).
-
-- **Design Movement:** Editorial event-journal design blended with contemporary SaaS product clarity.
-- **Core Principles:** Discovery before administration; visual storytelling anchored by strong event photography; precise hierarchy and generous breathing room; consistent components that remain usable and accessible.
-- **Color Philosophy:** Cobalt communicates confident action and navigation; deep ink navy provides trust and contrast; warm off-white and pale blue-gray create a calm paper-like canvas; coral, lilac and green distinguish event categories and statuses sparingly.
-- **Layout Paradigm:** An asymmetrical editorial landing-page hero and image-led event feed lead into more structured dashboard workspaces. Wide content rails, quiet dividers and a persistent utility header keep pages readable without defaulting to generic centered grids.
-- **Signature Elements:** A compact Evently wordmark with a custom linked-dot/asterisk mark; thin cobalt rules and date chips that evoke a printed event listing; high-quality photographic crops inside consistent nested card geometry.
-- **Interaction Philosophy:** Clear action hierarchy and immediate visible feedback; progressive disclosure for multi-step flows; keyboard-friendly controls, inline validation and restrained confirmation dialogs.
-- **Animation:** One low-distance fade/slide entrance for the hero and restrained short transitions for menus, cards and dialogs. Honor `prefers-reduced-motion`; no looping decorative movement.
-- **Typography System:** Inter for product UI and body text with a refined high-contrast editorial serif for display headlines; use an accessible type scale, tight display leading and comfortable body line-height.
-- **Brand Essence:** A considered way for curious people and organizers to find and host experiences worth showing up for. Personality: inviting, assured, thoughtful.
-- **Brand Voice:** Specific, human and action-oriented, with practical event details before hype. Example lines: “Make room for something memorable.” and “Find your people. Save your seat.”
-- **Wordmark & Logo:** A custom four-point meeting mark built from linked cobalt circles beside the lowercase Evently wordmark; use the icon alone only where the wordmark cannot fit.
-- **Signature Brand Color:** Evently cobalt `#2563EB`, supported by deep navy `#0F172A` and soft paper-white `#F8FAFC`.
-
-## Functional and quality scope
-
-- Implement the requested public discovery, information, registration and mock-account experiences; attendee and admin views; responsive navigation; event filtering, sorting, saving and CRUD; registration status management and CSV export; profile preferences; dialogs/toasts; and localStorage persistence.
-- Include at least 12 believable sample events, 5+ categories, 6 attendees, 8 registrations, 4 organizers and mock analytics across free/paid and varied statuses.
-- Use semantic markup, labels, keyboard focus, readable contrast, reduced-motion support and responsive layouts. Clearly label authentication/payment and mock submission behavior as frontend simulations.
-- Static route manifest must match application routes. Production output must build successfully; no external service is required to use core interactions.
+## Build workflow
+After this plan was approved, create/update TODO.md with source requirements grouped by deliverable outcome. Configure available HTML/CSS/JavaScript diagnostics before the first code batch, curate/generate image assets, then build the MVC shell, page routes, shared design system, centralized demo data, and interactions. Build and smoke-check principal routes and the end-to-end simulated booking path; resolve issues found. Preserve frontend-only boundaries throughout.

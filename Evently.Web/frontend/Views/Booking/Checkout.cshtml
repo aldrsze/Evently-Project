@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Complete your reservation";
+}
+<main class="page-shell checkout-page" data-page="checkout">
+    <section class="page-container">
+        <div class="checkout-heading"><a class="back-link" href="javascript:history.back()"><i
+            data-lucide="arrow-left"></i> Back to event</a><span class="section-kicker">A FEW DETAILS, THEN
+            YOU’RE SET</span>
+            <h1>Review your <span>reservation.</span></h1>
+            <p>This is a frontend demo. No payment will be taken and no payment credentials are requested.</p>
+        </div>
+        <div class="checkout-layout">
+            <section class="checkout-main">
+                <div class="panel-card order-panel">
+                    <div class="panel-title"><span class="step-number">01</span>
+                        <div>
+                            <h2>Your reservation</h2>
+                            <p>Double-check the details below.</p>
+                        </div><span class="demo-badge">DEMO</span>
+                    </div>
+                    <div data-checkout-summary></div>
+                </div>
+                <form class="panel-card attendee-form" data-checkout-form novalidate>
+                    <div class="panel-title"><span class="step-number">02</span>
+                        <div>
+                            <h2>Attendee details</h2>
+                            <p>Use sample information only.</p>
+                        </div>
+                    </div>
+                    <div class="form-grid"><label class="form-field"><span>Full name <b>*</b></span><input
+                        name="fullName" autocomplete="name" placeholder="e.g. Alex Santos" required /><small
+                        class="field-error"></small></label><label class="form-field"><span>Email address
+                        <b>*</b></span><input name="email" type="email" autocomplete="email"
+                                              placeholder="alex@example.com" required /><small
+                        class="field-error"></small></label><label class="form-field"><span>Mobile number
+                        <b>*</b></span><input name="mobile" type="tel" inputmode="tel" autocomplete="tel"
+                                              placeholder="09XX XXX XXXX" required /><small class="field-error"></small></label><label
+                        class="form-field"><span>City <b>*</b></span><input name="city"
+                                                                            autocomplete="address-level2" placeholder="Your city in the Philippines"
+                                                                            required /><small class="field-error"></small></label><label
+                        class="form-field form-field-wide"><span>Anything else? <em>Optional</em></span><textarea
+                        name="notes" rows="3"
+                        placeholder="Accessibility notes or a message for the organizer"></textarea></label>
+                    </div>
+                    <fieldset class="payment-fieldset">
+                        <legend>Choose a demo payment option <span class="demo-badge">VISUAL ONLY</span></legend>
+                        <div class="payment-options"><label class="payment-option"><input type="radio" name="payment"
+                                                                                              value="GCash" checked /><span
+                            class="payment-icon payment-gcash">G</span><span><strong>GCash</strong><small>Demo
+                            selection only</small></span><i data-lucide="check-circle-2"></i></label><label
+                            class="payment-option"><input type="radio" name="payment" value="Maya" /><span
+                            class="payment-icon payment-maya">M</span><span><strong>Maya</strong><small>Demo
+                            selection only</small></span><i data-lucide="check-circle-2"></i></label><label
+                            class="payment-option"><input type="radio" name="payment" value="Card" /><span
+                            class="payment-icon payment-card"><i
+                            data-lucide="credit-card"></i></span><span><strong>Credit /
+                            debit</strong><small>No card details requested</small></span><i
+                            data-lucide="check-circle-2"></i></label><label class="payment-option"><input
+                            type="radio" name="payment" value="Bank transfer" /><span
+                            class="payment-icon payment-bank"><i
+                            data-lucide="landmark"></i></span><span><strong>Bank
+                            transfer</strong><small>Demo selection only</small></span><i
+                            data-lucide="check-circle-2"></i></label></div>
+                        </fieldset>
+                        <p class="privacy-note"><i data-lucide="shield-check"></i> This demo never asks for or stores real
+                            payment credentials.</p>
+                            <div class="form-submit-row"><button class="button button-primary button-large"
+                                                                     type="submit">Confirm demo reservation <i data-lucide="arrow-right"></i></button><span><i
+                                data-lucide="lock-keyhole"></i> No payment is processed</span></div>
+                            </form>
+                        </section>
+                        <aside class="checkout-aside">
+                            <div class="panel-card checkout-total-card"><span class="section-kicker">ORDER SUMMARY</span>
+                                <div data-checkout-total></div>
+                                <div class="checkout-aside-note"><i data-lucide="info"></i><span>Demo prices are illustrative. This
+                                    reservation is simulated on this device.</span></div>
+                                </div>
+                                <div class="trust-note"><span class="trust-note-icon"><i data-lucide="heart-handshake"></i></span>
+                                    <div><strong>Good to know</strong>
+                                        <p>Nothing here reserves a real ticket. Your sample booking stays in local browser storage.</p>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+                </main>

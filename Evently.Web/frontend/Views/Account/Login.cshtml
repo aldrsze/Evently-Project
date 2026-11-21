@@ -1,0 +1,39 @@
+@{
+    ViewData["Title"] = "Log in";
+}
+<main class="auth-page" data-page="login">
+    <section class="auth-art-panel"><a class="brand brand-inverse" href="/"><span class="brand-mark"><svg
+        viewBox="0 0 32 32" fill="none">
+        <path d="M6 8.5h20v4.1a3.4 3.4 0 0 0 0 6.8v4.1H6v-4.1a3.4 3.4 0 0 0 0-6.8V8.5Z"
+              fill="currentColor" />
+    </svg></span><span class="brand-word">evently<span class="brand-dot">.</span></span></a>
+    <div class="auth-art-copy"><span class="section-kicker">THE NEXT GOOD THING IS OUT THERE</span>
+        <h2>Come on in.<br />There’s more to <em>experience.</em></h2>
+        <p>Save your favorite ideas and keep your demo plans in one place.</p><span class="auth-orbit"><i
+        data-lucide="sparkles"></i></span>
+    </div><span class="auth-art-caption">SAMPLE PHILIPPINE EVENT DISCOVERY</span>
+</section>
+<section class="auth-form-panel">
+    <div class="auth-form-wrap"><a class="back-link" href="/"><i data-lucide="arrow-left"></i> Back to home</a><span
+        class="section-kicker">YOUR EVENTLY SPACE</span>
+        <h1>Welcome <span>back.</span></h1>
+        <p class="auth-subtitle">Sign in to explore your simulated dashboard.</p>
+        <form class="auth-form" data-login-form novalidate><label class="form-field"><span>Email address
+            <b>*</b></span><input type="email" name="email" autocomplete="email"
+                                  placeholder="you@example.com" required /><small class="field-error"></small></label><label
+            class="form-field"><span>Password <b>*</b></span><span class="password-input"><input type="password"
+                                                                                                 name="password" autocomplete="current-password" placeholder="Enter any demo password"
+                                                                                                 required /><button type="button" class="password-toggle" data-password-toggle
+                               aria-label="Show password"><i data-lucide="eye"></i></button></span><small
+            class="field-error"></small></label>
+            <div class="auth-form-row"><label class="check-line"><input type="checkbox"
+                                                                            name="remember" /><span>Remember me</span></label><a href="/Account/ForgotPassword">Forgot
+                password?</a></div><button class="button button-primary button-full button-large"
+                                           type="submit">Log in to demo <i data-lucide="arrow-right"></i></button>
+                <p class="auth-demo-note"><i data-lucide="info"></i> Demo only: any valid-looking email works. Passwords
+                    are never stored.</p>
+                </form>
+                <p class="auth-switch">New around here? <a href="/Account/Register">Create an account</a></p>
+            </div>
+        </section>
+    </main>
