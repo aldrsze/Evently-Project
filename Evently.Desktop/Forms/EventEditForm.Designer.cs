@@ -64,11 +64,12 @@ namespace Evently.Forms
             this.dateLabel.TabIndex = 4;
             this.dateLabel.Text = "Date:";
             // eventDatePicker
-            this.eventDatePicker.CustomFormat = "MMM d, yyyy  h:mm tt";
+            this.eventDatePicker.CustomFormat = "MMMM d, yyyy  h:mm tt";
             this.eventDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.eventDatePicker.Location = new System.Drawing.Point(140, 101);
             this.eventDatePicker.Name = "eventDatePicker";
-            this.eventDatePicker.Size = new System.Drawing.Size(180, 23);
+            this.eventDatePicker.ShowUpDown = true;
+            this.eventDatePicker.Size = new System.Drawing.Size(240, 23);
             this.eventDatePicker.TabIndex = 5;
             // capacityLabel
             this.capacityLabel.AutoSize = true;

@@ -160,6 +160,7 @@ namespace Evently.Forms
             this.venueColumn.ReadOnly = true;
             this.venueColumn.DataPropertyName = "venue";
             // dateColumn
+            this.dateColumn.DefaultCellStyle.Format = "MMM d, yyyy  h:mm tt";
             this.dateColumn.FillWeight = 70F;
             this.dateColumn.HeaderText = "Date";
             this.dateColumn.Name = "dateColumn";
@@ -235,11 +236,12 @@ namespace Evently.Forms
             this.dateLabel.TabIndex = 4;
             this.dateLabel.Text = "Date:";
             // eventDatePicker
-            this.eventDatePicker.CustomFormat = "MMM d, yyyy  h:mm tt";
+            this.eventDatePicker.CustomFormat = "MMMM d, yyyy  h:mm tt";
             this.eventDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.eventDatePicker.Location = new System.Drawing.Point(594, 26);
             this.eventDatePicker.Name = "eventDatePicker";
-            this.eventDatePicker.Size = new System.Drawing.Size(180, 27);
+            this.eventDatePicker.ShowUpDown = true;
+            this.eventDatePicker.Size = new System.Drawing.Size(240, 27);
             this.eventDatePicker.TabIndex = 5;
             // capacityLabel
             this.capacityLabel.AutoSize = true;
