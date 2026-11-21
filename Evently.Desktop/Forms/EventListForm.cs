@@ -52,6 +52,25 @@ namespace Evently.Forms
         }
         private void EditButton_Click(object sender, EventArgs e) 
         {
+            if (eventsDataGridView.CurrentRow == null)
+            {
+                MessageBox.Show("Select an event in the list first.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int eventId = Convert.ToInt32(eventsDataGridView.CurrentRow.Cells[0].Value);
+            string name = Convert.ToString(eventsDataGridView.CurrentRow.Cells[1].Value) ?? "";
+            string venue = Convert.ToString(eventsDataGridView.CurrentRow.Cells[2].Value) ?? "";
+            DateTime eventDate = Convert.ToDateTime(eventsDataGridView.CurrentRow.Cells[3].Value);
+            int capacity = Convert.ToInt32(eventsDataGridView.CurrentRow.Cells[4].Value);
+            string description = Convert.ToString(eventsDataGridView.CurrentRow.Cells[5].Value) ?? "";
+
+            using EventEditForm dialog = new(eventId, name, venue, description, eventDate, capacity);
+            if (dialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // TODO: save with EventService.UpdateEvent(eventId, ...) before reloading
+                LoadEvents();
+            }
         }
         private void DeleteButton_Click(object sender, EventArgs e) { /* TODO: Delete selected event */ }
     }
