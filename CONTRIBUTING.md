@@ -48,10 +48,10 @@ Edit files, then test that they actually run.
 
 ```bash
 git add .
-git commit -m "Add login page"
+git commit -m "feat: add login page"
 ```
 
-Write a short message saying **what** you did.
+Write a short message saying **what** you did. See [Commit messages](#commit-messages) for the format.
 
 ### 4. Upload your branch
 
@@ -76,6 +76,147 @@ After your PR is merged (or when teammates merge theirs), pull the latest into y
 git checkout yourname
 git pull origin main
 ```
+
+## Commit messages
+
+Format: `type: subject`
+
+| Type | Use for |
+|---|---|
+| `feat` | new feature |
+| `fix` | bug fix |
+| `docs` | docs only |
+| `style` | CSS or formatting, no logic |
+| `refactor` | same behavior, cleaner code |
+| `chore` | config, packages, cleanup |
+
+Rules: lowercase, no period, one line, say what changed.
+
+```bash
+git commit -m "feat: add staff login page"
+git commit -m "fix: block double check-in on one ticket"
+git commit -m "docs: add database steps to setup"
+```
+
+Good: `feat: add event delete button` — Bad: `updated stuff`
+
+## Common situations
+
+### A teammate merged into main
+
+Happens most days. Get their work into your branch before you continue:
+
+```bash
+git checkout yourname
+git pull origin main
+```
+
+If it says `Already up to date`, nothing changed. Otherwise push the merged result:
+
+```bash
+git push origin yourname
+```
+
+### main changed while you were working
+
+You have your own commits and main has new ones. Git may open an editor for a merge message — save and close it.
+
+```bash
+git checkout yourname
+git pull origin main
+```
+
+If it stops with conflicts, see [Merge conflicts](#merge-conflicts). Then:
+
+```bash
+git push origin yourname
+```
+
+### GitHub says "This branch has conflicts"
+
+Fix it on your machine, not in the browser editor:
+
+```bash
+git checkout yourname
+git pull origin main
+```
+
+Pick what to keep in each marked file, delete the `<<<<<<<`, `=======`, `>>>>>>>` lines, then:
+
+```bash
+git add .
+git commit -m "chore: resolve merge conflict"
+git push origin yourname
+```
+
+### Your pull request was merged
+
+Your work is now on main. Bring main into your branch so your next pull request does not try to merge it again:
+
+```bash
+git checkout yourname
+git pull origin main
+```
+
+### You forgot to pull before starting
+
+Your branch is behind main. Pull now:
+
+```bash
+git checkout yourname
+git pull origin main
+```
+
+If the pull refuses because you have uncommitted changes, commit or stash them first:
+
+```bash
+git stash
+git pull origin main
+git stash pop
+```
+
+### You committed on main by mistake
+
+Do **not** push. Move the commits to your own branch, then put main back to what GitHub has:
+
+```bash
+git switch -c my-work
+git switch main
+git reset --hard origin/main
+git switch yourname
+git merge my-work
+```
+
+Ask the owner before you do this if you are not sure. `reset --hard` throws away uncommitted changes.
+
+### Undo your last commit but keep the edits
+
+```bash
+git reset --soft HEAD~1
+```
+
+The files stay changed, and the commit is gone. Commit again with a better message.
+
+### Someone changed `db\schema.sql`
+
+Your database is now out of date and the app may crash with a missing column. Re-import the schema, but **you lose the rows**, so ask the team first:
+
+```cmd
+mysql -u root -p -e "DROP DATABASE evently_db"
+mysql -u root -p -e "CREATE DATABASE evently_db"
+mysql -u root -p evently_db < db\schema.sql
+mysql -u root -p < db\seed.sql
+```
+
+## Before you open a pull request
+
+- Your branch is `yourname`, not `main`.
+- `dotnet build Evently.sln` succeeds.
+- The app runs and you clicked the screen you changed.
+- Commit messages look like `type: subject`.
+- `git status` shows nothing you did not mean to change.
+- No `db.config`, no `bin\`, no `obj\` in the commit.
+- No commented-out code you forgot to delete.
 
 ## Rules
 
@@ -108,7 +249,7 @@ Pick what to keep, delete the marker lines, then:
 
 ```bash
 git add .
-git commit -m "Resolve merge conflict"
+git commit -m "chore: resolve merge conflict"
 git push origin yourname
 ```
 
