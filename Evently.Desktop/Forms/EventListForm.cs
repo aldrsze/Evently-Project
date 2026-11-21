@@ -86,6 +86,37 @@ namespace Evently.Forms
                 }
             }
         }
-        private void DeleteButton_Click(object sender, EventArgs e) { /* TODO: Delete selected event */ }
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (eventsDataGridView.CurrentRow == null)
+            {
+                MessageBox.Show("Select an event in the list first.", "No selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int eventId = Convert.ToInt32(eventsDataGridView.CurrentRow.Cells[0].Value);
+            string eventName = Convert.ToString(eventsDataGridView.CurrentRow.Cells[1].Value) ?? "";
+
+            DialogResult answer = MessageBox.Show("Are you sure you want delete " + eventName + "?", "Delete event", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (answer != DialogResult.Yes) { return; }
+
+            try
+            {
+                if (EventService.DeleteEvent(eventId))
+                {
+                    MessageBox.Show("Event deleted.", "Event deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadEvents();
+                }
+                else
+                {
+                    MessageBox.Show("The event was already deleted.", "No change", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadEvents();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("The event could not be deleted. " + ex.Message, "Delete failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

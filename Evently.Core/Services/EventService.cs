@@ -49,6 +49,16 @@ namespace Evently.Core.Services
 
         }
 
+        public static bool DeleteEvent(int eventId)
+        {
+            using var conn = DatabaseConnection.GetConnection();
+            string query = "DELETE FROM events WHERE event_id = @eventId";
+
+            using MySqlCommand cmd = new(query, conn);
+            cmd.Parameters.AddWithValue("@eventId", eventId);
+            return cmd.ExecuteNonQuery() > 0;
+        }
+
         public static bool UpdateEvent(int eventId, string name, string venue, string description, DateTime date, int capacity)
         {
             using var conn = DatabaseConnection.GetConnection();
