@@ -68,8 +68,22 @@ namespace Evently.Forms
             using EventEditForm dialog = new(eventId, name, venue, description, eventDate, capacity);
             if (dialog.ShowDialog(this) == DialogResult.OK)
             {
-                // TODO: save with EventService.UpdateEvent(eventId, ...) before reloading
-                LoadEvents();
+                try
+                {
+                    if (EventService.UpdateEvent(dialog.EventIdValue, dialog.NameValue, dialog.VenueValue, dialog.DescriptionValue, dialog.EventDateValue, dialog.CapacityValue))
+                    {
+                        MessageBox.Show("Event updated.", "Event saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadEvents();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nothing changed. The event may have been deleted.", "No change", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("The change could not be saved. " + ex.Message, "Save failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void DeleteButton_Click(object sender, EventArgs e) { /* TODO: Delete selected event */ }
