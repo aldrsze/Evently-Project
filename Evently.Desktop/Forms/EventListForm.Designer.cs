@@ -215,6 +215,7 @@ namespace Evently.Forms
             this.nameLabel.Text = "Name:";
             // nameTextBox
             this.nameTextBox.Location = new System.Drawing.Point(94, 26);
+            this.nameTextBox.MaxLength = 100;
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(200, 27);
             this.nameTextBox.TabIndex = 1;
@@ -226,6 +227,7 @@ namespace Evently.Forms
             this.venueLabel.Text = "Venue:";
             // venueTextBox
             this.venueTextBox.Location = new System.Drawing.Point(364, 26);
+            this.venueTextBox.MaxLength = 100;
             this.venueTextBox.Name = "venueTextBox";
             this.venueTextBox.Size = new System.Drawing.Size(170, 27);
             this.venueTextBox.TabIndex = 3;
