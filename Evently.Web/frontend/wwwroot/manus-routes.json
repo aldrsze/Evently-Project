@@ -1,0 +1,19 @@
+{
+  "routes": [
+    { "path": "/", "title": "Evently Home" },
+    { "path": "/Events", "title": "Explore Events" },
+    { "path": "/Events/Details/:id", "title": "Event Details" },
+    { "path": "/Booking/Checkout", "title": "Booking Checkout" },
+    { "path": "/Booking/Success", "title": "Booking Success" },
+    { "path": "/Dashboard", "title": "Attendee Dashboard" },
+    { "path": "/Dashboard/Bookings", "title": "My Bookings" },
+    { "path": "/Dashboard/Favorites", "title": "Saved Events" },
+    { "path": "/Organizer", "title": "Organizer Dashboard" },
+    { "path": "/Organizer/CreateEvent", "title": "Create Event" },
+    { "path": "/Admin", "title": "Admin Dashboard" },
+    { "path": "/Account/Login", "title": "Login Demo" },
+    { "path": "/Account/Register", "title": "Registration Demo" },
+    { "path": "/Account/ForgotPassword", "title": "Password Recovery Demo" },
+    { "path": "/Home/Privacy", "title": "Privacy and Demo Terms" }
+  ]
+}

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101828" />
+    <meta name="description"
+          content="Discover local experiences, community gatherings and demo events across the Philippines with Evently." />
+    <title>@ViewData["Title"] · Evently</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="demo-strip"><span class="demo-pulse"></span> DEMO EXPERIENCE <span class="demo-strip-copy">Sample
+        listings and reservations · No live tickets or payments</span></div>
+        <header class="site-header" data-header>
+            <div class="nav-wrap page-container">
+                <a class="brand" href="/" aria-label="Evently home">
+                    <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none">
+                        <path d="M6 8.5h20v4.1a3.4 3.4 0 0 0 0 6.8v4.1H6v-4.1a3.4 3.4 0 0 0 0-6.8V8.5Z"
+                              fill="currentColor" />
+                        <path d="M17 10.5v2.1m0 2.4v2.1m0 2.4v2.1" stroke="#fff" stroke-width="1.8"
+                              stroke-linecap="round" />
+                    </svg></span>
+                    <span class="brand-word">evently<span class="brand-dot">.</span></span>
+                </a>
+                <button class="mobile-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                        data-menu-toggle><i data-lucide="menu"></i></button>
+                <nav class="primary-nav" aria-label="Primary navigation" data-menu-panel>
+                    <a href="/" data-nav="home">Home</a>
+                    <a href="/Events" data-nav="events">Explore Events</a>
+                    <a href="/#categories" data-nav="categories">Categories</a>
+                    <a href="/#why-evently" data-nav="about">About Us</a>
+                    <a href="/#contact" data-nav="contact">Contact</a>
+                    <div class="mobile-nav-actions">
+                        <a class="nav-login" href="/Account/Login">Log in</a>
+                        <a class="button button-primary button-small" href="/Account/Register">Sign up</a>
+                    </div>
+                </nav>
+                <div class="nav-actions"><a class="nav-login" href="/Account/Login">Log in</a><a
+                    class="button button-primary button-small" href="/Account/Register">Sign up</a></div>
+                </div>
+            </header>
+            @RenderBody()
+            <footer class="site-footer" id="contact">
+                <div class="page-container footer-top">
+                    <div class="footer-brand-col">
+                        <a class="brand brand-inverse" href="/"><span class="brand-mark" aria-hidden="true"><svg
+                            viewBox="0 0 32 32" fill="none">
+                            <path d="M6 8.5h20v4.1a3.4 3.4 0 0 0 0 6.8v4.1H6v-4.1a3.4 3.4 0 0 0 0-6.8V8.5Z"
+                                  fill="currentColor" />
+                            <path d="M17 10.5v2.1m0 2.4v2.1m0 2.4v2.1" stroke="#201648" stroke-width="1.8"
+                                  stroke-linecap="round" />
+                        </svg></span><span class="brand-word">evently<span class="brand-dot">.</span></span></a>
+                        <p>Find your next local favorite.<br />A little more out there, a lot more to remember.</p>
+                        <span class="footer-demo-note">Demo platform · Philippine sample listings</span>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Discover</h3><a href="/Events">Explore events</a><a href="/#categories">Browse categories</a><a
+                        href="/Dashboard">My dashboard</a><a href="/Organizer">For organizers</a>
+                    </div>
+                    <div class="footer-links">
+                        <h3>Event types</h3><a href="/Events?category=Music">Music & concerts</a><a
+                        href="/Events?category=Festival">Festivals</a><a href="/Events?category=Food">Food & lifestyle</a><a
+                        href="/Events?category=Arts">Arts & culture</a>
+                    </div>
+                    <div class="footer-links">
+                        <h3>About Evently</h3><a href="/#why-evently">Why Evently</a><a href="/Admin">Demo admin</a><a
+                        href="/Account/Login">Log in</a><a href="/Account/Register">Create an account</a>
+                    </div>
+                </div>
+                <div class="footer-bottom page-container"><span>© 2026 Evently Demo. All sample content is fictional or
+                    illustrative.</span>
+                    <div><a href="/Home/Privacy">Privacy</a><a href="/Home/Privacy">Terms</a><span class="footer-socials"
+                                                                                                   aria-label="Social links"><a href="https://www.instagram.com/" aria-label="Instagram"><i
+                        data-lucide="instagram"></i></a><a href="https://www.facebook.com/" aria-label="Facebook"><i
+                        data-lucide="facebook"></i></a><a href="https://www.linkedin.com/" aria-label="LinkedIn"><i
+                        data-lucide="linkedin"></i></a></span></div>
+                    </div>
+                </footer>
+                <div class="toast-region" aria-live="polite" aria-atomic="true" data-toast-region></div>
+                <div class="modal-backdrop" data-modal-backdrop hidden>
+                    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><button
+                        class="modal-close icon-button" type="button" aria-label="Close dialog" data-modal-close><i
+                        data-lucide="x"></i></button>
+                        <div data-modal-content></div>
+                    </section>
+                </div>
+                <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js" defer></script>
+                <script src="~/js/data.js" asp-append-version="true"></script>
+                <script src="~/js/app.js" asp-append-version="true"></script>
+                @await RenderSectionAsync("Scripts", required: false)
+            </body>
+
+        </html>

@@ -1,0 +1,13 @@
+# .NET build outputs
+bin/
+obj/
+
+# Visual Studio / IDE state
+.vs/
+*.user
+*.suo
+
+# Test and publish artifacts
+TestResults/
+artifacts/
+deploy-static/

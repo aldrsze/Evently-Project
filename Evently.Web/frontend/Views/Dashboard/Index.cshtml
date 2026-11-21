@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Your dashboard";
+}
+<main class="dashboard-page" data-page="dashboard">
+    <div class="page-container dashboard-layout">
+        <aside class="dashboard-sidebar" data-dashboard-sidebar></aside>
+        <section class="dashboard-content">
+            <div class="dashboard-welcome">
+                <div><span class="section-kicker">YOUR LITTLE CORNER OF EVENTLY</span>
+                    <h1>Good day, <span data-user-name>Alex</span>.</h1>
+                    <p>Here’s what’s happening in your demo account.</p>
+                </div><a class="button button-primary" href="/Events">Find an event <i
+                data-lucide="arrow-up-right"></i></a>
+            </div>
+            <div data-dashboard-overview></div>
+        </section>
+    </div>
+</main>

@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Admin console";
+}
+<main class="dashboard-page admin-page" data-page="admin">
+    <div class="page-container dashboard-layout">
+        <aside class="dashboard-sidebar admin-sidebar" data-admin-sidebar></aside>
+        <section class="dashboard-content">
+            <div class="dashboard-welcome">
+                <div><span class="section-kicker">EVENTLY CONTROL ROOM · DEMO</span>
+                    <h1>Keep the good <span>things flowing.</span></h1>
+                    <p>Sample platform overview. All actions affect local demo data only.</p>
+                </div><button class="button button-outline" type="button" data-reset-demo><i
+                data-lucide="rotate-ccw"></i> Reset demo data</button>
+            </div>
+            <div data-admin-overview></div>
+        </section>
+    </div>
+</main>

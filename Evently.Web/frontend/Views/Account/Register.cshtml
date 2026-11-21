@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Create your account";
+}
+<main class="auth-page" data-page="register">
+    <section class="auth-art-panel"><a class="brand brand-inverse" href="/"><span class="brand-mark"><svg
+        viewBox="0 0 32 32" fill="none">
+        <path d="M6 8.5h20v4.1a3.4 3.4 0 0 0 0 6.8v4.1H6v-4.1a3.4 3.4 0 0 0 0-6.8V8.5Z"
+              fill="currentColor" />
+    </svg></span><span class="brand-word">evently<span class="brand-dot">.</span></span></a>
+    <div class="auth-art-copy"><span class="section-kicker">MAKE A LITTLE ROOM FOR MORE</span>
+        <h2>Meet your next<br />favorite <em>moment.</em></h2>
+        <p>One curious click can turn into a really good story.</p><span class="auth-orbit"><i
+        data-lucide="party-popper"></i></span>
+    </div><span class="auth-art-caption">DEMO ACCOUNT · NO REAL AUTHENTICATION</span>
+</section>
+<section class="auth-form-panel">
+    <div class="auth-form-wrap"><a class="back-link" href="/"><i data-lucide="arrow-left"></i> Back to home</a><span
+        class="section-kicker">LET’S GET YOU OUT THERE</span>
+        <h1>Create your <span>account.</span></h1>
+        <p class="auth-subtitle">Set up a sample profile to explore the demo.</p>
+        <form class="auth-form" data-register-form novalidate><label class="form-field"><span>Full name
+            <b>*</b></span><input name="fullName" autocomplete="name" placeholder="Your name"
+                                  required /><small class="field-error"></small></label><label class="form-field"><span>Email
+            address <b>*</b></span><input name="email" type="email" autocomplete="email"
+                                          placeholder="you@example.com" required /><small class="field-error"></small></label><label
+            class="form-field"><span>Mobile number <b>*</b></span><input name="mobile" type="tel"
+                                                                         placeholder="09XX XXX XXXX" required /><small class="field-error"></small></label>
+            <div class="form-grid"><label class="form-field"><span>Password <b>*</b></span><input name="password"
+                                                                                                      type="password" autocomplete="new-password" placeholder="At least 8 characters"
+                                                                                                      required /><small class="field-error"></small></label><label
+                class="form-field"><span>Confirm password <b>*</b></span><input name="confirmPassword"
+                                                                                type="password" autocomplete="new-password" placeholder="Repeat password" required /><small
+                class="field-error"></small></label></div>
+                <fieldset class="account-type-fieldset">
+                    <legend>Account type</legend><label><input type="radio" name="accountType" value="attendee"
+                                                               checked /><span><i data-lucide="ticket"></i><strong>Event attendee</strong><small>Save and
+                    explore events</small></span></label><label><input type="radio" name="accountType"
+                                                                       value="organizer" /><span><i data-lucide="calendar-plus"></i><strong>Event
+                    organizer</strong><small>Create sample listings</small></span></label>
+                </fieldset><button class="button button-primary button-full button-large" type="submit">Create demo
+                account <i data-lucide="arrow-right"></i></button>
+                <p class="auth-demo-note"><i data-lucide="info"></i> Demo only. Do not reuse or enter a real password;
+                    it will not be saved.</p>
+                </form>
+                <p class="auth-switch">Already have a demo profile? <a href="/Account/Login">Log in</a></p>
+            </div>
+        </section>
+    </main>

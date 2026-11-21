@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "My bookings";
+}
+<main class="dashboard-page" data-page="my-bookings">
+    <div class="page-container dashboard-layout">
+        <aside class="dashboard-sidebar" data-dashboard-sidebar></aside>
+        <section class="dashboard-content">
+            <div class="dashboard-welcome">
+                <div><span class="section-kicker">YOUR PLANS, ALL TOGETHER</span>
+                    <h1>My <span>bookings.</span></h1>
+                    <p>Simulated reservations saved in this browser only.</p>
+                </div><a class="button button-primary" href="/Events">Explore events <i
+                data-lucide="arrow-up-right"></i></a>
+            </div>
+            <div data-bookings-view></div>
+        </section>
+    </div>
+</main>
